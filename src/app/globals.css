@@ -555,5 +555,9 @@ body.light-mode .image-border {
   }
 }
 
+.problem-heading {
+  line-height: 0.85 !important;
+}
+
 
 

@@ -21,7 +21,7 @@ const projectDetails = {
     title: 'Amanda Faquini — Dermatologia & Alta Estética',
     tag: 'LOGOTIPO AUTORAL & BRANDING CONCEITUAL',
     desc: 'Identidade de marca minimalista desenvolvida para uma das clínicas de estética mais exclusivas de São Paulo. Papelaria gravada em relevo seco (blind debossing) sobre papel de algodão 600g e suportes conceituais esculpidos em pedra travertino romana.',
-    img: '/assets/2.png',
+    img: '/assets/img1.webp',
     material: 'MONOGRAMA AUTORAL / PEDRA / RELEVO SECO',
     coords: '23.5505° S, 46.6333° W',
     specs: [
@@ -37,7 +37,7 @@ const projectDetails = {
     title: 'Dantas & Associados — Advocacia de Prestígio',
     tag: 'EDITORIAL BRANDING & SISTEMA DE MARCA',
     desc: 'Direção de arte e design de identidade de prestígio para advocacia contemporânea. Brochuras e relatórios com acabamento nobre, tipografia serifada autoral sob medida e encadernação artesanal em linho rústico.',
-    img: '/assets/5.png',
+    img: '/assets/img2.webp',
     material: 'PAPELARIA CONCEITUAL / AREIA / EDITORIAL',
     coords: '22.9068° S, 43.1729° W',
     specs: [
@@ -53,7 +53,7 @@ const projectDetails = {
     title: 'Amanda Faquini — Suportes Orgânicos',
     tag: 'DIREÇÃO DE ARTE & ESTUDO DE MATERIALIDADE',
     desc: 'Estudo de suportes sustentáveis e ecologia estética aplicados a sacolas promocionais de linho rústico de alta gramatura. Monograma blind-debossed afunilado e detalhes em costura reforçada de alta durabilidade.',
-    img: '/assets/6.png',
+    img: '/assets/img3.webp',
     material: 'LINHO RÚSTICO / ECO-PRESTÍGIO / COSTURA',
     coords: '23.5505° S, 46.6333° W',
     specs: [
@@ -163,11 +163,80 @@ export default function HomePage() {
   const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Ref and state for scroll-driven typing effect in final CTA
+  const ctaSectionRef = useRef<HTMLDivElement>(null);
+  const [ctaTextProgress, setCtaTextProgress] = useState(0);
+
+  // Typewriter effect state and loop for Hero section
+  const typewriterWords = ["reputação.", "autoridade.", "posicionamento.", "credibilidade."];
+  const [typewriterIndex, setTypewriterIndex] = useState(0);
+  const [typewriterText, setTypewriterText] = useState("");
+  const [typewriterDeleting, setTypewriterDeleting] = useState(false);
+
+  useEffect(() => {
+    const activeWord = typewriterWords[typewriterIndex];
+    
+    if (!typewriterDeleting) {
+      // Typing mode
+      if (typewriterText === activeWord) {
+        // Word completed, wait before deleting
+        const timeout = setTimeout(() => {
+          setTypewriterDeleting(true);
+        }, 2200);
+        return () => clearTimeout(timeout);
+      }
+
+      // Type next char
+      const timeout = setTimeout(() => {
+        setTypewriterText(activeWord.slice(0, typewriterText.length + 1));
+      }, 100 + Math.random() * 60);
+      return () => clearTimeout(timeout);
+    } else {
+      // Deleting mode
+      if (typewriterText === "") {
+        // Word deleted, wait and move to next word
+        const timeout = setTimeout(() => {
+          setTypewriterDeleting(false);
+          setTypewriterIndex((prev) => (prev + 1) % typewriterWords.length);
+        }, 300);
+        return () => clearTimeout(timeout);
+      }
+
+      // Delete last char
+      const timeout = setTimeout(() => {
+        setTypewriterText(typewriterText.slice(0, -1));
+      }, 50);
+      return () => clearTimeout(timeout);
+    }
+  }, [typewriterText, typewriterDeleting, typewriterIndex]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Calculate cta typing progress
+      const section = ctaSectionRef.current;
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const viewportHeight = window.innerHeight;
+
+        // Typing starts later (at 80% viewport height) and finishes exactly when section fills screen (at 0)
+        const startY = viewportHeight * 0.8;
+        const endY = 0;
+
+        let progress = 0;
+        if (rect.top >= startY) {
+          progress = 0;
+        } else if (rect.top <= endY) {
+          progress = 1;
+        } else {
+          progress = (startY - rect.top) / (startY - endY);
+        }
+        setCtaTextProgress(progress);
+      }
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -339,7 +408,56 @@ export default function HomePage() {
 
   const [isLightMode, setIsLightMode] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
+  const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([
+    {
+      id: "lumina",
+      titulo: "Amanda Faquini — Dermatologia & Alta Estética",
+      cliente: "Amanda Faquini",
+      categoria: "LOGOTIPO AUTORAL & BRANDING CONCEITUAL",
+      nicho: "Estética",
+      descricao: "Identidade de marca minimalista desenvolvida para uma das clínicas de estética mais exclusivas de São Paulo.",
+      imagem_url: "/assets/img1.webp",
+      galeria: null,
+      tipo_imagem: "link",
+      publicado: true,
+      ordem: 1,
+      criado_em: new Date().toISOString(),
+      material: "MONOGRAMA AUTORAL / PEDRA / RELEVO SECO",
+      coords: "23.5505° S, 46.6333° W"
+    },
+    {
+      id: "basalt",
+      titulo: "Dantas & Associados — Advocacia de Prestígio",
+      cliente: "Dantas & Associados",
+      categoria: "EDITORIAL BRANDING & SISTEMA DE MARCA",
+      nicho: "Advocacia",
+      descricao: "Direção de arte e design de identidade de prestígio para advocacia contemporânea com acabamentos nobres.",
+      imagem_url: "/assets/img2.webp",
+      galeria: null,
+      tipo_imagem: "link",
+      publicado: true,
+      ordem: 2,
+      criado_em: new Date().toISOString(),
+      material: "PAPELARIA CONCEITUAL / AREIA / EDITORIAL",
+      coords: "22.9068° S, 43.1729° W"
+    },
+    {
+      id: "pedestal",
+      titulo: "Amanda Faquini — Suportes Orgânicos",
+      cliente: "Amanda Faquini",
+      categoria: "DIREÇÃO DE ARTE & ESTUDO DE MATERIALIDADE",
+      nicho: "Moda/Estética",
+      descricao: "Estudo de suportes sustentáveis e ecologia estética aplicados a sacolas promocionais de linho rústico.",
+      imagem_url: "/assets/img3.webp",
+      galeria: null,
+      tipo_imagem: "link",
+      publicado: true,
+      ordem: 3,
+      criado_em: new Date().toISOString(),
+      material: "LINHO RÚSTICO / ECO-PRESTÍGIO / COSTURA",
+      coords: "23.5505° S, 46.6333° W"
+    }
+  ]);
 
   useEffect(() => {
     if (portfolioItems.length > 0) {
@@ -359,7 +477,7 @@ export default function HomePage() {
       try {
         const res = await fetch('/api/portfolio');
         const data = await res.json();
-        if (data.ok && data.items) {
+        if (data.ok && data.items && data.items.length > 0) {
           setPortfolioItems(data.items);
         }
       } catch (err) {
@@ -580,6 +698,17 @@ export default function HomePage() {
     };
   }, [portfolioItems]);
 
+  const fullCtaText = "Sua marca já parece o valor que entrega?";
+  const ctaBreakIndex = 20;
+  const ctaVisibleLength = Math.floor(fullCtaText.length * ctaTextProgress);
+  const ctaSlicedText = fullCtaText.slice(0, ctaVisibleLength);
+  let ctaLine1 = ctaSlicedText;
+  let ctaLine2 = "";
+  if (ctaVisibleLength > ctaBreakIndex) {
+    ctaLine1 = fullCtaText.slice(0, ctaBreakIndex);
+    ctaLine2 = ctaSlicedText.slice(ctaBreakIndex);
+  }
+
   return (
     <div
       className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden"
@@ -612,7 +741,7 @@ export default function HomePage() {
         }`}>
         <div className="flex items-center justify-between w-full md:hidden">
           <Link href="/" className="hover:opacity-80 transition-opacity flex items-center">
-            <img src="/assets/clean.png" alt="CLEAN Logo" className="h-3 w-auto object-contain " />
+            <img src="/assets/clean.png" alt="CLEAN Logo" className="h-5 w-auto object-contain " />
           </Link>
           <div className="flex items-center gap-4">
             <button
@@ -624,11 +753,13 @@ export default function HomePage() {
           </div>
         </div>
 
+        {/* Desktop Logo */}
+        <Link href="/" className="hidden md:flex hover:opacity-80 transition-opacity py-1 items-center mr-4">
+          <img src="/assets/clean.png" alt="CLEAN Logo" className="h-6 w-auto object-contain " />
+        </Link>
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-10 items-center">
-          <Link href="/" className="hover:opacity-80 transition-opacity py-1 flex items-center mr-4">
-            <img src="/assets/clean.png" alt="CLEAN Logo" className="h-3.5 w-auto object-contain " />
-          </Link>
           <a href="#vitrine" className="hover:text-[#c5a880] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full">
             PROJETOS
           </a>
@@ -638,9 +769,6 @@ export default function HomePage() {
           <Link href="/produtos" className="hover:text-[#c5a880] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full">
             PRODUTOS
           </Link>
-        </div>
-
-        <div className="hidden md:flex items-center gap-8">
           <a href="#coordinates" className="hover:text-[#c5a880] transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full">
             CONTATO
           </a>
@@ -694,7 +822,10 @@ export default function HomePage() {
         <div className="relative z-10 flex flex-col items-start justify-end text-left max-w-[1100px] w-full animate-fade-in-up mt-auto">
           <h1 className="text-[42px] sm:text-[72px] lg:text-[92px] font-sans font-[100] tracking-[-0.04em] leading-[0.85] text-white mb-8 text-left">
             Não fazemos apenas identidade visual. <br className="hidden sm:inline" />
-            <span className="whitespace-nowrap">Construímos reputação.</span>
+            <span>
+              Construímos <span className="text-white">{typewriterText}</span>
+              <span className="inline-block w-[3px] sm:w-[5px] h-[0.85em] bg-white ml-2 animate-pulse align-middle" />
+            </span>
           </h1>
         </div>
 
@@ -710,18 +841,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="clientes-autoridade" className="w-full py-16 sm:py-24 px-6 sm:px-12 border-b border-zinc-200 bg-white text-[#1c1a17]">
+      <section id="clientes-autoridade" className="w-full py-16 sm:py-24 px-6 sm:px-12 border-b border-gray-200 bg-white text-black">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-16 reveal-on-scroll">
           {/* Numbers / Key results grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 border-b border-zinc-200 pb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 border-b border-gray-200 pb-16">
             {[
               { num: "+8.000", label: "Marcas Criadas" },
               { num: "+5", label: "Países Atendidos" },
               { num: "98%", label: "Índice de Satisfação" }
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
-                <span className="text-[36px] sm:text-[54px] font-sans font-light text-[#c5a880] tracking-tight">{stat.num}</span>
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-widest text-[#1c1a17] uppercase mt-2">{stat.label}</span>
+                <span className="text-[36px] sm:text-[54px] font-sans font-light text-black tracking-tight">{stat.num}</span>
+                <span className="font-mono text-[10px] sm:text-[11px] tracking-widest text-gray-900 uppercase mt-2">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -745,7 +876,7 @@ export default function HomePage() {
                 { name: "NEXUS TECNOLOGIA", img: "/assets/servicos/sites.webp" }
               ].map((company, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center group">
-                  <div className="w-full aspect-square overflow-hidden rounded-[2px] border border-zinc-100 bg-[#fbfaf8] mb-4 shadow-sm">
+                  <div className="w-full aspect-square overflow-hidden rounded-[2px] border border-gray-200 bg-white mb-4 shadow-sm">
                     <img
                       src={company.img}
                       alt={company.name}
@@ -753,7 +884,7 @@ export default function HomePage() {
                       className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out hover:scale-105"
                     />
                   </div>
-                  <span className="font-sans font-light tracking-[0.15em] text-[11px] sm:text-[12px] text-[#5e5045] group-hover:text-[#c5a880] transition-colors duration-300">
+                  <span className="font-sans font-light tracking-[0.15em] text-[11px] sm:text-[12px] text-gray-500 group-hover:text-black transition-colors duration-300">
                     {company.name}
                   </span>
                 </div>
@@ -769,9 +900,9 @@ export default function HomePage() {
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Texto — coluna esquerda */}
           <div className="flex flex-col gap-6 text-left reveal-on-scroll">
-            <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] font-[100] tracking-[-0.03em] leading-[1]" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
+            <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] font-[100] tracking-[-0.03em] problem-heading" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
               Talvez sua marca <br /> já seja boa. <br />
-              <span className="font-semibold">Mas ela ainda não está sendo percebida assim.</span>
+              Mas ela ainda não está sendo reconhecida.
             </h2>
           </div>
 
@@ -791,11 +922,11 @@ export default function HomePage() {
 
 
       {/* SEÇÃO 4C-2 — PARA QUEM É A CLEAN */}
-      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-zinc-200 text-[#1c1a17]">
+      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
           <div className="text-left max-w-[800px] reveal-on-scroll">
-            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight text-[#1c1a17] mt-4">
-              Para quem quer ser <span className="text-[#c5a880]">referência</span>.
+            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight text-black mt-4">
+              Para quem é a CLEAN.
             </h2>
           </div>
 
@@ -816,13 +947,13 @@ export default function HomePage() {
             ].map((card, idx) => (
               <div
                 key={idx}
-                className="border p-10 sm:p-12 rounded-[4px] flex flex-col justify-between transition-all duration-300 hover:border-[#c5a880] group bg-[#faf9f6] border-zinc-200 min-h-[300px]"
+                className="border p-10 sm:p-12 rounded-[4px] flex flex-col justify-between transition-all duration-300 hover:border-gray-800 group bg-gray-50 border-gray-200 min-h-[300px]"
               >
                 <div>
-                  <h3 className="text-[26px] sm:text-[30px] font-sans font-semibold text-[#1c1a17] tracking-tight leading-tight mb-4 group-hover:text-[#c5a880] transition-colors duration-300">
+                  <h3 className="text-[26px] sm:text-[30px] font-sans font-semibold text-black tracking-tight leading-tight mb-4 group-hover:text-gray-500 transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-zinc-500 font-light leading-snug">
+                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-light leading-snug">
                     {card.desc}
                   </p>
                 </div>
@@ -838,7 +969,7 @@ export default function HomePage() {
           <div className="text-right max-w-[800px] ml-auto reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-[1.05] text-white mt-4">
               Antes você precisava convencer. <br />
-              <span >Agora sua marca convence por você.</span>
+              <span className='text-bold'>Agora sua marca convence por você.</span>
             </h2>
           </div>
 
@@ -892,7 +1023,7 @@ export default function HomePage() {
             <div className="flex flex-col items-start text-left">
               <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
                 Marcas que ganharam presença, <br />
-                <span className="text-[#c5a880]">clareza e valor percebido.</span>
+                clareza e valor percebido.
               </h2>
 
             </div>
@@ -1002,7 +1133,7 @@ export default function HomePage() {
         <div className="max-w-[900px] w-full mx-auto flex flex-col gap-12">
           <div className="flex flex-col gap-4 text-center reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight">
-              Como construímos reputação.
+              Como construímos reputação
             </h2>
 
           </div>
@@ -1045,7 +1176,7 @@ export default function HomePage() {
       </section>
 
       {/* SEÇÃO 2 — SOBRE A MARCA */}
-      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-zinc-200 text-[#1c1a17]" id="sobre-mim">
+      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-gray-200 text-black" id="sobre-mim">
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Coluna da Foto (Esquerda) */}
           <div className="lg:col-span-6 relative w-full aspect-[4/5] rounded-[2px] border overflow-hidden reveal-on-scroll delay-100" style={{ borderColor: 'rgba(0,0,0,0.08)' }}>
@@ -1061,14 +1192,14 @@ export default function HomePage() {
 
           {/* Coluna do Texto (Direita) */}
           <div className="lg:col-span-6 flex flex-col items-start text-left reveal-on-scroll">
-            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-[#c5a880] uppercase mb-2">
+            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-gray-500 uppercase mb-2">
               Um Pouco
             </span>
-            <h2 className="text-[36px] sm:text-[46px] font-[100] tracking-[-0.02em] leading-tight text-[#1c1a17] mb-6">
-              Sobre a <span className="text-[#c5a880]">Clean</span>
+            <h2 className="text-[36px] sm:text-[46px] font-[100] tracking-[-0.02em] leading-tight text-black mb-6">
+              Sobre a Clean
             </h2>
 
-            <p className="text-[13px] font-light leading-relaxed mb-6 text-[#5e5045]">
+            <p className="text-[13px] font-light leading-relaxed mb-6 text-gray-600">
               A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. <br /> <br />Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
             </p>
 
@@ -1082,7 +1213,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] w-full mx-auto flex flex-col">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-6 reveal-on-scroll">
             <h2 className="text-[47px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
-              Nossa <span className="text-[#c5a880]">Equipe</span>
+              Nossa Equipe
             </h2>
           </div>
 
@@ -1147,21 +1278,21 @@ export default function HomePage() {
       </section>
 
       {/* SEÇÃO 9 — PROVAS SOCIAIS / AVALIAÇÕES */}
-      <section className="py-20 sm:py-28 border-t border-b border-zinc-200 bg-white relative overflow-hidden reveal-on-scroll text-[#1c1a17]" id="avaliacoes">
+      <section className="py-20 sm:py-28 border-t border-b border-gray-200 bg-white relative overflow-hidden reveal-on-scroll text-black" id="avaliacoes">
         <div className="max-w-[1200px] w-full mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6 reveal-on-scroll">
             <div className="flex flex-col items-start text-left">
 
-              <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight text-[#1c1a17]">
+              <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight text-black">
                 Avaliações no Google
               </h2>
 
             </div>
 
             {/* Improved aggregated Trust Score note */}
-            <div className="flex items-center gap-3.5 font-mono text-[10px] tracking-widest rounded-[2px] py-3 px-5 border bg-white border-zinc-200 text-[#5e5045] shadow-sm">
+            <div className="flex items-center gap-3.5 font-mono text-[10px] tracking-widest rounded-[2px] py-3 px-5 border bg-white border-gray-200 text-gray-600 shadow-sm">
               <span className="text-yellow-500 text-[12px] flex gap-0.5">★★★★★</span>
-              <span className="font-semibold text-zinc-800"> (4.9 / 5.0)</span>
+              <span className="font-semibold text-gray-800"> (4.9 / 5.0)</span>
 
 
             </div>
@@ -1194,7 +1325,7 @@ export default function HomePage() {
               ].map((rev, index) => (
                 <div
                   key={index}
-                  className="border rounded-[4px] p-6 sm:p-8 flex flex-col justify-between relative w-[320px] sm:w-[380px] shrink-0 transition-all duration-300 bg-[#ffffff] border-black/5 hover:border-[#c5a880]/40"
+                  className="border rounded-[4px] p-6 sm:p-8 flex flex-col justify-between relative w-[320px] sm:w-[380px] shrink-0 transition-all duration-300 bg-white border-black/5 hover:border-gray-400"
                   style={{ borderColor: 'rgba(0,0,0,0.08)' }}
                 >
                   <div>
@@ -1204,14 +1335,14 @@ export default function HomePage() {
                         className="w-10 h-10 rounded-full border border-black/5 object-cover"
                       />
                       <div className="text-left flex-1">
-                        <h4 className="font-sans text-[14px] font-medium leading-tight text-[#1c1a17]">{rev.name}</h4>
+                        <h4 className="font-sans text-[14px] font-medium leading-tight text-black">{rev.name}</h4>
                         <div className="flex items-center gap-2 mt-1">
                           <span className="text-yellow-500 text-[11px] flex gap-0.5">★★★★★</span>
-                          <span className="font-sans text-[10px] text-zinc-500">Google Review</span>
+                          <span className="font-sans text-[10px] text-gray-500">Google Review</span>
                         </div>
                       </div>
                     </div>
-                    <p className="text-[13px] font-light leading-relaxed text-left text-[#5e5045]">
+                    <p className="text-[13px] font-light leading-relaxed text-left text-gray-600">
                       {rev.text}
                     </p>
                   </div>
@@ -1234,20 +1365,24 @@ export default function HomePage() {
       </section>
 
       {/* SEÇÃO 10A — CTA FINAL */}
-      <section className="w-full py-28 sm:py-36 px-6 sm:px-12 border-b bg-white border-zinc-200 text-[#1c1a17] text-center" id="coordinates">
-        <div className="max-w-[950px] w-full mx-auto flex flex-col items-center gap-8 reveal-on-scroll">
-          <h2 className="text-[42px] sm:text-[62px] lg:text-[73px] font-[100] tracking-[-0.03em] leading-tight max-w-[850px] uppercase font-sans text-[#1c1a17]">
-            Sua marca já parece <br className="hidden sm:inline" />
-            o valor que entrega?
+      <section ref={ctaSectionRef} className="w-full min-h-screen py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black text-left flex flex-col justify-center items-start" id="coordinates">
+        <div className="max-w-[1100px] w-full mx-auto flex flex-col items-start gap-12 reveal-on-scroll">
+          <h2 className="text-[52px] sm:text-[88px] lg:text-[112px] font-semibold tracking-[-0.04em] leading-[1.0] max-w-[1050px] uppercase font-sans text-black text-left min-h-[2.2em]">
+            {ctaLine1}
+            {ctaLine1.length === ctaBreakIndex && <br className="hidden sm:inline" />}
+            {ctaLine2}
+            {ctaVisibleLength > 0 && ctaVisibleLength < fullCtaText.length && (
+              <span className="inline-block w-[4px] sm:w-[8px] h-[0.95em] bg-black ml-1.5 animate-pulse align-middle" />
+            )}
           </h2>
 
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto justify-start">
             <a
               href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20agendar%20um%20diagnóstico%20com%20a%20Clean%20Design."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-[#c5a880] text-white hover:bg-[#b3956d] font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
+              className="px-8 py-4 bg-black text-white hover:bg-gray-800 font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
             >
               Agendar Conversa
             </a>
@@ -1255,7 +1390,7 @@ export default function HomePage() {
               href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20conversar%20sobre%20o%20atendimento%20da%20Clean%20Design."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-transparent border border-black/10 hover:border-[#c5a880] text-[#1c1a17] hover:text-[#c5a880] font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
+              className="px-8 py-4 bg-transparent border border-black/10 hover:border-black text-black hover:text-black font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
             >
               Falar com a Clean no WhatsApp
             </a>
