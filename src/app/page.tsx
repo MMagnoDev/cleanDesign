@@ -1,22 +1,20 @@
 "use client";
-import { supabase, PortfolioItem } from "@/lib/supabase";
+import { PortfolioItem } from "@/lib/supabase";
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import MobileMenu from "./components/MobileMenu";
 
 import {
-  ArrowUpRight,
   ArrowRight,
+  Check,
   Plus,
-  X,
   MapPin,
   EnvelopeSimple,
   PhoneCall,
-  Check
+  X,
+  ArrowUpRight
 } from '@phosphor-icons/react';
-import { ThemeToggle } from "@/components/ui/theme-toggle";
 
-// Simplified portfolio cases with extremely clean and concise copy
+// projectDetails containing static definitions
 const projectDetails = {
   lumina: {
     id: 'AMANDA FAQUINI',
@@ -201,39 +199,51 @@ export default function HomePage() {
   useEffect(() => {
     let animId: number;
     let lastTime = performance.now();
+    let reviewScroll = 0;
+    let teamScroll = 0;
 
     const scrollLoop = (time: number) => {
+      const delta = time - lastTime;
+      lastTime = time;
+
       const container = reviewsRef.current;
       if (container && !isDraggingReview.current && !isHoveringReview.current) {
-        const delta = time - lastTime;
-        container.scrollLeft += (30 * delta) / 1000;
+        // Synchronize local float value with scrollLeft if dragged manually
+        if (Math.abs(reviewScroll - container.scrollLeft) > 5) {
+          reviewScroll = container.scrollLeft;
+        }
+        reviewScroll += (30 * delta) / 1000;
 
         const halfScrollWidth = container.scrollWidth / 2;
         if (halfScrollWidth > 0) {
-          if (container.scrollLeft >= halfScrollWidth) {
-            container.scrollLeft -= halfScrollWidth;
-          } else if (container.scrollLeft <= 0) {
-            container.scrollLeft += halfScrollWidth;
+          if (reviewScroll >= halfScrollWidth) {
+            reviewScroll -= halfScrollWidth;
+          } else if (reviewScroll <= 0) {
+            reviewScroll += halfScrollWidth;
           }
         }
+        container.scrollLeft = reviewScroll;
       }
 
       const teamContainer = teamCarouselRef.current;
       if (teamContainer && !isDraggingTeam.current && !isHoveringTeam.current) {
-        const delta = time - lastTime;
-        teamContainer.scrollLeft += (30 * delta) / 1000;
+        // Synchronize local float value with scrollLeft if dragged manually
+        if (Math.abs(teamScroll - teamContainer.scrollLeft) > 5) {
+          teamScroll = teamContainer.scrollLeft;
+        }
+        teamScroll += (30 * delta) / 1000;
 
         const halfScrollWidth = teamContainer.scrollWidth / 2;
         if (halfScrollWidth > 0) {
-          if (teamContainer.scrollLeft >= halfScrollWidth) {
-            teamContainer.scrollLeft -= halfScrollWidth;
-          } else if (teamContainer.scrollLeft <= 0) {
-            teamContainer.scrollLeft += halfScrollWidth;
+          if (teamScroll >= halfScrollWidth) {
+            teamScroll -= halfScrollWidth;
+          } else if (teamScroll <= 0) {
+            teamScroll += halfScrollWidth;
           }
         }
+        teamContainer.scrollLeft = teamScroll;
       }
 
-      lastTime = time;
       animId = requestAnimationFrame(scrollLoop);
     };
     animId = requestAnimationFrame(scrollLoop);
@@ -707,7 +717,7 @@ export default function HomePage() {
             {[
               { num: "+8.000", label: "Marcas Criadas" },
               { num: "+5", label: "Países Atendidos" },
-              { num: "98.7%", label: "Índice de Satisfação" }
+              { num: "98%", label: "Índice de Satisfação" }
             ].map((stat, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <span className="text-[36px] sm:text-[54px] font-sans font-light text-[#c5a880] tracking-tight">{stat.num}</span>
@@ -726,7 +736,13 @@ export default function HomePage() {
                 { name: "AURÊ ESTÉTICA", img: "/assets/branding/bruna.webp" },
                 { name: "BASALT ARQUITETURA", img: "/assets/img2.webp" },
                 { name: "PETRA IMÓVEIS", img: "/assets/img1.webp" },
-                { name: "VELOUR MODA", img: "/assets/branding/vanessa.webp" }
+                { name: "VELOUR MODA", img: "/assets/branding/vanessa.webp" },
+                { name: "JAMILE ESTÉTICA", img: "/assets/branding/jamile.webp" },
+                { name: "VITAL ARQUITETURA", img: "/assets/img3.webp" },
+                { name: "VERDANT BRAND", img: "/assets/logotipo.webp" },
+                { name: "KAIROS CLÍNICA", img: "/assets/servicos/idendidadevisual.jpg" },
+                { name: "SOPHIE FASHION", img: "/assets/servicos/servicosgraficos.webp" },
+                { name: "NEXUS TECNOLOGIA", img: "/assets/servicos/sites.webp" }
               ].map((company, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center group">
                   <div className="w-full aspect-square overflow-hidden rounded-[2px] border border-zinc-100 bg-[#fbfaf8] mb-4 shadow-sm">
@@ -749,40 +765,30 @@ export default function HomePage() {
 
 
       {/* SEÇÃO 4C — PROBLEMA DO CLIENTE */}
-      <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
-        }`}>
-        <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-5 flex flex-col gap-6 text-left reveal-on-scroll">
-
-            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
-              Talvez sua marca já seja boa. <br />
-              <span className="text-bold">Mas ela ainda não está sendo percebida assim.</span>
+      <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'}`}>
+        <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          {/* Texto — coluna esquerda */}
+          <div className="flex flex-col gap-6 text-left reveal-on-scroll">
+            <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] font-[100] tracking-[-0.03em] leading-[1]" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
+              Talvez sua marca <br /> já seja boa. <br />
+              <span className="font-semibold">Mas ela ainda não está sendo percebida assim.</span>
             </h2>
           </div>
-          <div className="lg:col-span-7 flex flex-col gap-4 justify-center reveal-on-scroll delay-100">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                { text: "sua marca parece menos profissional do que realmente é", mobile: true },
-                { text: "seu Instagram não transmite autoridade", mobile: true },
-                { text: "sua identidade visual não tem consistência", mobile: true },
-                { text: "você sente dificuldade de cobrar mais", mobile: true }
-              ].map((dor, i) => (
-                <div
-                  key={i}
-                  className={`gap-3 items-start p-4 border rounded-[2px] ${dor.mobile ? 'flex' : 'hidden sm:flex'}`}
-                  style={{
-                    borderColor: isLightMode ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.03)',
-                    backgroundColor: isLightMode ? '#fdfdfd' : '#141417'
-                  }}
-                >
-                  <span className="text-[#c5a880] font-mono mt-0.5">✕</span>
-                  <span className="text-[13px] font-light text-zinc-300 dark:text-zinc-300">{dor.text}</span>
-                </div>
-              ))}
+
+          {/* Imagem retrato — coluna direita */}
+          <div className="flex justify-center lg:justify-end reveal-on-scroll delay-100">
+            <div className="overflow-hidden rounded-[2px]" style={{ width: '400px', aspectRatio: '3/4' }}>
+              <img
+                src="/assets/brandingdealtopadrao.webp"
+                alt="Branding de alto padrão"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </div>
       </section>
+
 
       {/* SEÇÃO 4C-2 — PARA QUEM É A CLEAN */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-zinc-200 text-[#1c1a17]">
@@ -796,8 +802,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {[
               {
-                title: "JÁ CRESCEU. AGORA PRECISA PARECER.",
-                desc: "Seu negócio evoluiu, mas sua marca ainda não transmite o nível que você entrega."
+                title: "PARA QUEM NÃO QUER PARECER PEQUENO.",
+                desc: "Independentemente do estágio do negócio, sua marca deve acompanhar sua ambição."
               },
               {
                 title: "QUER PARAR DE DISPUTAR PREÇO.",
@@ -888,9 +894,7 @@ export default function HomePage() {
                 Marcas que ganharam presença, <br />
                 <span className="text-[#c5a880]">clareza e valor percebido.</span>
               </h2>
-              <p className="text-[13px] text-zinc-500 dark:text-zinc-400 font-light mt-4 max-w-[600px]">
-                Projetos criados para transformar negócios em marcas mais profissionais, memoráveis e desejáveis.
-              </p>
+
             </div>
 
             {/* Elegant Carousel Controls */}
@@ -991,107 +995,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SEÇÃO 4D — GRANDE VIRADA ESTRATÉGICA */}
-      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-zinc-200 text-[#1c1a17]">
-        <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-6 text-left max-w-[850px] reveal-on-scroll">
-            <h2 className="text-[42px] sm:text-[60px] font-[100] tracking-[-0.02em] leading-[1.05] text-[#1c1a17]">
-              A Clean entrega uma marca pronta para ser vista, lembrada e desejada.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
-            {/* O que o mercado vende */}
-            <div
-              className="border p-8 rounded-[2px] reveal-on-scroll"
-              style={{
-                borderColor: 'rgba(0,0,0,0.08)',
-                backgroundColor: '#ffffff'
-              }}
-            >
-              <h3 className="font-mono text-[11px] sm:text-[12px] tracking-widest text-zinc-400 uppercase mb-6 border-b border-black/5 pb-4">
-                O que o mercado costuma vender:
-              </h3>
-              <ul className="flex flex-col gap-4 text-[16px] sm:text-[18px] font-light text-zinc-600">
-                {["logo", "paleta de cores", "tipografia genérica", "papelaria básica", "templates comuns", "site padrão", "social media sem direção"].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <span className="text-zinc-400 text-[16px] sm:text-[18px]">—</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* O que a Clean constrói */}
-            <div
-              className="border p-8 rounded-[2px] relative overflow-hidden reveal-on-scroll delay-100"
-              style={{
-                borderColor: '#c5a880',
-                backgroundColor: '#f6f3eb'
-              }}
-            >
-              <div className="absolute top-0 right-0 w-[120px] h-[120px] bg-[#c5a880]/5 rounded-full blur-2xl pointer-events-none"></div>
-              <h3 className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#c5a880] uppercase mb-6 border-b border-[#c5a880]/20 pb-4">
-                O que a Clean constrói:
-              </h3>
-              <ul className="flex flex-col gap-4 text-[16px] sm:text-[18px] font-normal text-zinc-800">
-                {["percepção de valor instantânea", "autoridade visual incontestável", "presença digital estratégica e marcante", "confiança antes mesmo da venda", "marca memorável na mente do público", "imagem profissional de alto padrão", "diferenciação clara frente aos concorrentes"].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
-                    <Check size={18} className="text-[#c5a880] flex-shrink-0" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO 4F — DIFERENCIAIS DA CLEAN */}
-      <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
-        }`}>
-        <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-right max-w-[750px] ml-auto reveal-on-scroll">
-            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight mt-4">
-              Por que marcas <br />escolhem a Clean
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {[
-              { title: "Estética premium e estratégica", desc: "Criamos marcas visualmente sofisticadas, mas sempre com intenção e clareza comercial." },
-              { title: "Processo autoral", desc: "Cada projeto segue um direcionamento visual pensado exclusivamente para o posicionamento de sua empresa." },
-              { title: "Presença digital aplicável", desc: "A identidade não fica apenas no manual. Ela ganha vida no Instagram, materiais comerciais, papelarias e pontos de contato." }
-            ].map((diff, idx) => (
-              <div
-                key={idx}
-                className="border p-8 sm:p-12 rounded-[4px] min-h-[280px] flex flex-col justify-start transition-all duration-300 hover:border-[#c5a880] reveal-on-scroll"
-                style={{
-                  borderColor: isLightMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)',
-                  backgroundColor: isLightMode ? '#fbfaf8' : '#141417'
-                }}
-              >
-                <h4 className="text-[18px] sm:text-[22px] font-sans font-bold tracking-wider uppercase mb-6" style={{ color: isLightMode ? '#1c1a17' : '#ffffff' }}>
-                  {diff.title}
-                </h4>
-                <p className="text-[13px] sm:text-[14px] text-zinc-500 dark:text-zinc-400 font-light leading-relaxed">
-                  {diff.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
 
       {/* SEÇÃO 4E — MÉTODO CLEAN DE PRESENÇA VISUAL */}
       <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
         }`}>
         <div className="max-w-[900px] w-full mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-6 text-center reveal-on-scroll">
-
+          <div className="flex flex-col gap-4 text-center reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight">
-              Método Clean
+              Como construímos reputação.
             </h2>
 
           </div>
@@ -1101,30 +1012,30 @@ export default function HomePage() {
             {[
               {
                 num: "01",
-                title: "Diagnóstico da Marca",
-                desc: "Entendemos o momento atual do negócio, público-alvo, concorrentes, objetivos de faturamento e a percepção visual desejada no mercado."
+                title: "IMERSÃO",
+                desc: "Entendemos seu momento, ambições e como sua marca precisa ser percebida para crescer."
               },
               {
                 num: "02",
-                title: "Direção Estratégica",
-                desc: "Definimos o estilo visual, tom de voz da marca, referências artísticas, diferenciais claros de valor e o posicionamento editorial."
+                title: "POSICIONAMENTO",
+                desc: "Definimos direção criativa, território visual e os elementos que tornam sua marca reconhecível."
               },
               {
                 num: "03",
-                title: "Construção da Identidade Visual",
-                desc: "Criamos o logotipo autoral, paleta cromática personalizada, tipografia, elementos de suporte gráfico e todo o universo da marca."
+                title: "MATERIALIZAÇÃO",
+                desc: "Transformamos estratégia em uma identidade que transmite valor, consistência e autoridade."
               }
             ].map((etapa, idx) => (
               <div key={idx} className="relative reveal-on-scroll">
                 {/* Timeline Dot Indicator */}
-                <span className="absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 rounded-full bg-[#121215] border-2 border-[#c5a880] flex items-center justify-center font-mono text-[9px] text-[#c5a880] font-bold shadow-[0_0_10px_rgba(197,168,128,0.2)]">
+                <span className={`absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 rounded-full border-2 border-[#c5a880] flex items-center justify-center font-mono text-[9px] text-[#c5a880] font-bold shadow-[0_0_10px_rgba(197,168,128,0.2)] ${isLightMode ? 'bg-[#faf9f6]' : 'bg-[#121215]'}`}>
                   {etapa.num}
                 </span>
 
-                <h4 className="text-[18px] sm:text-[22px] font-sans font-bold tracking-wider uppercase mb-3 text-white">
+                <h4 className={`text-[18px] sm:text-[22px] font-sans font-bold tracking-wider uppercase mb-3 ${isLightMode ? 'text-[#1c1a17]' : 'text-white'}`}>
                   {etapa.title}
                 </h4>
-                <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                <p className={`text-[13px] sm:text-[14px] font-light leading-relaxed max-w-[700px] ${isLightMode ? 'text-zinc-600' : 'text-zinc-400'}`}>
                   {etapa.desc}
                 </p>
               </div>
@@ -1161,9 +1072,7 @@ export default function HomePage() {
               A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. <br /> <br />Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
             </p>
 
-            <p className="font-serif italic text-[#c5a880] text-[16px] sm:text-[18px] mb-8">
-              Nosso propósito é claro: transformar sonhos em marcas inesquecíveis.
-            </p>
+
           </div>
         </div>
       </section>
@@ -1190,28 +1099,28 @@ export default function HomePage() {
           >
             <div className="flex flex-row flex-nowrap w-max gap-6 py-2 will-change-transform">
               {[
-                { src: "/assets/TIME/RAFAEL.webp", name: "Rafael Fajardo", role: "CEO & Designer Principal", desc: "Direção de Arte & Branding Conceitual" },
-                { src: "/assets/TIME/JULIE.webp", name: "Julie Fajardo", role: "CEO & Gestão Estratégica", desc: "Operações & Parcerias de Prestígio" },
-                { src: "/assets/TIME/ALICE.webp", name: "Alice", role: "Supervisora de Operações", desc: "Qualidade & Fluxo de Entrega" },
-                { src: "/assets/TIME/RAQUEL.webp", name: "Raquel", role: "Supervisora de Criação", desc: "Direção Criativa & Tipografia" },
-                { src: "/assets/TIME/JUNIOR.webp", name: "Junior", role: "Consultor Comercial Sr.", desc: "Diagnóstico & Análise de Negócio" },
-                { src: "/assets/TIME/GUSTAVO.webp", name: "Gustavo", role: "Planejamento Comercial", desc: "Consultoria e Propostas de Valor" },
-                { src: "/assets/TIME/MAGNO.webp", name: "Magno", role: "Web Design & Frontend", desc: "Presença Digital & Experiência UX" },
-                { src: "/assets/TIME/GABRIEL.webp", name: "Gabriel", role: "Estrategista de Conteúdo", desc: "Direção Editorial & Redação" },
-                { src: "/assets/TIME/STEFANI.webp", name: "Stefanie", role: "Customer Success", desc: "Atendimento & Onboarding Premium" },
-                { src: "/assets/TIME/MARIANA.webp", name: "Mariana", role: "Suporte & Garantia", desc: "Relacionamento pós-entrega" },
+                { src: "/assets/TIME/RAFAEL.webp", name: "Rafael Fajardo", role: "CEO & Designer Principal" },
+                { src: "/assets/TIME/JULIE.webp", name: "Julie Fajardo", role: "CEO & Gestão Estratégica" },
+                { src: "/assets/TIME/ALICE.webp", name: "Alice", role: "Supervisora Geral" },
+                { src: "/assets/TIME/RAQUEL.webp", name: "Raquel", role: "Supervisora Geral" },
+                { src: "/assets/TIME/JUNIOR.webp", name: "Junior", role: "Consultor Comercial Sr." },
+                { src: "/assets/TIME/GUSTAVO.webp", name: "Gustavo", role: "Consultor Comercial Sr." },
+                { src: "/assets/TIME/MAGNO.webp", name: "Magno", role: "Web Design" },
+                { src: "/assets/TIME/GABRIEL.webp", name: "Gabriel", role: "Social Midia" },
+                { src: "/assets/TIME/STEFANI.webp", name: "Stefanie", role: "Consultora Comercial" },
+                { src: "/assets/TIME/MARIANA.webp", name: "Mariana", role: "Suporte" },
                 // Duplicate for infinite carousel
-                { src: "/assets/TIME/RAFAEL.webp", name: "Rafael Fajardo", role: "CEO & Designer Principal", desc: "Direção de Arte & Branding Conceitual" },
-                { src: "/assets/TIME/JULIE.webp", name: "Julie Fajardo", role: "CEO & Gestão Estratégica", desc: "Operações & Parcerias de Prestígio" },
-                { src: "/assets/TIME/ALICE.webp", name: "Alice", role: "Supervisora de Operações", desc: "Qualidade & Fluxo de Entrega" },
-                { src: "/assets/TIME/RAQUEL.webp", name: "Raquel", role: "Supervisora de Criação", desc: "Direção Criativa & Tipografia" },
-                { src: "/assets/TIME/JUNIOR.webp", name: "Junior", role: "Consultor Comercial Sr.", desc: "Diagnóstico & Análise de Negócio" },
-                { src: "/assets/TIME/GUSTAVO.webp", name: "Gustavo", role: "Planejamento Comercial", desc: "Consultoria e Propostas de Valor" },
-                { src: "/assets/TIME/MAGNO.webp", name: "Magno", role: "Web Design & Frontend", desc: "Presença Digital & Experiência UX" },
-                { src: "/assets/TIME/GABRIEL.webp", name: "Gabriel", role: "Estrategista de Conteúdo", desc: "Direção Editorial & Redação" },
-                { src: "/assets/TIME/STEFANI.webp", name: "Stefanie", role: "Customer Success", desc: "Atendimento & Onboarding Premium" },
-                { src: "/assets/TIME/MARIANA.webp", name: "Mariana", role: "Suporte & Garantia", desc: "Relacionamento pós-entrega" }
-              ].map((member, i) => (
+                { src: "/assets/TIME/RAFAEL.webp", name: "Rafael Fajardo", role: "CEO & Designer" },
+                { src: "/assets/TIME/JULIE.webp", name: "Julie Fajardo", role: "CEO & Gestão Estratégica" },
+                { src: "/assets/TIME/ALICE.webp", name: "Alice", role: "Supervisora" },
+                { src: "/assets/TIME/RAQUEL.webp", name: "Raquel", role: "Supervisora" },
+                { src: "/assets/TIME/JUNIOR.webp", name: "Junior", role: "Consultor Comercial" },
+                { src: "/assets/TIME/GUSTAVO.webp", name: "Gustavo", role: "Consultor Comercial Sr." },
+                { src: "/assets/TIME/MAGNO.webp", name: "Magno", role: "Web Design & Marketing" },
+                { src: "/assets/TIME/GABRIEL.webp", name: "Gabriel", role: "Estrategista de Conteúdo" },
+                { src: "/assets/TIME/STEFANI.webp", name: "Stefanie", role: "Customer Success" },
+                { src: "/assets/TIME/MARIANA.webp", name: "Mariana", role: "Suporte" }
+              ].map((member: { src: string; name: string; role: string; desc?: string }, i) => (
                 <div key={i} className="w-[280px] sm:w-[320px] shrink-0 flex flex-col group cursor-pointer relative overflow-hidden rounded-[2px] border portfolio-card transition-all duration-500"
                   style={{
                     borderColor: isLightMode ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.05)',
@@ -1237,67 +1146,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SEÇÃO 5 — ALINHAMENTO DE EXPECTATIVAS (PARA QUEM É / NÃO É) */}
-      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-zinc-200 text-[#1c1a17]">
-        <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-left max-w-[750px] reveal-on-scroll mb-4">
-            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight mt-4 text-[#1c1a17]">
-              Alinhamento de Expectativas
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* COLUNA 1 — PARA QUEM É */}
-            <div className="flex flex-col gap-6 reveal-on-scroll">
-              <h3 className="text-[18px] sm:text-[20px] font-sans font-light tracking-tight text-black border-b border-black/5 pb-4 flex items-center gap-3">
-                <Check size={20} className="text-[#c5a880] flex-shrink-0" /> A Clean Design é para você que:
-              </h3>
-              <div className="flex flex-col gap-1">
-                {[
-                  "sente que sua marca não transmite o valor real do seu negócio",
-                  "quer profissionalizar sua presença no Instagram",
-                  "deseja atrair clientes mais qualificados",
-                  "quer parar de depender de artes improvisadas",
-                  "quer vender com mais confiança e autoridade"
-                ].map((itemText, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3.5 py-3 border-b border-zinc-100 last:border-none transition-all duration-300 hover:translate-x-1 group"
-                  >
-                    <Check size={16} className="text-[#c5a880] mt-0.5 flex-shrink-0 transition-transform duration-350 group-hover:scale-110" />
-                    <p className="text-[14px] font-light text-zinc-700 leading-relaxed">{itemText}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* COLUNA 2 — PARA QUEM NÃO É */}
-            <div className="flex flex-col gap-6 reveal-on-scroll">
-              <h3 className="text-[18px] sm:text-[20px] font-sans font-light tracking-tight text-black border-b border-black/5 pb-4 flex items-center gap-3">
-                <span className="text-red-500 font-mono text-[18px] flex-shrink-0 w-5 text-center">✕</span> A Clean Design não é para quem:
-              </h3>
-              <div className="flex flex-col gap-1">
-                {[
-                  "procura apenas uma logo rápida",
-                  "quer escolher tudo sem estratégia",
-                  "não pretende aplicar a marca depois",
-                  "busca apenas o menor preço",
-                  "não vê valor em construção de imagem"
-                ].map((itemText, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-start gap-3.5 py-3 border-b border-zinc-100 last:border-none transition-all duration-300 hover:translate-x-1 group"
-                  >
-                    <span className="text-red-500 font-mono mt-0.5 flex-shrink-0 text-[14px] w-4 text-center transition-transform duration-350 group-hover:scale-110">✕</span>
-                    <p className="text-[14px] font-light text-zinc-700 leading-relaxed">{itemText}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SEÇÃO 9 — PROVAS SOCIAIS / AVALIAÇÕES */}
       <section className="py-20 sm:py-28 border-t border-b border-zinc-200 bg-white relative overflow-hidden reveal-on-scroll text-[#1c1a17]" id="avaliacoes">
         <div className="max-w-[1200px] w-full mx-auto px-6">
@@ -1305,8 +1153,7 @@ export default function HomePage() {
             <div className="flex flex-col items-start text-left">
 
               <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight text-[#1c1a17]">
-                A percepção muda quando a marca <br />
-                <span className="text-[#c5a880]">se apresenta com profissionalismo.</span>
+                Avaliações no Google
               </h2>
 
             </div>
@@ -1375,79 +1222,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SEÇÃO 9B — FAQ (PERGUNTAS FREQUENTES) */}
-      <section className="py-20 sm:py-32 px-6 sm:px-12 bg-[#121215] border-b border-white/5 text-white">
-        <div className="max-w-[800px] mx-auto flex flex-col gap-12">
-          <div className="text-center reveal-on-scroll">
-
-            <h2 className="text-[42px] sm:text-[52px] font-[100] tracking-[-0.02em] leading-tight mt-4">
-              Perguntas <span className="text-[#c5a880]">Frequentes</span>
-            </h2>
-
-          </div>
-
-          <div className="flex flex-col border-t border-white/5 mt-6 reveal-on-scroll">
-            {[
-              {
-                q: "O que está incluso no projeto de Identidade Visual?",
-                a: "O projeto completo inclui o logotipo principal, variações horizontais e verticais, assinaturas de marca, manual de uso da identidade visual (regras de aplicação, paleta de cores e tipografia), design de papelaria institucional básica e mockups realistas de aplicação digital."
-              },
-              {
-                q: "Qual o prazo de desenvolvimento do projeto?",
-                a: "O prazo médio de entrega varia entre 15 e 25 dias úteis. Esse tempo nos permite mergulhar no diagnóstico do negócio, desenvolver caminhos conceituais com direção de arte exclusiva e realizar acabamentos impecáveis."
-              },
-              {
-                q: "Como funciona o processo de aprovação?",
-                a: "Apresentamos uma solução de design fechada, fundamentada na estratégia de posicionamento validada na etapa de moodboard. Se houver necessidade de ajustes, trabalhamos em conjunto até alcançar o alinhamento de 100% de satisfação."
-              },
-              {
-                q: "Como é realizado o pagamento e início?",
-                a: "Para iniciar o projeto, solicitamos um sinal de 50% e o restante na entrega final, ou parcelado via cartão de crédito. Logo após a confirmação, agendamos o seu Diagnóstico Estratégico para iniciarmos o briefing."
-              }
-            ].map((faq, idx) => {
-              const isOpen = activeFaq === idx;
-              return (
-                <div key={idx} className="border-b border-white/5 text-left">
-                  <div
-                    onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="flex justify-between items-center py-6 cursor-pointer hover:opacity-85 transition-opacity"
-                  >
-                    <h4 className={`text-[14px] sm:text-[16px] font-normal transition-colors duration-300 ${isOpen ? 'text-[#c5a880]' : 'text-zinc-300'}`}>
-                      {faq.q}
-                    </h4>
-                    <span className={`font-mono text-[14px] transition-transform duration-400 ${isOpen ? 'rotate-45 text-[#c5a880]' : 'text-zinc-500'}`}>
-                      <Plus size={14} />
-                    </span>
-                  </div>
-                  <div
-                    className="overflow-hidden transition-all duration-[400ms] ease-in-out"
-                    style={{
-                      maxHeight: isOpen ? '160px' : '0px',
-                      paddingBottom: isOpen ? '24px' : '0px'
-                    }}
-                  >
-                    <p className="text-[12px] sm:text-[13px] text-zinc-400 font-light leading-relaxed">
-                      {faq.a}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+      {/* SEÇÃO 9B — LOGO CLEAN GRANDE */}
+      <section className="w-full min-h-screen bg-[#121215] border-b border-white/5 flex items-center justify-center overflow-hidden">
+        <div className="w-full h-full px-6 sm:px-12 md:px-20 flex justify-center items-center reveal-on-scroll">
+          <img
+            src="/assets/clean.png"
+            alt="CLEAN Logo"
+            className="w-full h-auto max-h-[80vh] object-contain opacity-90 hover:opacity-100 transition-all duration-750 ease-out"
+          />
         </div>
       </section>
 
       {/* SEÇÃO 10A — CTA FINAL */}
-      <section className={`w-full py-28 sm:py-36 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
-        } text-center`} id="coordinates">
+      <section className="w-full py-28 sm:py-36 px-6 sm:px-12 border-b bg-white border-zinc-200 text-[#1c1a17] text-center" id="coordinates">
         <div className="max-w-[950px] w-full mx-auto flex flex-col items-center gap-8 reveal-on-scroll">
-          <h2 className="text-[42px] sm:text-[62px] lg:text-[73px] font-[100] tracking-[-0.03em] leading-tight max-w-[850px] uppercase font-serif">
+          <h2 className="text-[42px] sm:text-[62px] lg:text-[73px] font-[100] tracking-[-0.03em] leading-tight max-w-[850px] uppercase font-sans text-[#1c1a17]">
             Sua marca já parece <br className="hidden sm:inline" />
-            o <span className="text-[#c5a880] uppercase">valor</span> que entrega?
+            o valor que entrega?
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-500 dark:text-zinc-400 font-light leading-relaxed max-w-[650px]">
-            Agende uma conversa e descubra como posicionar sua marca para crescer.
-          </p>
+
 
           <div className="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto justify-center">
             <a
@@ -1456,13 +1249,13 @@ export default function HomePage() {
               rel="noopener noreferrer"
               className="px-8 py-4 bg-[#c5a880] text-white hover:bg-[#b3956d] font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
             >
-              Agendar Diagnóstico
+              Agendar Conversa
             </a>
             <a
               href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20conversar%20sobre%20o%20atendimento%20da%20Clean%20Design."
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-transparent border border-black/10 dark:border-white/20 hover:border-[#c5a880] font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
+              className="px-8 py-4 bg-transparent border border-black/10 hover:border-[#c5a880] text-[#1c1a17] hover:text-[#c5a880] font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
             >
               Falar com a Clean no WhatsApp
             </a>
@@ -1472,30 +1265,40 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ACCORDION DE FILOSOFIA & DIÁLOGO */}
-      <section className="py-20 px-6 sm:px-12">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          <div className="flex flex-col items-start text-left reveal-on-scroll">
-            <h2 className="text-[42px] sm:text-[49px] font-[100] tracking-[-0.02em] leading-tight mb-6" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
-              Diálogo & <span className="text-[#c5a880]">Consultoria</span>
-            </h2>
+      {/* FOOTER */}
+      <footer className="border-t border-white/5 pt-20 pb-12 bg-[#09090b]">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+            {/* Coluna 1: Branding / Titulo */}
+            <div className="md:col-span-4 flex flex-col items-start gap-4 text-left">
+              <h4 className="font-sans font-extrabold text-[15px] text-[#f4f4f5] tracking-widest uppercase">
+                AGÊNCIA CLEAN.
+              </h4>
 
-            <div className="flex flex-col gap-6 mt-8 font-mono text-[10px] tracking-wider uppercase">
-              <div className="flex flex-col gap-1.5"><span className="text-zinc-600 text-[9px] flex items-center gap-2"><MapPin size={10} /> LOCALIZAÇÃO</span>
-                <span className="text-[13px] font-light tracking-[0.05em] normal-case" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
+            </div>
+
+            {/* Coluna 2: Diálogo & Consultoria */}
+            <div className="md:col-span-5 flex flex-col gap-6 font-mono text-[10px] tracking-wider uppercase text-zinc-400 text-left">
+
+
+              <div className="flex flex-col gap-1.5">
+                <span className="text-zinc-600 text-[9px] flex items-center gap-2"><MapPin size={10} /> LOCALIZAÇÃO</span>
+                <span className="text-[13px] font-light tracking-[0.05em] normal-case text-zinc-300">
                   Av. Ator José Wilker, 605, Rio de janeiro, RJ.
                 </span>
               </div>
+
               <div className="flex flex-col gap-1.5">
                 <span className="text-zinc-600 text-[9px] flex items-center gap-2"><EnvelopeSimple size={10} /> CONTATO</span>
-                <span className="text-[13px] font-light tracking-[0.05em] normal-case border-b hover:border-gold w-fit transition-colors duration-300" style={{ borderColor: isLightMode ? 'rgba(28,26,23,0.1)' : 'rgba(255,255,255,0.05)' }}>
-                  <a href="mailto:socialmediaclean@gmail.com" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>socialmediaclean@gmail.com</a>
+                <span className="text-[13px] font-light tracking-[0.05em] normal-case border-b border-white/5 hover:border-[#c5a880] w-fit transition-colors duration-300 text-zinc-300">
+                  <a href="mailto:socialmediaclean@gmail.com">socialmediaclean@gmail.com</a>
                 </span>
               </div>
+
               <div className="flex flex-col gap-1.5">
                 <span className="text-zinc-600 text-[9px] flex items-center gap-2"><PhoneCall size={10} /> WHATSAPP</span>
-                <span className="text-[13px] font-light tracking-[0.05em] border-b hover:border-gold w-fit transition-colors duration-300" style={{ borderColor: isLightMode ? 'rgba(28,26,23,0.1)' : 'rgba(255,255,255,0.05)' }}>
-                  <a href="https://wa.me/5521981940538?text=Quero%20mais%20informa%C3%A7%C3%B5es!" target="_blank" rel="noopener noreferrer" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>+55 (21) 98194-0538</a>
+                <span className="text-[13px] font-light tracking-[0.05em] border-b border-white/5 hover:border-[#c5a880] w-fit transition-colors duration-300 text-zinc-300">
+                  <a href="https://wa.me/5521981940538?text=Quero%20mais%20informa%C3%A7%C3%B5es!" target="_blank" rel="noopener noreferrer">+55 (21) 98194-0538</a>
                 </span>
                 <button
                   onClick={() => setIsContactCardOpen(true)}
@@ -1505,88 +1308,32 @@ export default function HomePage() {
                 </button>
               </div>
             </div>
-          </div>
 
-          <div className="flex flex-col text-left reveal-on-scroll delay-100">
-
-            <div className="flex flex-col border-t border-black/5 dark:border-white/5">
-              {[
-                {
-                  title: 'Posicionamento com Intenção',
-                  text: 'Definir com clareza como a marca deseja ser percebida, por quem e por qual motivo deve ser escolhida.'
-                },
-                {
-                  title: 'Identidade que Sustenta Valor',
-                  text: 'Criar uma linguagem visual consistente, sofisticada e alinhada à essência, ao mercado e ao público da marca.'
-                },
-                {
-                  title: 'Presença que Gera Autoridade',
-                  text: 'Transformar cada ponto de contato em uma experiência coerente, memorável e capaz de fortalecer a percepção de valor.'
-                }
-              ].map((item, idx) => {
-                const isOpen = activeAccordion === idx;
-                return (
-                  <div key={idx} className="border-b border-black/5 dark:border-white/5">
-                    <div
-                      onClick={() => setActiveAccordion(isOpen ? -1 : idx)}
-                      className="flex justify-between items-center py-6 cursor-pointer hover:opacity-85 transition-opacity"
-                    >
-                      <h4 className={`text-[14px] sm:text-[15px] font-normal transition-colors duration-300 ${isOpen ? (isLightMode ? 'text-[#1c1a17]' : 'text-white') : 'text-zinc-500'}`}>
-                        {item.title}
-                      </h4>
-                      <span className={`font-mono text-[14px] transition-transform duration-400 ${isOpen ? 'rotate-45 text-[#c5a880]' : 'text-zinc-500'}`}>
-                        <Plus size={14} />
-                      </span>
-                    </div>
-                    <div
-                      className="overflow-hidden transition-all duration-[400ms] ease-in-out"
-                      style={{
-                        maxHeight: isOpen ? '120px' : '0px',
-                        paddingBottom: isOpen ? '20px' : '0px'
-                      }}
-                    >
-                      <p className="text-[12px] sm:text-[13px] text-zinc-500 dark:text-[#a1a1aa] font-light leading-relaxed">
-                        {item.text}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Coluna 3: Links */}
+            <div className="md:col-span-3 flex flex-col gap-4 font-mono text-[10px] tracking-[0.2em] uppercase text-left">
+              <span className="text-[#c5a880] text-[9px] tracking-widest font-bold">NAVEGAÇÃO</span>
+              <div className="flex flex-col gap-3">
+                <a href="#vitrine" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
+                  PROJETOS
+                </a>
+                <a href="#sobre-mim" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
+                  SOBRE
+                </a>
+                <a href="#coordinates" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
+                  DIÁLOGO
+                </a>
+                <a href="https://www.instagram.com/clean.designn/" target="_blank" rel="noopener noreferrer" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
+                  INSTAGRAM
+                </a>
+                <a href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20mais%20informações." target="_blank" rel="noopener noreferrer" className="text-[#c5a880] hover:text-white transition-colors duration-300">
+                  WHATSAPP
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* FOOTER */}
-      <footer className="border-t border-white/5 pt-16 pb-12 bg-[#09090b]">
-        <div className="max-w-[1200px] mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-12">
-            <div className="flex flex-col gap-2.5 text-left">
-              <h4 className="font-sans font-extrabold text-[15px] text-[#f4f4f5] tracking-widest uppercase">
-                AGÊNCIA CLEAN.
-              </h4>
-
-            </div>
-            <div className="flex flex-wrap gap-x-8 gap-y-3 font-mono text-[10px] tracking-[0.2em] uppercase text-left">
-              <a href="#vitrine" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
-                PROJETOS
-              </a>
-              <a href="#sobre-mim" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
-                SOBRE
-              </a>
-              <a href="#coordinates" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
-                DIÁLOGO
-              </a>
-              <a href="https://www.instagram.com/clean.designn/" target="_blank" rel="noopener noreferrer" className="text-[#a1a1aa] hover:text-[#f4f4f5] transition-colors duration-300">
-                INSTAGRAM
-              </a>
-              <a href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20mais%20informações." target="_blank" rel="noopener noreferrer" className="text-[#c5a880] hover:text-white transition-colors duration-300">
-                WHATSAPP
-              </a>
-            </div>
-          </div>
           <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center font-mono text-[9px] text-zinc-500 tracking-wider uppercase gap-4">
-            <span>© {new Date().getFullYear()} CLEAN DESIGN CO. TODOS OS DIREITOS RESERVADOS.</span>
+            <span>© {new Date().getFullYear()} AGÊNCIA CLEAN. TODOS OS DIREITOS RESERVADOS.</span>
             <div className="flex items-center gap-4">
               <span>DESIGN POR CLEAN</span>
               <span className="text-zinc-700">/</span>
