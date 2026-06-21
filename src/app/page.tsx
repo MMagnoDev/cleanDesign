@@ -787,11 +787,10 @@ export default function HomePage() {
       {/* SEÇÃO 4C-2 — PARA QUEM É A CLEAN */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-zinc-200 text-[#1c1a17]">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-center max-w-[800px] mx-auto reveal-on-scroll">
+          <div className="text-left max-w-[800px] reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight text-[#1c1a17] mt-4">
               Para quem quer ser <span className="text-[#c5a880]">referência</span>.
             </h2>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
@@ -830,13 +829,11 @@ export default function HomePage() {
       {/* SEÇÃO 4C-3 — TRANSFORMAÇÕES */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-[#121215] border-white/5 text-white">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-center max-w-[800px] mx-auto reveal-on-scroll">
-
+          <div className="text-right max-w-[800px] ml-auto reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-[1.05] text-white mt-4">
               Antes você precisava convencer. <br />
               <span >Agora sua marca convence por você.</span>
             </h2>
-
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
@@ -997,7 +994,7 @@ export default function HomePage() {
       {/* SEÇÃO 4D — GRANDE VIRADA ESTRATÉGICA */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-zinc-200 text-[#1c1a17]">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-6 text-center max-w-[850px] mx-auto reveal-on-scroll">
+          <div className="flex flex-col gap-6 text-left max-w-[850px] reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[60px] font-[100] tracking-[-0.02em] leading-[1.05] text-[#1c1a17]">
               A Clean entrega uma marca pronta para ser vista, lembrada e desejada.
             </h2>
@@ -1054,9 +1051,9 @@ export default function HomePage() {
       <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
         }`}>
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-center max-w-[750px] mx-auto reveal-on-scroll">
+          <div className="text-right max-w-[750px] ml-auto reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight mt-4">
-              Por que marcas escolhem a Clean
+              Por que marcas <br />escolhem a Clean
             </h2>
           </div>
 
@@ -1154,14 +1151,14 @@ export default function HomePage() {
           {/* Coluna do Texto (Direita) */}
           <div className="lg:col-span-6 flex flex-col items-start text-left reveal-on-scroll">
             <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-[#c5a880] uppercase mb-2">
-              A ASSINATURA
+              Um Pouco
             </span>
             <h2 className="text-[36px] sm:text-[46px] font-[100] tracking-[-0.02em] leading-tight text-[#1c1a17] mb-6">
               Sobre a <span className="text-[#c5a880]">Clean</span>
             </h2>
 
             <p className="text-[13px] font-light leading-relaxed mb-6 text-[#5e5045]">
-              A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
+              A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. <br /> <br />Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
             </p>
 
             <p className="font-serif italic text-[#c5a880] text-[16px] sm:text-[18px] mb-8">
@@ -1243,7 +1240,7 @@ export default function HomePage() {
       {/* SEÇÃO 5 — ALINHAMENTO DE EXPECTATIVAS (PARA QUEM É / NÃO É) */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 bg-white border-zinc-200 text-[#1c1a17]">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-center max-w-[750px] mx-auto reveal-on-scroll mb-4">
+          <div className="text-left max-w-[750px] reveal-on-scroll mb-4">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight mt-4 text-[#1c1a17]">
               Alinhamento de Expectativas
             </h2>
@@ -1306,24 +1303,20 @@ export default function HomePage() {
         <div className="max-w-[1200px] w-full mx-auto px-6">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6 reveal-on-scroll">
             <div className="flex flex-col items-start text-left">
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-[#c5a880] uppercase mb-2">
-                Depoimentos Reais
-              </span>
+
               <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight text-[#1c1a17]">
                 A percepção muda quando a marca <br />
                 <span className="text-[#c5a880]">se apresenta com profissionalismo.</span>
               </h2>
-              <p className="text-[13px] text-zinc-500 font-light mt-4">
-                Clientes que confiaram na Clean para transformar a imagem de seus negócios.
-              </p>
+
             </div>
 
             {/* Improved aggregated Trust Score note */}
             <div className="flex items-center gap-3.5 font-mono text-[10px] tracking-widest rounded-[2px] py-3 px-5 border bg-white border-zinc-200 text-[#5e5045] shadow-sm">
               <span className="text-yellow-500 text-[12px] flex gap-0.5">★★★★★</span>
-              <span className="font-semibold text-zinc-800">Excelente no Google (4.9 / 5.0)</span>
-              <span className="text-zinc-400">|</span>
-              <span className="text-[9px] uppercase tracking-wider text-zinc-500">Nota de Confiança Garantida</span>
+              <span className="font-semibold text-zinc-800"> (4.9 / 5.0)</span>
+
+
             </div>
           </div>
 
