@@ -1,0 +1,559 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------------
+   GLOBAL CINEMATIC NOISE OVERLAY
+   Rendered via SVG element in layout.tsx (#noise-overlay).
+   No CSS pseudo-element needed.
+------------------------------------------------------------- */
+
+/* -------------------------------------------------------------
+   LENIS SMOOTH SCROLL STYLES
+------------------------------------------------------------- */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Global p size increase */
+p { 
+  font-size: 22px !important; 
+  line-height: 1.25 !important;
+}
+
+/* -------------------------------------------------------------
+   CLEAN DESIGN — TAILWIND V4 DESIGN SYSTEM
+------------------------------------------------------------- */
+
+
+@theme {
+  /* Premium Champagne Gold Accents */
+  --color-gold: #c5a880;
+  --color-gold-dark: #b3956d;
+  --color-gold-glow: rgba(197, 168, 128, 0.08);
+  --color-gold-glow-deep: rgba(94, 80, 63, 0.04);
+
+  /* Overriding Zinc with Warm Beige/Mocha Undertones globally */
+  --color-zinc-50: #faf9f6;
+  --color-zinc-100: #f5efe6;
+  --color-zinc-200: #eadecd;
+  --color-zinc-300: #d9cfc1;
+  --color-zinc-400: #c0b2a0;
+  --color-zinc-500: #a69784;
+  --color-zinc-600: #8c7d6c;
+  --color-zinc-700: #706253;
+  --color-zinc-800: #54483d;
+  --color-zinc-900: #3b3127;
+  --color-zinc-950: #1c1a17;
+
+  /* Font Family Overrides */
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Outfit', -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), 'Poppins', sans-serif;
+
+  /* Standard Spring Transitions */
+  --transition-spring: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-hover: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Custom WhatsApp Animations */
+  --animate-whatsapp-ripple-1: whatsapp-ripple 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  --animate-whatsapp-ripple-2: whatsapp-ripple 2.5s cubic-bezier(0.16, 1, 0.3, 1) infinite 1.25s;
+  --animate-whatsapp-icon: whatsapp-icon-wiggle 5s ease-in-out infinite;
+
+  @keyframes whatsapp-ripple {
+    0% {
+      transform: scale(1);
+      opacity: 0.6;
+    }
+    100% {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
+
+  @keyframes whatsapp-icon-wiggle {
+    0%, 90%, 100% {
+      transform: rotate(0deg);
+    }
+    92% {
+      transform: rotate(-12deg) scale(1.1);
+    }
+    94% {
+      transform: rotate(12deg) scale(1.1);
+    }
+    96% {
+      transform: rotate(-8deg) scale(1.1);
+    }
+    98% {
+      transform: rotate(8deg) scale(1.1);
+    }
+  }
+}
+
+/* Custom Base layer styles */
+@layer base {
+  html {
+    scroll-behavior: auto;
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  html.lenis {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    background-color: #0d0c0a;
+    color: #f4f4f5;
+    font-family: var(--font-sans);
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  p {
+    line-height: 1.3;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1 !important;
+  }
+
+  .hero-title {
+    line-height: 0.9 !important;
+  }
+
+  ::selection {
+    background-color: #c5a880;
+    color: #09090b;
+  }
+
+  body.light-mode ::selection {
+    background-color: #c5a880;
+    color: #faf9f6;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #09090b;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3f3f46;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c5a880;
+  }
+}
+
+/* -------------------------------------------------------------
+   AMBIENT GLOWS & CUSTOM INTERACTIONS
+------------------------------------------------------------- */
+.ambient-glow-mesh-1 {
+  background: radial-gradient(circle, var(--glow-color-1, rgba(197, 168, 128, 0.08)) 0%, rgba(9, 9, 11, 0) 75%);
+}
+
+.ambient-glow-mesh-2 {
+  background: radial-gradient(circle, var(--glow-color-2, rgba(94, 80, 63, 0.04)) 0%, rgba(9, 9, 11, 0) 80%);
+}
+
+.custom-cursor-orb {
+  background: radial-gradient(circle, rgba(197, 168, 128, 0.04) 0%, rgba(0, 0, 0, 0) 70%);
+  transform: translate(-50%, -50%);
+}
+
+.glass-border-refraction {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* -------------------------------------------------------------
+   HARDWARE-ACCELERATED TRANSITIONS & DYNAMICS
+------------------------------------------------------------- */
+.spring-hover-effect {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spring-hover-effect:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+.spring-hover-effect-light {
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.spring-hover-effect-light:hover {
+  transform: translateY(-2px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-100 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 300ms; }
+.delay-300 { animation-delay: 450ms; }
+
+/* Progress bar for auto-cycling specialties */
+@keyframes pillarProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.animate-pillar-progress {
+  animation: pillarProgress 3.5s linear forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  animation: fadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1) 200ms forwards;
+}
+
+@keyframes breath {
+  0%, 100% { opacity: 0.5; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+.animate-breathing-dot {
+  animation: breath 1.8s infinite ease-in-out;
+}
+
+/* -------------------------------------------------------------
+   PREMIUM DYNAMIC SCROLL REVEAL
+------------------------------------------------------------- */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.4s cubic-bezier(0.16, 1, 0.3, 1), transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-on-scroll.delay-100 { transition-delay: 150ms; }
+.reveal-on-scroll.delay-200 { transition-delay: 300ms; }
+.reveal-on-scroll.delay-300 { transition-delay: 450ms; }
+.reveal-on-scroll.delay-400 { transition-delay: 600ms; }
+
+/* -------------------------------------------------------------
+   PREMIUM LIGHT MODE OVERRIDES
+------------------------------------------------------------- */
+body.light-mode {
+  background-color: #f7f4ed !important;
+  color: #423a34 !important;
+}
+
+/* Card & Section structures in Light Mode */
+body.light-mode section[class*="bg-"],
+body.light-mode .portfolio-card {
+  background-color: #f2ede2 !important;
+  border: none !important;
+  color: #423a34 !important;
+}
+
+body.light-mode .glass-border-refraction {
+  border: none !important;
+}
+
+/* --- TYPOGRAPHY WARM UNDERTONE REVISIONS (DARK MODE DEFAULTS) --- */
+.text-\[\#f4f4f5\] {
+  color: #f5efe6 !important;
+}
+.text-\[\#a1a1aa\] {
+  color: #c0b2a0 !important;
+}
+
+/* Global text contrast overrides in Light Mode */
+body.light-mode .text-\[\#f4f4f5\],
+body.light-mode .text-white,
+body.light-mode .text-white\/90,
+body.light-mode .text-white\/95,
+body.light-mode .text-white\/80,
+body.light-mode .text-zinc-100,
+body.light-mode .text-\[\#1c1a17\],
+body.light-mode [style*="color: #1c1a17"],
+body.light-mode [style*="color: rgb(28, 26, 23)"] {
+  color: #423a34 !important;
+}
+
+body.light-mode .text-\[\#a1a1aa\],
+body.light-mode .text-zinc-400,
+body.light-mode .text-\[\#5e5045\],
+body.light-mode [style*="color: #5e5045"],
+body.light-mode [style*="color: rgb(94, 80, 69)"] {
+  color: #75675c !important; /* Elegant soft taupe/mocha */
+}
+
+body.light-mode .text-zinc-500 {
+  color: #8e8073 !important; /* Soft warm sand-beige */
+}
+
+body.light-mode .text-zinc-600,
+body.light-mode .text-zinc-700 {
+  color: #a39384 !important; /* Soft muted sand label */
+}
+
+/* Keep main Hero text glowing white over the dark background images */
+body.light-mode .custom-hero-title {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+body.light-mode .h-dvh .text-white\/95,
+body.light-mode .h-screen .text-white\/95,
+body.light-mode .h-dvh .text-white\/80,
+body.light-mode .h-screen .text-white\/80,
+body.light-mode .h-dvh p,
+body.light-mode .h-screen p {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+
+/* Keep navbar headers always white/light over the hero when not scrolled */
+body.light-mode header:not(.scrolled),
+body.light-mode header:not(.scrolled) a,
+body.light-mode header:not(.scrolled) button,
+body.light-mode header:not(.scrolled) span {
+  color: rgba(255, 255, 255, 0.95) !important;
+}
+body.light-mode header:not(.scrolled) a:hover,
+body.light-mode header:not(.scrolled) button:hover {
+  color: #c5a880 !important;
+}
+
+/* Scrolled header style in light mode */
+body.light-mode header.scrolled,
+body.light-mode header.scrolled a,
+body.light-mode header.scrolled button,
+body.light-mode header.scrolled span {
+  color: rgba(28, 26, 23, 0.8) !important;
+}
+body.light-mode header.scrolled a:hover,
+body.light-mode header.scrolled button:hover {
+  color: #c5a880 !important;
+}
+
+/* Input Fields in Light Mode */
+body.light-mode input,
+body.light-mode textarea {
+  background-color: #fbfaf8 !important;
+  border-color: rgba(28, 26, 23, 0.1) !important;
+  color: #1c1a17 !important;
+}
+body.light-mode input:focus,
+body.light-mode textarea:focus {
+  border-color: #c5a880 !important;
+  background-color: #ffffff !important;
+}
+
+/* Scrollbar in Light Mode */
+body.light-mode ::-webkit-scrollbar-track {
+  background: #faf9f6 !important;
+}
+body.light-mode ::-webkit-scrollbar-thumb {
+  background: #d5cbbd !important; /* Warmer sand-beige scrollbar thumb */
+}
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: #c5a880 !important;
+}
+
+/* Forms & Submit Buttons in Light Mode */
+body.light-mode button[type="submit"] {
+  background-color: #1c1a17 !important;
+  color: #faf9f6 !important;
+  border-color: #1c1a17 !important;
+}
+body.light-mode button[type="submit"]:hover {
+  background-color: transparent !important;
+  color: #1c1a17 !important;
+  border-color: #1c1a17 !important;
+}
+
+/* Subtle background glows in Light Mode */
+body.light-mode .ambient-glow-mesh-1 {
+  background: radial-gradient(circle, rgba(197, 168, 128, 0.06) 0%, rgba(250, 249, 246, 0) 75%) !important;
+}
+body.light-mode .ambient-glow-mesh-2 {
+  background: radial-gradient(circle, rgba(94, 80, 63, 0.03) 0%, rgba(250, 249, 246, 0) 80%) !important;
+}
+
+/* Accordion Lines & Elements in Light Mode */
+body.light-mode .border-b,
+body.light-mode .border-t,
+body.light-mode .border-white\/5,
+body.light-mode .border-white\/10 {
+  border-color: rgba(28, 26, 23, 0.08) !important;
+}
+
+body.light-mode .bg-white\/5 {
+  background-color: rgba(28, 26, 23, 0.08) !important;
+}
+
+/* Modals & Full Portfolio Overlay in Light Mode */
+body.light-mode .fixed.inset-0.bg-black\/98,
+body.light-mode .fixed.inset-0.bg-\[\#09090b\]\/98 {
+  background-color: rgba(250, 249, 246, 0.98) !important;
+  backdrop-blur: xl;
+}
+body.light-mode .fixed.inset-0.bg-black\/80 {
+  background-color: rgba(250, 249, 246, 0.85) !important;
+}
+body.light-mode .fixed.inset-0.bg-black\/80 .bg-\[\#121215\] {
+  background-color: #f2ebd9 !important;
+  border-color: rgba(197, 168, 128, 0.15) !important;
+}
+
+/* Footer elements in Light Mode */
+body.light-mode footer {
+  background-color: #f4f3ef !important;
+  border-color: rgba(28, 26, 23, 0.06) !important;
+}
+
+/* Portfolio Cards */
+.portfolio-card {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.55);
+}
+
+body.light-mode .portfolio-card {
+  box-shadow: 0 10px 30px rgba(197, 168, 128, 0.08), 0 3px 10px rgba(28, 26, 23, 0.02) !important;
+  border: none !important;
+  background-color: #f2ede2 !important;
+}
+
+/* Custom scrollbar for drawers/modals */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 128, 0.3);
+  border-radius: 10px;
+}
+
+/* Image Subtle Border */
+.image-border {
+  border: 1px solid rgba(255, 255, 255, 0.03) !important;
+  border-radius: 4px !important;
+}
+body.light-mode .image-border {
+  border-color: rgba(28, 26, 23, 0.04) !important;
+}
+
+/* -------------------------------------------------------------
+   INFINITE MARQUEE ANIMATION FOR GOOGLE REVIEWS
+------------------------------------------------------------- */
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 10px 0;
+  mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  gap: 24px;
+  animation: marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* -------------------------------------------------------------
+   UTILITY TO HIDE SCROLLBARS FOR DRAGGABLE CONTAINERS
+/* -------------------------------------------------------------
+   UTILITY TO HIDE SCROLLBARS FOR DRAGGABLE CONTAINERS
+   ------------------------------------------------------------- */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+}
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.group:hover .animate-whatsapp-icon {
+  animation: none !important;
+}
+
+@media (min-width: 1024px) {
+  .custom-scrollbar-carousel::-webkit-scrollbar {
+    display: block !important;
+    height: 4px !important;
+  }
+  .custom-scrollbar-carousel::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-radius: 10px !important;
+  }
+  .custom-scrollbar-carousel::-webkit-scrollbar-thumb {
+    background: rgba(197, 168, 128, 0.3) !important;
+    border-radius: 10px !important;
+    transition: background 0.3s !important;
+  }
+  .custom-scrollbar-carousel::-webkit-scrollbar-thumb:hover {
+    background: rgba(197, 168, 128, 0.7) !important;
+  }
+  .custom-scrollbar-carousel {
+    -ms-overflow-style: auto !important;
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(197, 168, 128, 0.3) rgba(255, 255, 255, 0.02) !important;
+  }
+  
+  body.light-mode .custom-scrollbar-carousel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.02) !important;
+  }
+  body.light-mode .custom-scrollbar-carousel::-webkit-scrollbar-thumb {
+    background: rgba(94, 80, 69, 0.2) !important;
+  }
+  body.light-mode .custom-scrollbar-carousel::-webkit-scrollbar-thumb:hover {
+    background: rgba(94, 80, 69, 0.5) !important;
+  }
+}
+
+
+

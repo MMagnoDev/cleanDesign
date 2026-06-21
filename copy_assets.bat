@@ -1,0 +1,15 @@
+@echo off
+if not exist "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes" mkdir "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_aura_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\aura.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_ginger_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\ginger.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_vidotti_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\vidotti.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_utreque_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\utreque.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_alfradique_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\alfradique.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_bahls_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\bahls.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_prattes_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\prattes.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_vianna_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\vianna.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_gio_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\gio.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_anaclara_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\anaclara.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_lopes_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\lopes.png"
+copy "C:\Users\socia\.gemini\antigravity-ide\brain\5091c861-cbda-4c8a-ac8d-29506549b5c3\client_portrait_lima_*.png" "c:\Users\socia\Desktop\Lp-clean-copia\public\assets\clientes\lima.png"
+echo Copy complete!
