@@ -860,7 +860,7 @@ export default function HomePage() {
           {/* Minimal Logos representation */}
           <div className="flex flex-col items-center gap-8">
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 w-full mt-4">
+            <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-8 w-full mt-4">
               {[
                 { name: "LUMINA CLÍNICA", img: "/assets/servicos/ensaioIA.webp" },
                 { name: "VOSS ADVOCACIA", img: "/assets/servicos/consultoria.webp" },
@@ -884,7 +884,7 @@ export default function HomePage() {
                       className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 ease-in-out hover:scale-105"
                     />
                   </div>
-                  <span className="font-sans font-light tracking-[0.15em] text-[11px] sm:text-[12px] text-gray-500 group-hover:text-black transition-colors duration-300">
+                  <span className="font-sans font-light tracking-[0.15em] text-[8px] min-[375px]:text-[10px] sm:text-[12px] text-gray-500 group-hover:text-black transition-colors duration-300">
                     {company.name}
                   </span>
                 </div>
@@ -966,7 +966,7 @@ export default function HomePage() {
       {/* SEÇÃO 4C-3 — TRANSFORMAÇÕES */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-[#121215] border-white/5 text-white">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-right max-w-[800px] ml-auto reveal-on-scroll">
+          <div className="text-left sm:text-right max-w-[800px] ml-0 sm:ml-auto reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-[1.05] text-white mt-4">
               Antes você precisava convencer. <br />
               <span className='text-bold'>Agora sua marca convence por você.</span>
@@ -1131,7 +1131,7 @@ export default function HomePage() {
       <section className={`w-full py-20 sm:py-32 px-6 sm:px-12 border-b transition-colors duration-300 ${isLightMode ? 'bg-[#faf9f6] border-zinc-200 text-[#1c1a17]' : 'bg-[#121215] border-white/5 text-white'
         }`}>
         <div className="max-w-[900px] w-full mx-auto flex flex-col gap-12">
-          <div className="flex flex-col gap-4 text-center reveal-on-scroll">
+          <div className="flex flex-col gap-4 text-left sm:text-center reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight">
               Como construímos reputação
             </h2>
@@ -1199,7 +1199,7 @@ export default function HomePage() {
               Sobre a Clean
             </h2>
 
-            <p className="text-[13px] font-light leading-relaxed mb-6 text-gray-600">
+            <p className="text-[9px] min-[375px]:text-[10.5px] sm:text-[13px] font-light leading-relaxed mb-6 text-gray-600">
               A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. <br /> <br />Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
             </p>
 

@@ -28,10 +28,6 @@ export function SmoothScroll() {
 
     lenisRef.current = lenis;
 
-    // Dispatch a scroll event on Lenis scroll so standard scroll listeners receive it
-    lenis.on("scroll", () => {
-      window.dispatchEvent(new Event("scroll"));
-    });
 
     let animId: number;
     const raf = (time: number) => {
