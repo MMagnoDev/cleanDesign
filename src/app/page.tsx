@@ -796,15 +796,15 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
             {[
               {
-                title: "Já cresceu. Agora precisa parecer.",
+                title: "JÁ CRESCEU. AGORA PRECISA PARECER.",
                 desc: "Seu negócio evoluiu, mas sua marca ainda não transmite o nível que você entrega."
               },
               {
-                title: "Quer parar de disputar preço.",
+                title: "QUER PARAR DE DISPUTAR PREÇO.",
                 desc: "Entende que valor percebido influencia diretamente quem compra e quanto paga."
               },
               {
-                title: "Busca um posicionamento premium.",
+                title: "BUSCA UM POSICIONAMENTO PREMIUM.",
                 desc: "Quer atrair clientes melhores e ocupar um espaço mais valorizado no mercado."
               }
             ].map((card, idx) => (
@@ -1379,15 +1379,11 @@ export default function HomePage() {
       <section className="py-20 sm:py-32 px-6 sm:px-12 bg-[#121215] border-b border-white/5 text-white">
         <div className="max-w-[800px] mx-auto flex flex-col gap-12">
           <div className="text-center reveal-on-scroll">
-            <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.2em] text-[#c5a880] uppercase">
-              Dúvidas Frequentes
-            </span>
+
             <h2 className="text-[42px] sm:text-[52px] font-[100] tracking-[-0.02em] leading-tight mt-4">
               Perguntas <span className="text-[#c5a880]">Frequentes</span>
             </h2>
-            <p className="text-[13px] text-zinc-400 font-light mt-4">
-              Esclareça suas principais dúvidas sobre o desenvolvimento da identidade visual de sua marca.
-            </p>
+
           </div>
 
           <div className="flex flex-col border-t border-white/5 mt-6 reveal-on-scroll">
