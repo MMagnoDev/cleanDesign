@@ -876,18 +876,18 @@ export default function HomePage() {
 
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-8 w-full mt-4">
               {[
-                { name: "LUMINA CLÍNICA", img: "/assets/servicos/ensaioIA.webp" },
-                { name: "VOSS ADVOCACIA", img: "/assets/servicos/consultoria.webp" },
-                { name: "AURÊ ESTÉTICA", img: "/assets/branding/bruna.webp" },
-                { name: "BASALT ARQUITETURA", img: "/assets/img2.webp" },
-                { name: "PETRA IMÓVEIS", img: "/assets/img1.webp" },
-                { name: "VELOUR MODA", img: "/assets/branding/vanessa.webp" },
-                { name: "JAMILE ESTÉTICA", img: "/assets/branding/jamile.webp" },
-                { name: "VITAL ARQUITETURA", img: "/assets/img3.webp" },
-                { name: "VERDANT BRAND", img: "/assets/logotipo.webp" },
-                { name: "KAIROS CLÍNICA", img: "/assets/servicos/idendidadevisual.jpg" },
-                { name: "SOPHIE FASHION", img: "/assets/servicos/servicosgraficos.webp" },
-                { name: "NEXUS TECNOLOGIA", img: "/assets/servicos/sites.webp" }
+                { name: "LUMINA CLÍNICA", img: "/assets/marcas/Lumina.webp" },
+                { name: "VOSS ADVOCACIA", img: "/assets/marcas/voss.webp" },
+                { name: "AURÊ ESTÉTICA", img: "/assets/marcas/aure.webp" },
+                { name: "BASALT ARQUITETURA", img: "/assets/marcas/basalt.webp" },
+                { name: "PETRA IMÓVEIS", img: "/assets/marcas/petra.webp" },
+                { name: "VELOUR MODA", img: "/assets/marcas/velour.webp" },
+                { name: "JAMILE ESTÉTICA", img: "/assets/marcas/jamile.webp" },
+                { name: "VITAL ARQUITETURA", img: "/assets/marcas/vital.webp" },
+                { name: "VERDANT BRAND", img: "/assets/marcas/verdant.webp" },
+                { name: "KAIROS CLÍNICA", img: "/assets/marcas/kairos.webp" },
+                { name: "SOPHIE FASHION", img: "/assets/marcas/sophie.webp" },
+                { name: "NEXUS TECNOLOGIA", img: "/assets/marcas/nexus.webp" }
               ].map((company, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center group">
                   <div className="w-full aspect-square overflow-hidden rounded-[2px] border border-gray-200 bg-white mb-4 shadow-sm">
@@ -924,8 +924,8 @@ export default function HomePage() {
           <div className="flex justify-center lg:justify-end reveal-on-scroll delay-100">
             <div className="overflow-hidden rounded-[2px]" style={{ width: '400px', aspectRatio: '3/4' }}>
               <img
-                src="/assets/brandingdealtopadrao.webp"
-                alt="Branding de alto padrão"
+                src="/assets/talvez_sua_marca.jpg"
+                alt="Talvez sua marca"
                 loading="lazy"
                 className="w-full h-full object-cover"
               />

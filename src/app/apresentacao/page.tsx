@@ -129,14 +129,13 @@ export default function ApresentacaoPage() {
     {
       id: "essencia",
       name: "Clean Essência",
-      tag: "O COMEÇO ESTRATÉGICO",
-      desc: "Ideal para estruturar a base visual da sua marca de maneira profissional, deixando de parecer amador e passando a transmitir confiança imediata.",
+
+      desc: "Base profissional para transmitir confiança imediata.",
       features: [
         "Direção Criativa & Diagnóstico Visual",
         "Logo Principal & Variações",
         "Ícone / Símbolo Customizado",
-        "Paleta de Cores Estratégica",
-        "Manual Básico de Aplicação",
+        "Paleta de Cores & Tipografia",
         "Arquivos Finais Vetorizados"
       ],
       whatsapp: "Olá! Gostaria de mais informações sobre o pacote Clean Essência."
@@ -144,45 +143,41 @@ export default function ApresentacaoPage() {
     {
       id: "presenca",
       name: "Clean Presença",
-      tag: "IDENTIDADE & PONTOS DE CONTATO",
-      desc: "Desenvolvido para criar a identidade visual e aplicá-la com consistência nos primeiros e principais pontos de contato com o cliente.",
+
+      desc: "Identidade visual completa aplicada aos seus pontos de contato.",
       features: [
         "Tudo incluso no Clean Essência",
         "Design de Papelaria Institucional",
-        "Cartão de Visita Premium (Frente/Verso)",
-        "Design de Envelopes e Timbrados",
-        "Identidade Visual Básica para Instagram",
-        "Suporte Prioritário na Entrega"
+        "Cartão de Visita Premium",
+        "Assinatura de E-mail & Redes Sociais",
+        "Manual Básico de Aplicação"
       ],
       whatsapp: "Olá! Gostaria de mais informações sobre o pacote Clean Presença."
     },
     {
       id: "expansao",
       name: "Clean Expansão",
-      tag: "IDENTIDADE COMPLETA & PLATAFORMAS",
-      desc: "Para marcas prontas para expandir, estruturando toda a papelaria, materiais institucionais e presença digital organizada.",
+      desc: "Estrutura completa de papelaria e presença digital organizada.",
       features: [
         "Tudo incluso no Clean Presença",
         "Ficha de Anamnese ou Pasta Comercial",
-        "Materiais de Apoio Personalizados",
-        "Apresentação Comercial em PDF Estruturada",
-        "Direção de Imagem / Mockups Realistas",
-        "Suporte completo pós-entrega"
+        "Apresentação Comercial em PDF",
+        "Direção de Imagem / Mockups",
+        "Suporte Prioritário pós-entrega"
       ],
       whatsapp: "Olá! Gostaria de mais informações sobre o pacote Clean Expansão."
     },
     {
       id: "autoridade",
       name: "Clean Autoridade",
-      tag: "O NÍVEL MÁXIMO DE REPUTAÇÃO",
-      desc: "Nossa solução mais abrangente de posicionamento. Unimos a identidade visual com diagnóstico de mercado e direção estratégica digital.",
+
+      desc: "Branding de elite unindo identidade visual e estratégia.",
       features: [
         "Tudo incluso no Clean Expansão",
-        "Análise de Mercado & Posicionamento",
+        "Diagnóstico de Posicionamento",
         "Direção Estratégica de Conteúdo",
-        "Frentes integradas de Marca e Comunicação",
-        "Acompanhamento personalizado em cada etapa",
-        "Consultoria direta com os diretores de design"
+        "Frentes Integradas de Comunicação",
+        "Consultoria Direta com Diretores"
       ],
       whatsapp: "Olá! Gostaria de mais informações sobre o pacote Clean Autoridade."
     }
@@ -287,32 +282,32 @@ export default function ApresentacaoPage() {
       )}
 
       {/* HERO SECTION */}
-      <section className="w-full relative min-h-[70vh] flex flex-col justify-center items-center bg-[#0c0b09] text-white overflow-hidden border-b border-white/5 px-8 sm:px-16 lg:px-24 pb-20 pt-40 text-center">
+      <section className="w-full relative min-h-screen flex flex-col justify-center items-center bg-[#0c0b09] text-white overflow-hidden border-b border-white/5 px-8 sm:px-16 lg:px-24 pb-20 pt-40 text-center">
         <div className="absolute inset-0 z-0 opacity-10 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/brandingdealtopadrao.webp')" }}></div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#0d0c0a] via-transparent to-[#0c0b09]/90 z-[1]"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center max-w-[900px] w-full">
 
           <h1 className="text-[38px] sm:text-[68px] lg:text-[84px] font-sans font-light tracking-[-0.03em] leading-[0.95] text-white mb-6">
-            Luz, Design & <br />
-            Posicionamento
+            Proposta <br />
+            Comercial
           </h1>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
-            Abaixo apresentamos a estrutura da nossa equipe, nosso alcance global, sede física, feedbacks de clientes reais, a jornada de desenvolvimento passo a passo e nossos pacotes comerciais.
+          <p className="text-[11px] sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+            Conheça a Clean Design: nossa equipe, sede física, método de desenvolvimento e pacotes comerciais premium.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-8"></div>
         </div>
       </section>
 
       {/* SEÇÃO 1: APRESENTAÇÃO DA EQUIPE */}
-      <section id="equipe" className="w-full py-24 px-8 sm:px-16 lg:px-24 border-b border-white/5">
+      <section id="equipe" className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 border-b border-white/5">
         <div className="max-w-[1200px] w-full mx-auto">
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
 
             <h2 className="text-[32px] sm:text-[48px] font-sans font-[100] tracking-tight text-white leading-tight">
               Profissionais Especializados
             </h2>
-            <p className="text-[14px] text-zinc-400 font-light leading-relaxed max-w-[600px]">
+            <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[600px]">
               Por trás de cada projeto de prestígio, existe uma equipe real, estruturada e qualificada. Unimos especialistas de diferentes áreas para materializar marcas consistentes.
             </p>
           </div>
@@ -347,15 +342,16 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 2: PAÍSES DE ATUAÇÃO */}
-      <section className="w-full py-20 px-8 sm:px-16 lg:px-24 bg-[#0a0a08] border-b border-white/5">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 bg-[#0a0a08] border-b border-white/5">
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-5 flex flex-col gap-5 text-left">
 
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-tight leading-none text-white">
-              Atuação Global de Prestígio
+              Atuação Global
             </h2>
-            <p className="text-[14px] text-zinc-400 font-light leading-relaxed">
-              Atendemos clientes com exigências de sofisticação e profissionalismo em múltiplos territórios. Nossa estrutura de comunicação e metodologias estão alinhadas com as tendências estéticas dos principais centros urbanos.
+            <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed">
+              Atendemos clientes que buscam sofisticação e profissionalismo em diferentes territórios, com metodologias alinhadas às principais tendências estéticas do mercado.
+
             </p>
             <div className="h-[1px] w-12 bg-[#c5a880]/30 mt-2"></div>
           </div>
@@ -382,15 +378,15 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 3: SEDE FÍSICA */}
-      <section id="sede" className="w-full py-24 px-8 sm:px-16 lg:px-24 border-b border-white/5">
+      <section id="sede" className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 border-b border-white/5">
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Imagem da Sede */}
-          <div className="lg:col-span-6 relative w-full aspect-[4/3] rounded-[2px] border border-white/5 overflow-hidden shadow-2xl bg-black/25">
+          <div className="lg:col-span-7 relative w-full aspect-[4/3] rounded-[2px] border border-white/5 overflow-hidden shadow-2xl bg-black/25">
             <img
               loading="lazy"
-              src="/assets/sobre_clean.jpg"
+              src="/assets/escritorio.webp"
               alt="Sede Física Clean Design"
-              className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-[800ms] hover:scale-102 hover:grayscale-0"
+              className="w-full h-full object-cover transition-transform duration-[800ms] hover:scale-102"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 flex items-center gap-2">
@@ -400,18 +396,18 @@ export default function ApresentacaoPage() {
           </div>
 
           {/* Conteúdo Textual */}
-          <div className="lg:col-span-6 flex flex-col items-start text-left">
+          <div className="lg:col-span-5 flex flex-col items-start text-left">
 
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-tight text-white leading-tight mb-6">
               Nossa Sede Física
             </h2>
-            <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed mb-8 max-w-[500px]">
-              Diferente de agências puramente virtuais ou freelancers isolados, a Clean Design oferece a solidez de uma estrutura física estruturada. Contamos com um espaço próprio, planejado para o desenvolvimento criativo e reuniões de alinhamento com máxima segurança comercial.
+            <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed mb-8 max-w-[500px]">
+              Diferente de agências puramente virtuais ou freelancers isolados, a Clean Design oferece a solidez de uma estrutura física estruturada. <br /> <br /> Contamos com um espaço próprio, planejado para o desenvolvimento criativo e reuniões de alinhamento com máxima segurança comercial.
             </p>
 
             <div className="border-l border-[#c5a880] pl-6 py-2 text-left mb-6">
               <span className="font-mono text-[8px] tracking-[0.25em] text-zinc-500 uppercase block mb-1">Endereço Comercial</span>
-              <p className="text-[13px] text-zinc-300 font-light max-w-[400px]">
+              <p className="text-[11px] text-zinc-300 font-light max-w-[400px]">
                 Av. Ator José Wilker, 605, Rio de Janeiro, RJ, Brasil.
               </p>
             </div>
@@ -420,7 +416,7 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 4: FEEDBACKS DE CLIENTES */}
-      <section id="depoimentos" className="w-full py-24 px-8 sm:px-16 lg:px-24 bg-white text-black border-b border-zinc-200">
+      <section id="depoimentos" className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1200px] w-full mx-auto">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6 text-left">
             <div className="flex flex-col items-start">
@@ -437,7 +433,7 @@ export default function ApresentacaoPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {reviews.map((rev, index) => (
+            {reviews.slice(0, 3).map((rev, index) => (
               <div
                 key={index}
                 className="border rounded-[4px] p-8 flex flex-col justify-between relative bg-zinc-50 border-black/5 hover:border-gray-300 transition-all duration-300 shadow-sm"
@@ -458,7 +454,7 @@ export default function ApresentacaoPage() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-[13px] font-light leading-relaxed text-left text-gray-600">
+                  <p className="text-[11px] font-light leading-relaxed text-left text-gray-600">
                     "{rev.text}"
                   </p>
                 </div>
@@ -469,20 +465,21 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 5: LINHA DO TEMPO DO PROCESSO */}
-      <section id="processo" className="w-full py-24 px-8 sm:px-16 lg:px-24 border-b border-white/5">
+      <section id="processo" className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 border-b border-white/5">
         <div className="max-w-[1100px] w-full mx-auto">
           <div className="flex flex-col items-start gap-4 mb-16 text-left">
 
             <h2 className="text-[32px] sm:text-[48px] font-sans font-[100] tracking-tight text-white leading-tight">
               Linha do Tempo do Processo
             </h2>
-            <p className="text-[14px] text-zinc-400 font-light leading-relaxed max-w-[600px]">
-              O desenvolvimento de uma marca de prestígio segue etapas claras, lógicas e testadas para garantir o alinhamento com a sua expectativa de negócio.
+            <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[600px]">
+              O desenvolvimento de uma marca estratégica segue etapas claras, lógicas e testadas para garantir alinhamento com os objetivos do seu negócio.
+
             </p>
           </div>
 
           {/* Timeline Process */}
-          <div className="relative border-l border-[#c5a880]/30 pl-8 sm:pl-12 ml-4 sm:ml-8 mt-12 flex flex-col gap-16 text-left">
+          <div className="relative border-l border-[#c5a880]/30 pl-8 sm:pl-12 ml-4 sm:ml-8 mt-8 flex flex-col gap-10 text-left">
 
             {/* ETAPA 1: BRIEFING */}
             <div className="relative">
@@ -492,8 +489,9 @@ export default function ApresentacaoPage() {
               <h4 className="text-[18px] sm:text-[22px] font-sans font-medium text-white mb-2 uppercase tracking-wide">
                 Briefing Estrutural
               </h4>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
-                O projeto se inicia pelo preenchimento do nosso questionário de Briefing. É nele que mapeamos os objetivos de negócio, concorrentes, referências visuais e a direção estratégica da marca. Este documento serve como bússola para todo o projeto.
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                O projeto começa pelo preenchimento do nosso briefing, onde mapeamos objetivos, concorrentes, referências visuais e a direção estratégica da marca. Esse documento guia todo o desenvolvimento.
+
               </p>
             </div>
 
@@ -508,8 +506,8 @@ export default function ApresentacaoPage() {
               <div className="font-mono text-[9px] text-[#c5a880] uppercase tracking-wider mb-2">
                 Prazo: 5 a 7 Dias Úteis
               </div>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px] mb-6">
-                Com base no briefing, criamos as alternativas conceituais da marca. Mostramos abaixo exemplos de prévias visuais criadas pelo nosso estúdio para servir de referência do nível estético e acabamento final que oferecemos:
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px] mb-6">
+                Com base no briefing, criamos 6 opções iniciais de marca, apresentando diferentes caminhos visuais para guiar a escolha final com segurança.
               </p>
 
               {/* Grid de 6 Prévias de Referência */}
@@ -545,47 +543,45 @@ export default function ApresentacaoPage() {
               <div className="font-mono text-[9px] text-[#c5a880] uppercase tracking-wider mb-2">
                 Prazo por rodada: 2 a 4 Dias Úteis
               </div>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
-                Garantimos um processo colaborativo e seguro. Você tem direito a **até 4 alterações** nos caminhos apresentados nas prévias, ajustando pequenos detalhes tipográficos, layouts e alinhamentos conforme a sua visão.
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                Garantimos um processo colaborativo e seguro, com direito a até 4 alterações para ajustar detalhes tipográficos, layouts e alinhamentos conforme a sua visão.
+
               </p>
             </div>
 
             {/* ETAPA 4: LOGO APROVADA */}
             <div className="relative">
-              <span className="absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 rounded-full border-2 border-[#c5a880] flex items-center justify-center font-mono text-[9px] text-[#c5a880] font-bold bg-[#0d0c0a] shadow-[0_0_10px_rgba(197,168,128,0.2)]">
-                04
-              </span>
+
               <h4 className="text-[18px] sm:text-[22px] font-sans font-medium text-white mb-2 uppercase tracking-wide">
                 Aprovação da Logo
               </h4>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
-                Após aprovação da logo principal, consolidamos a espinha dorsal da marca. Os arquivos finais vetorizados e em alta resolução da logo principal e suas variações são disponibilizados e organizados na nuvem no dia útil seguinte.
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                Após a aprovação da logo principal, entregamos os arquivos finais vetorizados e em alta resolução, organizados na nuvem no próximo dia útil.
+
               </p>
             </div>
 
             {/* ETAPA 5: PALETA DE CORES */}
             <div className="relative">
-              <span className="absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 rounded-full border-2 border-[#c5a880] flex items-center justify-center font-mono text-[9px] text-[#c5a880] font-bold bg-[#0d0c0a] shadow-[0_0_10px_rgba(197,168,128,0.2)]">
-                05
-              </span>
+
               <h4 className="text-[18px] sm:text-[22px] font-sans font-medium text-white mb-2 uppercase tracking-wide">
                 Definição da Paleta de Cores
               </h4>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
-                Tratamos as cores como elemento estratégico individual. Apenas após a definição estrutural do símbolo partimos para o estudo técnico de contrastes, harmonias e códigos cromáticos específicos (RGB, CMYK e Pantone) adequados para o seu segmento.
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                Após a definição da estrutura da marca, desenvolvemos o estudo técnico de cores, com combinações estratégicas e códigos cromáticos adequados ao seu segmento.
+
               </p>
             </div>
 
             {/* ETAPA 6: APRESENTAÇÃO DO PROJETO */}
             <div className="relative">
-              <span className="absolute -left-[41px] sm:-left-[57px] top-1 w-6 h-6 rounded-full border-2 border-[#c5a880] flex items-center justify-center font-mono text-[9px] text-[#c5a880] font-bold bg-[#0d0c0a] shadow-[0_0_10px_rgba(197,168,128,0.2)]">
-                06
-              </span>
+
               <h4 className="text-[18px] sm:text-[22px] font-sans font-medium text-white mb-2 uppercase tracking-wide">
                 Apresentação da Identidade Visual
               </h4>
-              <p className="text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
-                Esta etapa conclui a criação da identidade visual. O projeto é apresentado com Mockups aplicados e conceitos autorais. A partir deste alinhamento, a marca visual principal está completa e pronta para uso nas próximas frentes contratadas.
+              <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px]">
+                Nesta etapa, concluímos a identidade visual com apresentação em mockups e conceitos autorais, deixando a marca principal pronta para uso nas próximas frentes contratadas.
+
               </p>
             </div>
 
@@ -594,15 +590,16 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 6: MATERIAIS DE APOIO */}
-      <section className="w-full py-24 px-8 sm:px-16 lg:px-24 bg-[#0a0a08] border-b border-white/5">
+      <section className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 bg-[#0a0a08] border-b border-white/5">
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-6 flex flex-col gap-6 text-left">
 
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-tight leading-none text-white">
               Desenvolvimento de Materiais de Apoio
             </h2>
-            <p className="text-[14px] text-zinc-400 font-light leading-relaxed">
-              Dependendo do pacote de identidade selecionado, iniciamos a fase de desdobramento de materiais institucionais adicionais. Isso separa a lógica criativa do logo de suas diversas aplicações físicas e digitais cotidianas.
+            <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed">
+              Dependendo do pacote escolhido, iniciamos o desenvolvimento dos materiais institucionais adicionais, aplicando a identidade visual em peças físicas e digitais.
+
             </p>
 
             <div className="h-[1px] w-full bg-white/5 my-2"></div>
@@ -618,7 +615,7 @@ export default function ApresentacaoPage() {
                   <span className="font-mono text-[10px] tracking-wider text-[#c5a880] uppercase">
                     {item.title}
                   </span>
-                  <p className="text-[11px] text-zinc-500 font-light leading-snug">
+                  <p className="text-[9.5px] text-zinc-500 font-light leading-snug">
                     {item.desc}
                   </p>
                 </div>
@@ -637,41 +634,36 @@ export default function ApresentacaoPage() {
       </section>
 
       {/* SEÇÃO 7: APRESENTAÇÃO DOS PACOTES */}
-      <section id="pacotes" className="w-full py-24 px-8 sm:px-16 lg:px-24 bg-white text-black border-b border-zinc-200">
+      <section id="pacotes" className="w-full min-h-screen flex flex-col justify-center items-center py-12 md:py-16 px-8 sm:px-16 lg:px-24 bg-white text-black border-b border-zinc-200">
         <div className="max-w-[1200px] w-full mx-auto">
           <div className="flex flex-col items-center text-center gap-4 mb-16">
 
             <h2 className="text-[32px] sm:text-[48px] font-sans font-[100] tracking-tight text-black">
               Escolha seu Nível de Presença
             </h2>
-            <p className="text-[14px] text-gray-500 font-light max-w-[600px]">
-              Selecione o plano ideal para estruturar a identidade e a comunicação visual do seu negócio de acordo com os seus objetivos.
-            </p>
+
           </div>
 
           {/* Cards dos Pacotes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 xl:gap-5">
             {packages.map((pkg, idx) => (
               <div
                 key={idx}
-                className="bg-zinc-50 border border-gray-200 rounded-[4px] p-8 flex flex-col justify-between hover:border-gray-400 transition-all duration-300 shadow-sm relative group hover:shadow-md"
+                className="bg-zinc-50 border border-gray-200 rounded-[4px] p-5 sm:p-6 flex flex-col justify-between hover:border-gray-400 transition-all duration-300 shadow-sm relative group hover:shadow-md"
               >
                 <div>
-                  <span className="font-mono text-[8px] tracking-[0.25em] text-gray-400 uppercase block mb-1">
-                    {pkg.tag}
-                  </span>
-                  <h3 className="text-[22px] sm:text-[26px] font-sans font-light tracking-tight text-black mb-4">
+                  <h3 className="text-[18px] sm:text-[21px] font-sans font-light tracking-tight text-black mb-2 leading-tight mt-2">
                     {pkg.name}
                   </h3>
-                  <p className="text-[12.5px] text-gray-500 font-light leading-relaxed mb-6">
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 font-light leading-relaxed mb-4">
                     {pkg.desc}
                   </p>
 
-                  <div className="h-[1px] w-full bg-gray-200 mb-6"></div>
+                  <div className="h-[1px] w-full bg-gray-200 mb-4"></div>
 
-                  <ul className="flex flex-col gap-3.5 text-left mb-8">
+                  <ul className="flex flex-col gap-2.5 text-left mb-6">
                     {pkg.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-[12px] text-gray-600 font-light">
+                      <li key={i} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13.5px] text-gray-700 font-light leading-snug">
                         <Check size={14} className="text-[#c5a880] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
@@ -683,7 +675,7 @@ export default function ApresentacaoPage() {
                   href={`https://wa.me/5521981940538?text=${encodeURIComponent(pkg.whatsapp)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full inline-flex justify-center items-center gap-2 py-3 bg-black text-white hover:bg-[#c5a880] text-[10px] font-mono tracking-[0.15em] uppercase rounded-[2px] transition-all duration-300 font-medium cursor-pointer"
+                  className="w-full inline-flex justify-center items-center gap-2 py-3 bg-black text-white hover:bg-[#c5a880] text-[10px] font-mono tracking-[0.15em] uppercase rounded-[2px] transition-all duration-300 font-medium cursor-pointer mt-auto"
                 >
                   <span>Solicitar Proposta</span>
                   <ArrowUpRight size={12} />
