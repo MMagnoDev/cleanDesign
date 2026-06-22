@@ -29,6 +29,20 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: '/(.*)', headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      {
+        source: '/apresentação',
+        destination: '/apresentacao',
+        permanent: true,
+      },
+      {
+        source: '/apresenta%C3%A7%C3%A3o',
+        destination: '/apresentacao',
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [
       {

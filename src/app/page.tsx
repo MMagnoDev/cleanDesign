@@ -189,7 +189,7 @@ export default function HomePage() {
 
   useEffect(() => {
     const activeWord = typewriterWords[typewriterIndex];
-    
+
     if (!typewriterDeleting) {
       // Typing mode
       if (typewriterText === activeWord) {
@@ -1015,8 +1015,8 @@ export default function HomePage() {
               </span>
               <div className="flex flex-col gap-5">
                 {[
-                  "Marca percebida como premium",
-                  "Mais valor percebido",
+                  "Marca vista como premium",
+                  "Valor agregado",
                   "Autoridade que transmite confiança"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-3">
@@ -1037,7 +1037,7 @@ export default function HomePage() {
             <div className="flex flex-col items-start text-left">
               <h2 className="text-[47px] sm:text-[57px] font-[100] tracking-[-0.03em] leading-tight" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
                 Marcas que ganharam presença, <br />
-                clareza e valor percebido.
+                clareza e valor.
               </h2>
 
             </div>
@@ -1169,7 +1169,7 @@ export default function HomePage() {
               {
                 num: "01",
                 title: "IMERSÃO",
-                desc: "Entendemos seu momento, ambições e como sua marca precisa ser percebida para crescer."
+                desc: "Entendemos seu momento, ambições e como sua marca precisa ser vista para crescer."
               },
               {
                 num: "02",
@@ -1378,16 +1378,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SEÇÃO 9B — LOGO CLEAN GRANDE */}
-      <section className="w-full min-h-screen bg-[#121215] border-b border-white/5 flex items-center justify-center overflow-hidden">
-        <div className="w-full h-full px-6 sm:px-12 md:px-20 flex justify-center items-center reveal-on-scroll">
-          <img
-            src="/assets/clean.png"
-            alt="CLEAN Logo"
-            className="w-full h-auto max-h-[80vh] object-contain opacity-90 hover:opacity-100 transition-all duration-750 ease-out"
-          />
-        </div>
-      </section>
 
       {/* SEÇÃO 10A — CTA FINAL */}
       <section ref={ctaSectionRef} className="w-full min-h-screen py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black text-left flex flex-col justify-center items-start" id="coordinates">
