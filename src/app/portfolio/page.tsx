@@ -15,6 +15,20 @@ const atmospheres = {
     bgBody: 'bg-[#13110f]',
   }
 };
+const isVideoUrl = (url: string) => {
+  if (!url) return false;
+  const cleanUrl = url.split('?')[0].toLowerCase();
+  return (
+    cleanUrl.endsWith('.mp4') ||
+    cleanUrl.endsWith('.webm') ||
+    cleanUrl.endsWith('.ogg') ||
+    cleanUrl.endsWith('.mov') ||
+    cleanUrl.endsWith('.m4v') ||
+    cleanUrl.endsWith('.3gp') ||
+    cleanUrl.endsWith('.quicktime')
+  );
+};
+
 const activeTheme = atmospheres.champagne;
 
 export default function PortfolioPage() {
@@ -173,11 +187,22 @@ export default function PortfolioPage() {
             >
               <div className="glass-border-refraction rounded-[2px]"></div>
 
-              <img
-                src={item.imagem_url}
-                alt={item.titulo}
-                className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
-              />
+              {isVideoUrl(item.imagem_url) ? (
+                <video
+                  src={item.imagem_url}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
+                />
+              ) : (
+                <img
+                  src={item.imagem_url}
+                  alt={item.titulo}
+                  className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
+                />
+              )}
 
               <div className="absolute inset-0 bg-gradient-to-t from-[#c5a880]/15 via-transparent to-[#c5a880]/04 z-1 pointer-events-none md:group-hover:opacity-0 transition-opacity duration-500"></div>
 
@@ -240,7 +265,19 @@ export default function PortfolioPage() {
             <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] h-full overflow-y-auto md:overflow-hidden">
               <div className="relative h-[300px] md:h-full bg-black/30 overflow-hidden text-[#f4f4f5]">
                 <div className="w-full h-full flex justify-center items-center">
-                  <img src={activeModalProject.imagem_url} alt={activeModalProject.titulo} className="w-full h-full object-cover image-border" />
+                  {isVideoUrl(activeModalProject.imagem_url) ? (
+                    <video
+                      src={activeModalProject.imagem_url}
+                      controls
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover image-border"
+                    />
+                  ) : (
+                    <img src={activeModalProject.imagem_url} alt={activeModalProject.titulo} className="w-full h-full object-cover image-border" />
+                  )}
                 </div>
               </div>
 

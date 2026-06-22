@@ -144,6 +144,20 @@ const flagComponents = {
   )
 };
 
+const isVideoUrl = (url: string) => {
+  if (!url) return false;
+  const cleanUrl = url.split('?')[0].toLowerCase();
+  return (
+    cleanUrl.endsWith('.mp4') ||
+    cleanUrl.endsWith('.webm') ||
+    cleanUrl.endsWith('.ogg') ||
+    cleanUrl.endsWith('.mov') ||
+    cleanUrl.endsWith('.m4v') ||
+    cleanUrl.endsWith('.3gp') ||
+    cleanUrl.endsWith('.quicktime')
+  );
+};
+
 const activeTheme = {
   accent: '#c5a880',
   rgb: '197, 168, 128',
@@ -1084,10 +1098,21 @@ export default function HomePage() {
                         style={{ borderColor: `rgba(${activeTheme.rgb}, 0.05)` }}
                       >
                         <div className="glass-border-refraction rounded-[2px]"></div>
-                        <img loading="lazy" decoding="async" src={item.imagem_url}
-                          alt={item.titulo}
-                          className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
-                        />
+                        {isVideoUrl(item.imagem_url) ? (
+                          <video
+                            src={item.imagem_url}
+                            autoPlay
+                            loop
+                            muted
+                            playsInline
+                            className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
+                          />
+                        ) : (
+                          <img loading="lazy" decoding="async" src={item.imagem_url}
+                            alt={item.titulo}
+                            className="w-full h-full object-cover image-border grayscale-[0.05] group-hover:scale-[1.03] transition-all duration-[700ms] ease-out absolute inset-0 z-0"
+                          />
+                        )}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#c5a880]/15 via-transparent to-[#c5a880]/04 z-1 pointer-events-none md:group-hover:opacity-0 transition-opacity duration-500"></div>
                         <div className="absolute inset-0 bg-[#09090b]/85 backdrop-blur-md p-8 sm:p-12 flex flex-col justify-between z-10 opacity-0 md:group-hover:opacity-100 transition-all duration-[450ms] ease-out text-left">
                           <div className="transform translate-y-4 md:group-hover:translate-y-0 transition-transform duration-[450ms] ease-out">
@@ -1530,7 +1555,19 @@ export default function HomePage() {
 
               <div className="grid grid-cols-1 md:grid-cols-[1.1fr_1fr] h-full overflow-y-auto md:overflow-hidden">
                 <div className="relative h-[300px] md:h-full bg-black/30 overflow-hidden text-[#f4f4f5]">
-                  <img loading="lazy" decoding="async" src={img} alt={title} className="w-full h-full object-cover image-border" />
+                  {isVideoUrl(img) ? (
+                    <video
+                      src={img}
+                      controls
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover image-border"
+                    />
+                  ) : (
+                    <img loading="lazy" decoding="async" src={img} alt={title} className="w-full h-full object-cover image-border" />
+                  )}
                 </div>
                 <div className="p-8 md:p-14 flex flex-col justify-between h-full overflow-y-auto text-left">
                   <div>
