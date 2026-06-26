@@ -5,11 +5,11 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, X } from "@phosphor-icons/react";
 
 const servicesList = [
-  { id: "essencia", label: "Clean Essência", active: false, href: "/produtos" },
-  { id: "presenca", label: "Clean Presença", active: true, href: "/produtos/presenca" },
-  { id: "expansao", label: "Clean Expansão", active: false, href: "/produtos/expansao" },
-  { id: "autoridade", label: "Clean Autoridade", active: false, href: "/produtos/autoridade" },
-  { id: "signature", label: "Clean Signature", active: false, href: "/produtos/signature" },
+  { id: "essencia", label: "Clean Essência", active: false, href: "/servicos" },
+  { id: "presenca", label: "Clean Presença", active: true, href: "/servicos/presenca" },
+  { id: "expansao", label: "Clean Expansão", active: false, href: "/servicos/expansao" },
+  { id: "autoridade", label: "Clean Autoridade", active: false, href: "/servicos/autoridade" },
+  { id: "signature", label: "Clean Signature", active: false, href: "/servicos/signature" },
 ];
 
 export default function CleanPresencaPage() {
@@ -30,7 +30,7 @@ export default function CleanPresencaPage() {
 
   return (
     <div className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden bg-[#13110f] text-zinc-300">
-      
+
       {/* Meta tags fallback for Next.js client component */}
       <title>Clean Presença | Identidade Visual e Aplicações Profissionais | Clean Design</title>
       <meta name="description" content="O Clean Presença é o pacote da Clean Design para marcas que desejam construir uma identidade visual profissional e aplicá-la com consistência nos primeiros pontos de contato com o cliente." />
@@ -62,9 +62,8 @@ export default function CleanPresencaPage() {
             <Link
               key={service.id}
               href={service.href}
-              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${
-                service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
-              }`}
+              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
+                }`}
             >
               {service.label.toUpperCase()}
             </Link>
@@ -181,10 +180,10 @@ export default function CleanPresencaPage() {
             </h2>
             <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
               <p>
-                Muitas marcas até possuem um logo, uma paleta de cores e uma tipografia definida, mas não conseguem transmitir profissionalismo porque esses elementos não aparecem de forma consistente nos materiais que chegam até o cliente.
+                Muitos negócios têm qualidade, entrega e potencial, mas continuam sendo percebidos como menores, menos profissionais ou menos confiáveis porque sua identidade visual não acompanha o valor real da marca.
               </p>
               <p>
-                Quando a identidade visual não é aplicada, a marca continua parecendo incompleta. Cada peça criada de forma isolada enfraquece a percepção de organização, cuidado e credibilidade.
+                Quando não existe uma base visual clara, tudo parece desconectado: o logo, as cores, as fontes, o Instagram, os materiais comerciais e a forma como o cliente percebe o negócio.
               </p>
             </div>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
@@ -215,20 +214,6 @@ export default function CleanPresencaPage() {
         </div>
       </section>
 
-      {/* 5. BLOCO DE IMPACTO EM FUNDO ESCURO */}
-      <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] text-white text-center border-b border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/iana_martins_mockup.png')" }}></div>
-        <div className="max-w-[950px] w-full mx-auto flex flex-col items-center gap-6 relative z-10">
-          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] text-[#c5a880] uppercase">
-            IMAGINE UMA MARCA ONDE
-          </span>
-          <h2 className="text-[26px] sm:text-[42px] lg:text-[47px] font-[100] tracking-[0.05em] leading-[1.4] text-white font-sans uppercase max-w-[850px] mx-auto">
-            "Cada material entregue, enviado ou apresentado ao cliente reforça profissionalismo, consistência e valor antes mesmo da primeira conversa."
-          </h2>
-          <div className="h-[1px] w-12 bg-[#c5a880] mt-4"></div>
-        </div>
-      </section>
-
       {/* 6. SEÇÃO — O PACOTE */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] border-b border-zinc-200">
         <div className="max-w-[1100px] w-full mx-auto flex flex-col gap-6 text-left">
@@ -245,7 +230,7 @@ export default function CleanPresencaPage() {
             <p>
               O Clean Presença une a construção visual da marca com aplicações profissionais, criando uma base consistente para que a identidade seja usada com elegância, coerência e reconhecimento em materiais digitais e impressos.
             </p>
-            <p className="text-[#a18a6e] font-medium font-mono text-[11px] uppercase tracking-wider mt-2">
+            <p className="text-[#a18a6e] font-medium font-mono text-[11px] uppercase ">
               Além da identidade visual, sua marca ganha aplicações profissionais que fortalecem a percepção de cuidado, organização e credibilidade em cada detalhe.
             </p>
           </div>
@@ -268,8 +253,8 @@ export default function CleanPresencaPage() {
               Antes de aplicar a marca, estruturamos sua base visual com direção, intenção e clareza. Essa etapa organiza o caminho criativo para que a identidade represente o posicionamento, o público e a percepção desejada.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Diagnóstico inicial da marca</span>
@@ -324,8 +309,8 @@ export default function CleanPresencaPage() {
               Construímos o sistema visual da marca com os elementos necessários para garantir reconhecimento, consistência e profissionalismo nas próximas aplicações. Essa etapa cria a base principal da identidade, permitindo que a marca seja usada com coerência em diferentes materiais e pontos de contato.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Logo principal</span>
@@ -392,8 +377,8 @@ export default function CleanPresencaPage() {
               Levamos a identidade visual para materiais que fazem parte da experiência da marca com o cliente, criando peças mais elegantes, organizadas e profissionais. Essa etapa transforma a marca em presença real, reforçando valor percebido em cada detalhe entregue, enviado ou apresentado.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Cartão de visita personalizado</span>
@@ -461,8 +446,8 @@ export default function CleanPresencaPage() {
               Organizamos os arquivos finais e orientamos a aplicação da marca nas peças criadas, para que a identidade visual seja usada com consistência, clareza e segurança. A marca não termina na aprovação do logo. Ela ganha força quando começa a aparecer de forma coerente nos materiais que representam o negócio.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Arquivos finais da identidade visual</span>
@@ -508,7 +493,7 @@ export default function CleanPresencaPage() {
       {/* 11. SEÇÃO — PARA QUEM É */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
         <div className="max-w-[850px] w-full mx-auto flex flex-col gap-6 items-center">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#c5a880] uppercase font-semibold">
+          <span className="font-mono text-[20px] text-[#c5a880] uppercase font-semibold">
             Para quem é
           </span>
           <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-tight text-black uppercase">
@@ -518,7 +503,7 @@ export default function CleanPresencaPage() {
             O Clean Presença é para negócios que querem construir uma identidade visual consistente e aplicá-la nos primeiros materiais que chegam até o cliente, fortalecendo a percepção de cuidado, organização e credibilidade.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[13px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem uma identidade visual completa e aplicável;</span>
@@ -551,39 +536,6 @@ export default function CleanPresencaPage() {
         </div>
       </section>
 
-      {/* 12. SEÇÃO — DURAÇÃO */}
-      <section className="w-full py-20 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
-        <div className="max-w-[600px] w-full mx-auto flex flex-col gap-4 items-center">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#c5a880] uppercase font-semibold">
-            Duração
-          </span>
-          <h3 className="text-[20px] sm:text-[24px] font-sans font-light tracking-wide text-zinc-800 uppercase">
-            [Definir com a equipe Clean]
-          </h3>
-        </div>
-      </section>
-
-      {/* 13. SEÇÃO ESCURA — POWERED BY CLEAN DESIGN */}
-      <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] text-white text-center border-b border-white/5">
-        <div className="max-w-[850px] w-full mx-auto flex flex-col items-center gap-6">
-          <span className="font-mono text-[9px] tracking-[0.25em] text-[#c5a880] uppercase">
-            Powered by Clean Design
-          </span>
-          <h2 className="text-[31px] sm:text-[47px] font-[100] tracking-[0.03em] leading-[1.3] text-white uppercase max-w-[800px]">
-            PARA ALÉM DE UMA IDENTIDADE BONITA, CONSTRUÍMOS MARCAS QUE APARECEM COM CONSISTÊNCIA EM CADA PONTO DE CONTATO.
-          </h2>
-          <div className="h-[1px] w-12 bg-[#c5a880]/30 my-2"></div>
-          <div className="flex flex-col gap-4 text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[650px]">
-            <p>
-              A Clean Design cria identidades visuais e aplicações profissionais para marcas que desejam transmitir mais cuidado, profissionalismo e valor desde o primeiro material apresentado ao cliente.
-            </p>
-            <p className="font-serif italic text-[#c5a880] text-[16px] sm:text-[18px]">
-              "Não criamos marcas para ficarem salvas em uma pasta. Criamos marcas para serem vistas, aplicadas, lembradas e escolhidas."
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* 14. SEÇÃO FINAL — CTA */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
         <div className="max-w-[850px] w-full mx-auto flex flex-col items-center gap-6">
@@ -594,7 +546,7 @@ export default function CleanPresencaPage() {
           <p className="text-[13px] text-zinc-550 font-mono tracking-wider uppercase">
             Vagas limitadas — atendimento sob análise estratégica.
           </p>
-          
+
           <a
             href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Clean%20Presença.%20Quero%20aplicar%20minha%20marca."
             target="_blank"
@@ -609,10 +561,10 @@ export default function CleanPresencaPage() {
       {/* 15. FOOTER DISCRETO */}
       <footer className="w-full border-t border-white/5 py-12 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-[9px] text-zinc-500 tracking-wider uppercase">
         <span>© 2026 Clean Design. Todos os direitos reservados.</span>
-        <a 
-          href="https://instagram.com/cleandesignn" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://instagram.com/cleandesignn"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#f4f4f5] hover:text-[#c5a880] transition-colors duration-300 cursor-pointer flex items-center gap-2 bg-transparent border-none font-mono text-[9px] tracking-wider"
         >
           Instagram da Clean <ArrowUpRight size={12} />

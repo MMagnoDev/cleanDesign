@@ -5,11 +5,11 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, X } from "@phosphor-icons/react";
 
 const servicesList = [
-  { id: "essencia", label: "Clean Essência", active: false, href: "/produtos" },
-  { id: "presenca", label: "Clean Presença", active: false, href: "/produtos/presenca" },
-  { id: "expansao", label: "Clean Expansão", active: false, href: "/produtos/expansao" },
-  { id: "autoridade", label: "Clean Autoridade", active: false, href: "/produtos/autoridade" },
-  { id: "signature", label: "Clean Signature", active: true, href: "/produtos/signature" },
+  { id: "essencia", label: "Clean Essência", active: false, href: "/servicos" },
+  { id: "presenca", label: "Clean Presença", active: false, href: "/servicos/presenca" },
+  { id: "expansao", label: "Clean Expansão", active: false, href: "/servicos/expansao" },
+  { id: "autoridade", label: "Clean Autoridade", active: false, href: "/servicos/autoridade" },
+  { id: "signature", label: "Clean Signature", active: true, href: "/servicos/signature" },
 ];
 
 export default function CleanSignaturePage() {
@@ -30,7 +30,7 @@ export default function CleanSignaturePage() {
 
   return (
     <div className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden bg-[#13110f] text-zinc-300">
-      
+
       {/* Meta tags fallback for Next.js client component */}
       <title>Clean Signature | Direção Executiva de Marca | Clean Design</title>
       <meta name="description" content="O Clean Signature é o projeto premium da Clean Design para marcas que desejam construção visual, posicionamento estratégico, presença digital e direção executiva de marca por Rafael." />
@@ -62,9 +62,8 @@ export default function CleanSignaturePage() {
             <Link
               key={service.id}
               href={service.href}
-              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${
-                service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
-              }`}
+              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
+                }`}
             >
               {service.label.toUpperCase()}
             </Link>
@@ -144,7 +143,7 @@ export default function CleanSignaturePage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas maduras precisam de mais do que uma boa identidade.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-700">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
               <p>
                 Em mercados cada vez mais competitivos, a percepção de uma marca não é construída apenas pelo logo, pelo site ou pelo conteúdo publicado.
               </p>
@@ -221,20 +220,6 @@ export default function CleanSignaturePage() {
         </div>
       </section>
 
-      {/* 5. BLOCO DE IMPACTO EM FUNDO ESCURO */}
-      <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] text-white text-center border-b border-white/5 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-[0.03] bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/assets/brandingdealtopadrao.webp')" }}></div>
-        <div className="max-w-[950px] w-full mx-auto flex flex-col items-center gap-6 relative z-10">
-          <span className="font-mono text-[9px] sm:text-[10px] tracking-[0.25em] text-[#c5a880] uppercase">
-            IMAGINE UMA MARCA ONDE
-          </span>
-          <h2 className="text-[26px] sm:text-[42px] lg:text-[47px] font-[100] tracking-[0.05em] leading-[1.4] text-white font-sans uppercase max-w-[850px] mx-auto">
-            CADA ELEMENTO VISUAL, DIGITAL E INSTITUCIONAL TRABALHA JUNTO PARA SUSTENTAR UM POSICIONAMENTO MAIS CLARO, FORTE E COMPETITIVO.
-          </h2>
-          <div className="h-[1px] w-12 bg-[#c5a880] mt-4"></div>
-        </div>
-      </section>
-
       {/* 6. SEÇÃO — O PROJETO */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] border-b border-zinc-200">
         <div className="max-w-[1100px] w-full mx-auto flex flex-col gap-6 text-left">
@@ -251,7 +236,7 @@ export default function CleanSignaturePage() {
             <p>
               Mais do que desenvolver uma identidade visual, conduzimos uma direção completa para fortalecer a forma como a marca se apresenta, comunica valor, organiza sua presença digital e ocupa espaço no mercado.
             </p>
-            <p className="text-[#a18a6e] font-medium font-mono text-[11px] uppercase tracking-wider mt-2">
+            <p className="text-[#a18a6e] font-medium font-mono text-[11px] uppercase ">
               Aqui, a diferença não está apenas no volume de entregas. Está na condução estratégica do projeto, com direção executiva de Rafael em decisões essenciais de marca, presença e posicionamento.
             </p>
           </div>
@@ -277,8 +262,8 @@ export default function CleanSignaturePage() {
               A direção executiva de Rafael entra como camada estratégica para orientar decisões visuais, comunicacionais e institucionais do projeto.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Direção executiva de marca por Rafael</span>
@@ -344,8 +329,8 @@ export default function CleanSignaturePage() {
               A identidade é construída para funcionar de forma consistente nos materiais institucionais, no ambiente digital, no site e nos principais pontos de contato da marca.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Identidade visual completa</span>
@@ -415,8 +400,8 @@ export default function CleanSignaturePage() {
               Essa etapa organiza caminhos para que a marca saiba como se comunicar, quais temas explorar, como apresentar seus diferenciais e como fortalecer sua percepção de autoridade no digital.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Análise de mercado &amp; Análise visual de concorrentes</span>
@@ -478,8 +463,8 @@ export default function CleanSignaturePage() {
               Mais do que um site, essa etapa entrega uma estrutura digital alinhada à identidade e ao posicionamento, pensada para apresentar a marca, seus serviços, diferenciais e caminhos de contato de forma profissional.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
-            <h4 className="font-mono text-[9px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[13px] font-light text-zinc-700">
+            <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Site institucional estratégico (Página inicial)</span>
@@ -494,7 +479,7 @@ export default function CleanSignaturePage() {
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
-                <span>Provas, portfólio ou elementos de credibilidade</span>
+                <span>Provas, portfólio ou elements de credibilidade</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
@@ -550,7 +535,7 @@ export default function CleanSignaturePage() {
       {/* 11. SEÇÃO — PARA QUEM É */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
         <div className="max-w-[850px] w-full mx-auto flex flex-col gap-6 items-center">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#c5a880] uppercase font-semibold">
+          <span className="font-mono text-[20px] text-[#c5a880] uppercase font-semibold">
             Para quem é
           </span>
           <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-tight text-black uppercase">
@@ -560,7 +545,7 @@ export default function CleanSignaturePage() {
             O Clean Signature é para marcas que desejam uma construção mais madura, estratégica e personalizada, conduzida diretamente pela direção criativa da Clean.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[13px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem elevar sua percepção de valor no mercado;</span>
@@ -601,42 +586,6 @@ export default function CleanSignaturePage() {
         </div>
       </section>
 
-      {/* 12. SEÇÃO — DURAÇÃO */}
-      <section className="w-full py-20 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
-        <div className="max-w-[600px] w-full mx-auto flex flex-col gap-4 items-center">
-          <span className="font-mono text-[9px] tracking-[0.2em] text-[#c5a880] uppercase font-semibold">
-            Duração
-          </span>
-          <h3 className="text-[20px] sm:text-[24px] font-sans font-light tracking-wide text-zinc-800 uppercase">
-            [Definir com a equipe Clean]
-          </h3>
-        </div>
-      </section>
-
-      {/* 13. SEÇÃO ESCURA — POWERED BY CLEAN DESIGN */}
-      <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] text-white text-center border-b border-white/5">
-        <div className="max-w-[850px] w-full mx-auto flex flex-col items-center gap-6">
-          <span className="font-mono text-[9px] tracking-[0.25em] text-[#c5a880] uppercase">
-            Powered by Clean Design
-          </span>
-          <h2 className="text-[31px] sm:text-[47px] font-[100] tracking-[0.03em] leading-[1.3] text-white uppercase max-w-[800px]">
-            PARA ALÉM DO DESIGN, CONDUZIMOS MARCAS COM DIREÇÃO, ESTRATÉGIA E PRESENÇA INSTITUCIONAL.
-          </h2>
-          <div className="h-[1px] w-12 bg-[#c5a880]/30 my-2"></div>
-          <div className="flex flex-col gap-4 text-[13px] sm:text-[14px] text-zinc-400 font-light leading-relaxed max-w-[650px]">
-            <p>
-              A Clean Design desenvolve projetos visuais e estratégicos para marcas que desejam se apresentar com mais clareza, comunicar melhor seus diferenciais e sustentar uma percepção mais forte no mercado.
-            </p>
-            <p>
-              No Clean Signature, essa construção ganha uma camada superior de direção: a presença executiva de Rafael no olhar estratégico do projeto.
-            </p>
-            <p className="font-serif italic text-[#c5a880] text-[16px] sm:text-[18px]">
-              "Não criamos apenas uma nova identidade. Criamos uma direção para que a marca saiba como aparecer, se posicionar e ser lembrada."
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* 14. SEÇÃO FINAL — CTA */}
       <section className="w-full py-24 sm:py-32 px-8 sm:px-16 lg:px-24 bg-white text-[#1c1a17] text-center border-b border-zinc-200">
         <div className="max-w-[850px] w-full mx-auto flex flex-col items-center gap-6">
@@ -647,7 +596,7 @@ export default function CleanSignaturePage() {
           <p className="text-[13px] text-zinc-550 font-mono tracking-wider uppercase">
             Projeto premium — atendimento sob curadoria estratégica.
           </p>
-          
+
           <a
             href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Clean%20Signature.%20Quero%20construir%20minha%20marca."
             target="_blank"
@@ -662,10 +611,10 @@ export default function CleanSignaturePage() {
       {/* 15. FOOTER DISCRETO */}
       <footer className="w-full border-t border-white/5 py-12 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-[9px] text-zinc-500 tracking-wider uppercase">
         <span>© 2026 Clean Design. Todos os direitos reservados.</span>
-        <a 
-          href="https://instagram.com/cleandesignn" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://instagram.com/cleandesignn"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#f4f4f5] hover:text-[#c5a880] transition-colors duration-300 cursor-pointer flex items-center gap-2 bg-transparent border-none font-mono text-[9px] tracking-wider"
         >
           Instagram da Clean <ArrowUpRight size={12} />

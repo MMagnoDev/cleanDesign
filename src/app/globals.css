@@ -559,5 +559,7 @@ body.light-mode .image-border {
   line-height: 0.85 !important;
 }
 
-
-
+/* Decrease line height of relaxed text globally */
+.leading-relaxed {
+  line-height: 1.4 !important;
+}
