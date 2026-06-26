@@ -1490,14 +1490,12 @@ export default function HomePage() {
             >
               Agendar Conversa
             </a>
-            <a
-              href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20conversar%20sobre%20o%20atendimento%20da%20Clean%20Design."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 bg-transparent border border-black/10 hover:border-black text-black hover:text-black font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300"
+            <Link
+              href="/servicos"
+              className="px-8 py-4 bg-transparent border border-black/10 hover:border-black text-black hover:text-black font-mono text-[10px] tracking-[0.2em] uppercase rounded-[2px] font-semibold transition-all duration-300 text-center"
             >
-              Falar com a Clean no WhatsApp
-            </a>
+              Conhecer Serviços
+            </Link>
           </div>
 
 
