@@ -30,7 +30,7 @@ export default function CleanEssenciaPage() {
 
   return (
     <div className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden bg-[#13110f] text-zinc-300">
-      
+
       {/* Meta tags fallback for Next.js client component */}
       <title>Clean Essência | Construção Visual da Marca | Clean Design</title>
       <meta name="description" content="O Clean Essência é o pacote da Clean Design para marcas que desejam construir uma base visual profissional, coerente e percebida com mais valor desde o primeiro contato." />
@@ -62,9 +62,8 @@ export default function CleanEssenciaPage() {
             <Link
               key={service.id}
               href={service.href}
-              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${
-                service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
-              }`}
+              className={`transition-colors relative py-1 after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-[#c5a880] after:transition-all after:duration-300 after:w-0 hover:after:w-full ${service.active ? 'text-[#c5a880] font-medium' : 'text-zinc-400 hover:text-white'
+                }`}
             >
               {service.label.toUpperCase()}
             </Link>
@@ -460,10 +459,10 @@ export default function CleanEssenciaPage() {
           <span className="font-mono text-[20px] text-[#c5a880] uppercase font-semibold">
             Para quem é
           </span>
-          <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-tight text-black uppercase">
-            PARA MARCAS QUE DESEJAM COMEÇAR COM UMA BASE VISUAL FORTE — OU RECONSTRUIR SUA IMAGEM COM MAIS PROFISSIONALISMO.
+          <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.02em] leading-[1.1] text-black lowercase">
+            PARA MARCAS QUE DESEJAM COMEÇAR COM UMA BASE VISUAL FORTE OU RECONSTRUIR SUA IMAGEM COM MAIS PROFISSIONALISMO.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-relaxed max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-snug max-w-[650px] mt-2">
             O Clean Essência é para negócios que desejam estruturar sua identidade visual com estratégia, clareza e coerência para transmitir mais confiança desde o primeiro contato.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
@@ -502,7 +501,7 @@ export default function CleanEssenciaPage() {
           <p className="text-[13px] text-zinc-550 font-mono tracking-wider uppercase">
             Vagas limitadas — atendimento sob análise estratégica.
           </p>
-          
+
           <a
             href="https://wa.me/5521981940538?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20o%20Clean%20Essência.%20Quero%20construir%20minha%20marca."
             target="_blank"
@@ -517,10 +516,10 @@ export default function CleanEssenciaPage() {
       {/* 15. FOOTER DISCRETO */}
       <footer className="w-full border-t border-white/5 py-12 px-8 sm:px-16 lg:px-24 bg-[#0c0b09] flex flex-col sm:flex-row justify-between items-center gap-6 font-mono text-[9px] text-zinc-500 tracking-wider uppercase">
         <span>© 2026 Clean Design. Todos os direitos reservados.</span>
-        <a 
-          href="https://instagram.com/cleandesignn" 
-          target="_blank" 
-          rel="noopener noreferrer" 
+        <a
+          href="https://instagram.com/cleandesignn"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-[#f4f4f5] hover:text-[#c5a880] transition-colors duration-300 cursor-pointer flex items-center gap-2 bg-transparent border-none font-mono text-[9px] tracking-wider"
         >
           Instagram da Clean <ArrowUpRight size={12} />

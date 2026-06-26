@@ -513,10 +513,10 @@ export default function CleanAutoridadePage() {
           <span className="font-mono text-[20px] text-[#c5a880] uppercase font-semibold">
             Para quem é
           </span>
-          <h2 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.01em] leading-tight text-black uppercase">
+          <h2 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE QUEREM PARAR DE APENAS APARECER E COMEÇAR A OCUPAR ESPAÇO COM MAIS AUTORIDADE.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-snug max-w-[650px] mt-2">
             O Clean Autoridade é para negócios que desejam entender melhor seu mercado, comunicar seus diferenciais com mais clareza e construir uma presença digital mais estratégica, coerente e preparada para gerar percepção de valor.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>

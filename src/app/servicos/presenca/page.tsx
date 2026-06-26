@@ -496,10 +496,10 @@ export default function CleanPresencaPage() {
           <span className="font-mono text-[20px] text-[#c5a880] uppercase font-semibold">
             Para quem é
           </span>
-          <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-tight text-black uppercase">
+          <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE DESEJAM SAIR DA IDENTIDADE CONCEITUAL E COMEÇAR A SE APRESENTAR COM PROFISSIONALISMO NO MUNDO REAL.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-relaxed max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-snug max-w-[650px] mt-2">
             O Clean Presença é para negócios que querem construir uma identidade visual consistente e aplicá-la nos primeiros materiais que chegam até o cliente, fortalecendo a percepção de cuidado, organização e credibilidade.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
