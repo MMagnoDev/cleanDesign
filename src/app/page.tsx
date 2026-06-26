@@ -169,6 +169,57 @@ const activeTheme = {
   bgBody: 'bg-[#13110f]', // Rich deep coffee brown
 };
 
+function CounterItem({ target, label, prefix = "", suffix = "", duration = 2000 }: { target: number; label: string; prefix?: string; suffix?: string; duration?: number }) {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLDivElement>(null);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+          let startTimestamp: number | null = null;
+          const step = (timestamp: number) => {
+            if (!startTimestamp) startTimestamp = timestamp;
+            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+            setCount(Math.floor(easeProgress * target));
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          };
+          window.requestAnimationFrame(step);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [target, duration]);
+
+  const formattedCount = count.toLocaleString('pt-BR');
+
+  return (
+    <div ref={elementRef} className="flex flex-col items-center text-center">
+      <span className="text-[36px] sm:text-[54px] font-sans font-light text-black tracking-tight">
+        {prefix}{formattedCount}{suffix}
+      </span>
+      <span className="font-mono text-[10px] sm:text-[11px] tracking-widest text-gray-900 uppercase mt-2">
+        {label}
+      </span>
+    </div>
+  );
+}
+
 export default function HomePage() {
   const [activeModalProject, setActiveModalProject] = useState<any>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
@@ -860,19 +911,22 @@ export default function HomePage() {
           {/* Numbers / Key results grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 border-b border-gray-200 pb-16">
             {[
-              { num: "+8.000", label: "Marcas Criadas" },
-              { num: "+5", label: "Países Atendidos" },
-              { num: "98%", label: "Índice de Satisfação" }
+              { target: 8000, prefix: "+", suffix: "", label: "Marcas Criadas" },
+              { target: 5, prefix: "+", suffix: "", label: "Países Atendidos" },
+              { target: 98, prefix: "", suffix: "%", label: "Índice de Satisfação" }
             ].map((stat, idx) => (
-              <div key={idx} className="flex flex-col items-center text-center">
-                <span className="text-[36px] sm:text-[54px] font-sans font-light text-black tracking-tight">{stat.num}</span>
-                <span className="font-mono text-[10px] sm:text-[11px] tracking-widest text-gray-900 uppercase mt-2">{stat.label}</span>
-              </div>
+              <CounterItem
+                key={idx}
+                target={stat.target}
+                prefix={stat.prefix}
+                suffix={stat.suffix}
+                label={stat.label}
+              />
             ))}
           </div>
 
           {/* Minimal Logos representation */}
-          <div className="flex flex-col items-center gap-8">
+          <div className="hidden flex-col items-center gap-8">
 
             <div className="grid grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-8 w-full mt-4">
               {[
@@ -980,50 +1034,85 @@ export default function HomePage() {
       {/* SEÇÃO 4C-3 — TRANSFORMAÇÕES */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-[#121215] border-white/5 text-white">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="text-left sm:text-right max-w-[800px] ml-0 sm:ml-auto reveal-on-scroll">
-            <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-[1.05] text-white mt-4">
-              Antes você precisava convencer. <br />
-              <span className='text-bold'>Agora sua marca convence por você.</span>
-            </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full reveal-on-scroll">
+            {/* Left Title */}
+            <div className="max-w-[420px] md:mr-auto md:ml-0 mx-auto w-full text-left">
+              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-zinc-400">
+                Antes você precisava convencer.
+              </h2>
+            </div>
+            {/* Right Title */}
+            <div className="max-w-[420px] md:ml-auto md:mr-0 mx-auto w-full text-left md:text-right mt-4 md:mt-0">
+              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-white">
+                Agora sua marca <br className="hidden md:inline" />
+                convence por você.
+              </h2>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-center mt-6 w-full">
             {/* Antes */}
-            <div className="border border-white/5 p-8 sm:p-12 rounded-[4px] bg-[#161619] flex flex-col gap-6">
+            <div className="border border-white/5 p-6 rounded-[4px] bg-[#161619] flex flex-col gap-6 group hover:border-red-500/30 transition-all duration-500 max-w-[420px] md:mr-auto md:ml-0 mx-auto w-full">
               <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-red-400 uppercase border-b border-white/5 pb-4">
                 ANTES
               </span>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3">
                 {[
                   "Parece igual aos concorrentes",
                   "Precisa justificar o preço",
                   "Comunicação sem direção"
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <span className="text-red-400 font-mono text-[16px] sm:text-[18px] mt-0.5 flex-shrink-0">✕</span>
-                    <span className="text-[16px] sm:text-[18px] font-light text-zinc-400 leading-normal">{item}</span>
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <span className="text-red-400 font-mono text-[14px] leading-none mt-0.5 flex-shrink-0">✕</span>
+                    <span className="text-[13px] sm:text-[14px] font-light text-zinc-400 leading-snug">{item}</span>
                   </div>
                 ))}
               </div>
+              <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50">
+                <img
+                  src="/assets/antes.png"
+                  alt="Antes"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
+                />
+              </div>
+            </div>
+
+            {/* Elemento do Meio */}
+            <div className="hidden md:flex flex-col items-center justify-center gap-3 px-4">
+              <div className="w-12 h-12 rounded-full border border-[#c5a880]/30 bg-[#1d1b18]/80 flex items-center justify-center shadow-[0_0_15px_rgba(197,168,128,0.1)] backdrop-blur-sm transition-colors duration-300">
+                <ArrowRight size={20} className="text-[#c5a880]" />
+              </div>
+              <span className="font-mono text-[9px] tracking-[0.25em] text-[#c5a880]/80 uppercase select-none">
+                EVOLUÇÃO
+              </span>
             </div>
 
             {/* Depois */}
-            <div className="border border-[#c5a880]/30 p-8 sm:p-12 rounded-[4px] bg-[#1d1b18] flex flex-col gap-6 relative overflow-hidden">
+            <div className="border border-[#c5a880]/30 p-6 rounded-[4px] bg-[#1d1b18] flex flex-col gap-6 relative overflow-hidden group hover:border-[#c5a880]/60 transition-all duration-500 max-w-[420px] md:ml-auto md:mr-0 mx-auto w-full">
               <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#c5a880]/5 rounded-full blur-3xl pointer-events-none"></div>
               <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#c5a880] uppercase border-b border-[#c5a880]/20 pb-4">
                 DEPOIS
               </span>
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-3 relative z-10">
                 {[
                   "Marca vista como premium",
                   "Valor agregado",
                   "Autoridade que transmite confiança"
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <Check size={18} className="text-[#c5a880] mt-1 flex-shrink-0" />
-                    <span className="text-[16px] sm:text-[18px] font-normal text-zinc-200 leading-normal">{item}</span>
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <Check size={14} className="text-[#c5a880] mt-0.5 flex-shrink-0" />
+                    <span className="text-[13px] sm:text-[14px] font-normal text-zinc-200 leading-snug">{item}</span>
                   </div>
                 ))}
+              </div>
+              <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50 z-10">
+                <img
+                  src="/assets/depois.png"
+                  alt="Depois"
+                  loading="lazy"
+                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
+                />
               </div>
             </div>
           </div>
