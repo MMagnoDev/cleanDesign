@@ -14,73 +14,7 @@ import {
   ArrowUpRight
 } from '@phosphor-icons/react';
 
-// projectDetails containing static definitions
-const projectDetails = {
-  lumina: {
-    id: 'AMANDA FAQUINI',
-    title: 'Amanda Faquini — Dermatologia & Alta Estética',
-    tag: 'LOGOTIPO AUTORAL & BRANDING CONCEITUAL',
-    desc: 'Identidade de marca minimalista desenvolvida para uma das clínicas de estética mais exclusivas de São Paulo. Papelaria gravada em relevo seco (blind debossing) sobre papel de algodão 600g e suportes conceituais esculpidos em pedra travertino romana.',
-    img: '/assets/img1.webp',
-    material: 'MONOGRAMA AUTORAL / PEDRA / RELEVO SECO',
-    coords: '23.5505° S, 46.6333° W',
-    specs: [
-      { key: 'LINHA DIRETORA', val: 'Purismo Visual & Luxo Silencioso' },
-      { key: 'PALETA DE MATÉRIA', val: 'Areia / Café / Gesso texturizado' },
-      { key: 'ACABAMENTOS', val: 'Blind Debossing & Papel Algodão' },
-      { key: 'SÍMBOLO', val: 'Monograma Linear Customizado' },
-      { key: 'LOCALIZAÇÃO', val: 'São Paulo, Brasil (Clean Design)' }
-    ]
-  },
-  basalt: {
-    id: 'SUELLEN DANTA',
-    title: 'Dantas & Associados — Advocacia de Prestígio',
-    tag: 'EDITORIAL BRANDING & SISTEMA DE MARCA',
-    desc: 'Direção de arte e design de identidade de prestígio para advocacia contemporânea. Brochuras e relatórios com acabamento nobre, tipografia serifada autoral sob medida e encadernação artesanal em linho rústico.',
-    img: '/assets/img2.webp',
-    material: 'PAPELARIA CONCEITUAL / AREIA / EDITORIAL',
-    coords: '22.9068° S, 43.1729° W',
-    specs: [
-      { key: 'LINHA DIRETORA', val: 'Sobriedade Acadêmica & Modernismo' },
-      { key: 'PALETA DE MATÉRIA', val: 'Tons de Terra / Gesso / Carbono' },
-      { key: 'ACABAMENTOS', val: 'Encadernação Manual & Hot Stamping' },
-      { key: 'TIPOGRAFIA', val: 'Serif Autoral Desenvolvida Sob Medida' },
-      { key: 'LOCALIZAÇÃO', val: 'Rio de Janeiro, Brasil' }
-    ]
-  },
-  pedestal: {
-    id: 'AMANDA FAQUINI',
-    title: 'Amanda Faquini — Suportes Orgânicos',
-    tag: 'DIREÇÃO DE ARTE & ESTUDO DE MATERIALIDADE',
-    desc: 'Estudo de suportes sustentáveis e ecologia estética aplicados a sacolas promocionais de linho rústico de alta gramatura. Monograma blind-debossed afunilado e detalhes em costura reforçada de alta durabilidade.',
-    img: '/assets/img3.webp',
-    material: 'LINHO RÚSTICO / ECO-PRESTÍGIO / COSTURA',
-    coords: '23.5505° S, 46.6333° W',
-    specs: [
-      { key: 'LINHA DIRETORA', val: 'Materialidade Orgânica' },
-      { key: 'DESIGN DE SUPERFÍCIE', val: 'Monograma Monocromático' },
-      { key: 'ACABAMENTO', val: 'Alças Tecidas em Tons de Cinza' },
-      { key: 'DIREÇÃO DE ARTE', val: 'Clean Minimalist Organic' },
-      { key: 'LOCALIZAÇÃO', val: 'São Paulo, Brasil' }
-    ]
-  },
-  stationery: {
-    id: 'AGÊNCIA CLEAN',
-    title: 'Coleção de Papelaria de Prestígio',
-    tag: 'EDITORIAL BRANDING & IDENTIDADE VISUAL',
-    desc: 'Conjunto completo de papelaria corporativa com acabamento hot-stamping ouro fosco, envelopes sob medida em papel artesanal de algodão 600g e cartões de visita com relevo seco de alta definição.',
-    img: '/assets/stationery_mockup.png',
-    material: 'PAPEL ALGODÃO / HOT STAMPING / RELEVO',
-    coords: '23.5505° S, 46.6333° W',
-    specs: [
-      { key: 'LINHA DIRETORA', val: 'Design Editorial de Alta Costura' },
-      { key: 'PALETA DE MATÉRIA', val: 'Gesso / Mocha / Ouro fosco' },
-      { key: 'ACABAMENTOS', val: 'Hot Stamping & Debossing' },
-      { key: 'PAPELARIA', val: 'Algodão de Alta Gramatura (600g)' },
-      { key: 'LOCALIZAÇÃO', val: 'São Paulo, Brasil' }
-    ]
-  }
-};
+
 
 const flagComponents = {
   br: (className: string) => (
@@ -290,9 +224,9 @@ export default function HomePage() {
         const rect = section.getBoundingClientRect();
         const viewportHeight = window.innerHeight;
 
-        // Typing starts later (at 80% viewport height) and finishes exactly when section fills screen (at 0)
-        const startY = viewportHeight * 0.8;
-        const endY = 0;
+        // Typing starts when top of section enters 95% of viewport height and finishes when it reaches 40%
+        const startY = viewportHeight * 0.95;
+        const endY = viewportHeight * 0.4;
 
         let progress = 0;
         if (rect.top >= startY) {
@@ -1023,10 +957,10 @@ export default function HomePage() {
                 className="border p-6 sm:p-12 rounded-[4px] flex flex-col justify-between transition-all duration-300 hover:border-gray-800 group bg-gray-50 border-gray-200 min-h-[180px] sm:min-h-[300px]"
               >
                 <div>
-                  <h3 className="text-[20px] sm:text-[30px] font-sans font-semibold text-black tracking-tight leading-[1.1] sm:leading-tight mb-3 group-hover:text-gray-500 transition-colors duration-300">
+                  <h3 className="text-[20px] sm:text-[30px] font-sans font-semibold text-black tracking-tight leading-[1.1] sm:leading-[1.12] mb-3 group-hover:text-gray-500 transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-light leading-[1.2] sm:leading-snug">
+                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-light leading-[1.2] sm:leading-[1.22]">
                     {card.desc}
                   </p>
                 </div>
@@ -1057,7 +991,7 @@ export default function HomePage() {
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
                       <span className="text-red-400 font-mono text-[14px] leading-none mt-0.5 flex-shrink-0">✕</span>
-                      <span className="text-[13px] sm:text-[14px] font-light text-zinc-400 leading-[1.2] sm:leading-snug">{item}</span>
+                      <span className="text-[13px] sm:text-[14px] font-light text-zinc-400 leading-[1.2] sm:leading-[1.22]">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -1101,7 +1035,7 @@ export default function HomePage() {
                   ].map((item, idx) => (
                     <div key={idx} className="flex items-start gap-2.5">
                       <Check size={14} className="text-[#c5a880] mt-0.5 flex-shrink-0" />
-                      <span className="text-[13px] sm:text-[14px] font-normal text-zinc-200 leading-[1.2] sm:leading-snug">{item}</span>
+                      <span className="text-[13px] sm:text-[14px] font-normal text-zinc-200 leading-[1.2] sm:leading-[1.22]">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -1211,7 +1145,7 @@ export default function HomePage() {
                             <h3 className="text-[22px] sm:text-[28px] font-[100] tracking-[-0.02em] text-[#f4f4f5] mb-4">
                               {item.titulo}
                             </h3>
-                            <p className="text-[13px] text-[#a1a1aa] font-light leading-relaxed max-w-[500px]">
+                            <p className="text-[13px] text-[#a1a1aa] font-light leading-[1.3] max-w-[500px]">
                               {item.descricao}
                             </p>
                           </div>
@@ -1280,7 +1214,7 @@ export default function HomePage() {
                 <h4 className={`text-[18px] sm:text-[22px] font-sans font-bold tracking-wider uppercase mb-3 ${isLightMode ? 'text-[#1c1a17]' : 'text-white'}`}>
                   {etapa.title}
                 </h4>
-                <p className={`text-[13px] sm:text-[14px] font-light leading-relaxed max-w-[700px] ${isLightMode ? 'text-zinc-600' : 'text-zinc-400'}`}>
+                <p className={`text-[13px] sm:text-[14px] font-light leading-[1.3] max-w-[700px] ${isLightMode ? 'text-zinc-600' : 'text-zinc-400'}`}>
                   {etapa.desc}
                 </p>
               </div>
@@ -1313,7 +1247,7 @@ export default function HomePage() {
               Sobre a Clean
             </h2>
 
-            <p className="text-[9px] min-[375px]:text-[10.5px] sm:text-[13px] font-light leading-relaxed mb-6 text-gray-600">
+            <p className="text-[9px] min-[375px]:text-[10.5px] sm:text-[13px] font-light leading-[1.3] mb-6 text-gray-600">
               A Clean Design é referência em identidade visual minimalista e branding estratégico de alto padrão, liderada por Rafael Fajardo e Julie Fajardo. <br /> <br />Com mais de 8 mil marcas criadas no Brasil e no exterior, nossa empresa constrói posicionamentos sólidos que geram autoridade visual imediata, traduzindo o verdadeiro valor de negócios de elite em marcas memoráveis.
             </p>
 
@@ -1469,8 +1403,8 @@ export default function HomePage() {
 
 
       {/* SEÇÃO 10A — CTA FINAL */}
-      <section ref={ctaSectionRef} className="w-full min-h-screen py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black text-left flex flex-col justify-center items-start" id="coordinates">
-        <div className="max-w-[1100px] w-full mx-auto flex flex-col items-start gap-12 reveal-on-scroll">
+      <section ref={ctaSectionRef} className="w-full min-h-fit md:min-h-screen py-12 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black text-left flex flex-col justify-center items-start" id="coordinates">
+        <div className="max-w-[1100px] w-full mx-auto flex flex-col items-start gap-6 sm:gap-12 reveal-on-scroll">
           <h2 className="text-[52px] sm:text-[88px] lg:text-[112px] font-semibold tracking-[-0.04em] leading-[1.0] max-w-[1050px] uppercase font-sans text-black text-left min-h-[2.2em]">
             {ctaLine1}
             {ctaLine1.length === ctaBreakIndex && <br className="hidden sm:inline" />}
@@ -1584,31 +1518,17 @@ export default function HomePage() {
 
       {/* DETAIL MODAL POPUP FOR CASE PORTFOLIO */}
       {activeModalProject && (() => {
-        let title = '';
-        let tag = '';
-        let desc = '';
-        let img = '';
-        let specs: { key: string; val: string }[] = [];
+        const title = activeModalProject.titulo;
+        const tag = activeModalProject.categoria;
+        const desc = activeModalProject.descricao || '';
+        const img = activeModalProject.imagem_url;
+        const specs: { key: string; val: string }[] = [];
 
-        const detail = projectDetails[activeModalProject.id as keyof typeof projectDetails];
-        if (detail) {
-          title = detail.title;
-          tag = detail.tag;
-          desc = detail.desc;
-          img = detail.img;
-          specs = detail.specs || [];
-        } else {
-          title = activeModalProject.titulo;
-          tag = activeModalProject.categoria;
-          desc = activeModalProject.descricao || '';
-          img = activeModalProject.imagem_url;
-
-          if (activeModalProject.cliente) specs.push({ key: 'CLIENTE', val: activeModalProject.cliente });
-          if (activeModalProject.nicho) specs.push({ key: 'NICHO', val: activeModalProject.nicho });
-          if (activeModalProject.material) specs.push({ key: 'MATERIALIDADE', val: activeModalProject.material });
-          if (activeModalProject.coords) specs.push({ key: 'COORDENADAS', val: activeModalProject.coords });
-          specs.push({ key: 'CATEGORIA', val: activeModalProject.categoria });
-        }
+        if (activeModalProject.cliente) specs.push({ key: 'CLIENTE', val: activeModalProject.cliente });
+        if (activeModalProject.nicho) specs.push({ key: 'NICHO', val: activeModalProject.nicho });
+        if (activeModalProject.material) specs.push({ key: 'MATERIALIDADE', val: activeModalProject.material });
+        if (activeModalProject.coords) specs.push({ key: 'COORDENADAS', val: activeModalProject.coords });
+        specs.push({ key: 'CATEGORIA', val: activeModalProject.categoria });
 
         return (
           <div className="fixed inset-0 z-[1000] flex justify-center items-center">
@@ -1662,7 +1582,7 @@ export default function HomePage() {
                         </div>
                       ))}
                     </div>
-                    <p className="text-[13px] sm:text-[14px] text-[#a1a1aa] font-light leading-relaxed mb-10">
+                    <p className="text-[13px] sm:text-[14px] text-[#a1a1aa] font-light leading-[1.3] mb-10">
                       {desc}
                     </p>
                   </div>
@@ -1721,7 +1641,7 @@ export default function HomePage() {
             <h3 className="text-[20px] font-sans font-light tracking-[-0.01em] mb-2" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
               Atendimento Exclusivo
             </h3>
-            <p className="text-[12px] font-light leading-relaxed mb-6 max-w-[320px]" style={{ color: isLightMode ? '#8a7b6e' : '#c0b2a0' }}>
+            <p className="text-[12px] font-light leading-[1.3] mb-6 max-w-[320px]" style={{ color: isLightMode ? '#8a7b6e' : '#c0b2a0' }}>
               Inicie uma conversa imediata no WhatsApp para o desenvolvimento do seu sistema de marca ou redirecionamento de posicionamento de prestígio.
             </p>
             <a

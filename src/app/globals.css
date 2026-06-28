@@ -29,10 +29,24 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Global p size increase */
+/* Global p size increase & tight line height */
 p { 
   font-size: 22px; 
-  line-height: 1.25;
+  line-height: 1.25 !important;
+}
+
+/* Redução geral de line-height no desktop para classes Tailwind */
+html body .leading-relaxed {
+  line-height: 1.32 !important;
+}
+html body .leading-snug {
+  line-height: 1.22 !important;
+}
+html body .leading-normal {
+  line-height: 1.22 !important;
+}
+html body .leading-tight {
+  line-height: 1.15 !important;
 }
 
 /* Mobile line-height overrides */
@@ -156,16 +170,16 @@ p {
     max-width: 100%;
   }
 
-  p {
-    line-height: 1.3;
+  html body p {
+    line-height: 1.25 !important;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1 !important;
+  html body h1, html body h2, html body h3, html body h4, html body h5, html body h6 {
+    line-height: 1.02 !important;
   }
 
-  .hero-title {
-    line-height: 0.9 !important;
+  html body .hero-title {
+    line-height: 0.88 !important;
   }
 
   @media (max-width: 767px) {
