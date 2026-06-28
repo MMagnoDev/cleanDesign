@@ -6,7 +6,7 @@ export async function proxy(req: NextRequest) {
   if (req.nextUrl.pathname === '/') {
     const res = NextResponse.next();
     if (req.cookies.has(COOKIE_NAME)) {
-      res.cookies.delete(COOKIE_NAME);
+      res.cookies.set(COOKIE_NAME, '', { maxAge: 0, path: '/' });
     }
     return res;
   }

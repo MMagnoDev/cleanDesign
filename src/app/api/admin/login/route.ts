@@ -4,13 +4,14 @@ import { verifyPassword } from '@/lib/crypto';
 import { createSessionToken, COOKIE_NAME } from '@/lib/session';
 import crypto from 'crypto';
 
-const supabaseUrlRaw = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder.supabase.co';
+const supabaseUrlRaw = process.env.NEXT_PUBLIC_SUPABASE_URL;
+if (!supabaseUrlRaw) throw new Error('NEXT_PUBLIC_SUPABASE_URL não configurado');
 const supabaseUrl = supabaseUrlRaw.replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '');
 
-const supabaseAdmin = createClient(
-  supabaseUrl,
-  process.env.SUPABASE_SERVICE_ROLE_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.placeholder'
-);
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+if (!supabaseServiceKey) throw new Error('SUPABASE_SERVICE_ROLE_KEY não configurado');
+
+const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
 
 const MAX_ATTEMPTS = 5;
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutos
