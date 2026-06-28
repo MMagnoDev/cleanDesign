@@ -4,19 +4,29 @@ import { verifyPassword } from '@/lib/crypto';
 import { createSessionToken, COOKIE_NAME } from '@/lib/session';
 import crypto from 'crypto';
 
-const supabaseUrlRaw = process.env.NEXT_PUBLIC_SUPABASE_URL;
-if (!supabaseUrlRaw) throw new Error('NEXT_PUBLIC_SUPABASE_URL não configurado');
-const supabaseUrl = supabaseUrlRaw.replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '');
-
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!supabaseServiceKey) throw new Error('SUPABASE_SERVICE_ROLE_KEY não configurado');
-
-const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey);
-
 const MAX_ATTEMPTS = 5;
 const WINDOW_MS = 15 * 60 * 1000; // 15 minutos
 
+function getSupabaseAdmin() {
+  const supabaseUrlRaw = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!supabaseUrlRaw) throw new Error('NEXT_PUBLIC_SUPABASE_URL não configurado');
+  const supabaseUrl = supabaseUrlRaw.replace(/\/rest\/v1\/?$/, '').replace(/\/$/, '');
+
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!supabaseServiceKey) throw new Error('SUPABASE_SERVICE_ROLE_KEY não configurado');
+
+  return createClient(supabaseUrl, supabaseServiceKey);
+}
+
 export async function POST(req: NextRequest) {
+  let supabaseAdmin;
+  try {
+    supabaseAdmin = getSupabaseAdmin();
+  } catch (e) {
+    console.error('[login] Env var missing:', e);
+    return NextResponse.json({ ok: false, message: 'Erro de configuração do servidor.' }, { status: 500 });
+  }
+
   const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? 'unknown';
   const ipHash = crypto.createHash('sha256').update(ip).digest('hex');
 
