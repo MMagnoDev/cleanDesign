@@ -126,7 +126,7 @@ export default function CleanExpansaoPage() {
           <h2 className="text-[20px] sm:text-[28px] lg:text-[32px] font-sans font-[100] text-[#c5a880] tracking-wide mt-1">
             Identidade Visual + Papelaria + Presença Digital
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-tight sm:leading-tight max-w-[650px] mt-4">
             Um pacote da Clean Design criado para construir a identidade visual da marca, desenvolver aplicações profissionais e organizar uma presença digital inicial mais clara, consistente e pronta para gerar interesse.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-6"></div>
@@ -143,7 +143,7 @@ export default function CleanExpansaoPage() {
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black">
               O digital virou o primeiro contato com a marca.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Hoje, antes de conversar, comprar ou pedir um orçamento, o cliente observa como a marca se apresenta. Ele entra no Instagram. Clica no link da bio. Analisa os materiais. Compara a percepção. E decide, muitas vezes em poucos segundos, se aquela marca parece profissional, confiável e preparada.
               </p>
@@ -178,7 +178,7 @@ export default function CleanExpansaoPage() {
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas completas, mas ainda desconectadas no digital.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Muitas marcas têm logo, cores e fontes, mas continuam transmitindo uma imagem fraca porque não sabem como aplicar essa identidade nos pontos de contato que o cliente realmente acessa.
               </p>
@@ -223,7 +223,7 @@ export default function CleanExpansaoPage() {
           <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black max-w-[800px]">
             Criamos um ecossistema visual inicial para sua marca aparecer melhor no digital.
           </h2>
-          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             <p>
               Pensado para marcas que desejam ter uma identidade visual completa, aplicações profissionais e uma presença digital mais organizada para apresentar seus serviços, fortalecer a percepção de valor e gerar mais confiança.
             </p>
@@ -249,12 +249,12 @@ export default function CleanExpansaoPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Construção Visual da Marca
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Estruturamos a base visual da marca com direção, intenção e coerência, criando um sistema capaz de transmitir profissionalismo, reconhecimento e valor percebido. Essa etapa garante que a marca tenha uma identidade completa antes de ser aplicada no Instagram, nos materiais comerciais e no ambiente digital.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Diagnóstico inicial da marca</span>
@@ -305,12 +305,12 @@ export default function CleanExpansaoPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Aplicações Profissionais
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Levamos a identidade visual para materiais que fortalecem a experiência da marca com o cliente, transmitindo mais cuidado, organização e credibilidade em cada detalhe. Essa etapa tira a marca do campo conceitual e começa a aplicá-la em pontos de contato reais, digitais ou impressos.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Cartão de visita personalizado</span>
@@ -353,12 +353,12 @@ export default function CleanExpansaoPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Presença Visual no Instagram
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Criamos uma direção visual inicial para que a marca comece a aparecer no Instagram com mais consistência, clareza e profissionalismo. Os templates funcionam como uma base estratégica para organizar a comunicação visual, apresentar conteúdos importantes e fortalecer a percepção de valor da marca no digital.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Pack de templates estratégicos para Instagram (Posts, Reels e Stories)</span>
@@ -397,12 +397,12 @@ export default function CleanExpansaoPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Mini Site e Pontos de Conversão
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Organizamos um ambiente digital inicial para que a marca tenha um ponto de apresentação mais claro, profissional e direcionado para ação. O mini site funciona como uma estrutura estratégica para reunir informações essenciais, apresentar a marca, direcionar para canais importantes e facilitar o próximo passo do cliente.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Mini site ou página estratégica de apresentação da marca</span>
@@ -438,11 +438,11 @@ export default function CleanExpansaoPage() {
           <h2 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE PRECISAM DE UMA IDENTIDADE COMPLETA E UMA PRESENÇA DIGITAL MAIS CLARA, PROFISSIONAL E PRONTA PARA GERAR INTERESSE.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-snug max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             O Clean Expansão é para negócios que querem estruturar sua imagem visual, aplicar a marca em materiais profissionais e organizar os primeiros pontos de contato digitais para apresentar, atrair e converter melhor.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px] leading-tight sm:leading-tight">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem uma identidade visual completa e aplicável;</span>

@@ -126,7 +126,7 @@ export default function CleanEssenciaPage() {
           <h2 className="text-[26px] sm:text-[36px] lg:text-[42px] font-sans font-[100] text-[#c5a880] tracking-wide mt-1">
             Construção Visual da Marca
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-tight sm:leading-tight max-w-[650px] mt-4">
             Um pacote da Clean Design criado para estruturar a base visual de marcas que desejam deixar de parecer improvisadas e passar a transmitir profissionalismo, confiança e valor desde o primeiro contato.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-6"></div>
@@ -143,7 +143,7 @@ export default function CleanEssenciaPage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               O mercado mudou.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Hoje, não basta ter um bom produto, um bom serviço ou uma boa entrega. Sua marca também precisa ser percebida como profissional antes mesmo do primeiro contato.
               </p>
@@ -178,7 +178,7 @@ export default function CleanEssenciaPage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Boas marcas, com imagens ainda improvisadas.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Muitos negócios têm qualidade, entrega e potencial, mas continuam sendo percebidos como menores, menos profissionais ou menos confiáveis porque sua identidade visual não acompanha o valor real da marca.
               </p>
@@ -223,7 +223,7 @@ export default function CleanEssenciaPage() {
           <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black max-w-[800px]">
             Criamos as bases que sustentam uma marca visualmente consistente e reconhecível.
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[16px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             Pensado para transformar negócios em marcas mais profissionais, coerentes e percebidas com mais valor. Conduzimos um processo completo de construção visual em 4 frentes integradas.
           </p>
         </div>
@@ -241,12 +241,12 @@ export default function CleanEssenciaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Diagnóstico e Direção Visual
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Antes de criar a identidade, entendemos o momento da marca, seu público, seus objetivos, suas referências e a perception que ela precisa transmitir. Essa etapa define o caminho criativo e estratégico para que a marca não seja construída apenas pela estética, mas por intenção.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Diagnóstico inicial da marca</span>
@@ -297,12 +297,12 @@ export default function CleanEssenciaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Sistema de Identidade Visual
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Construção do sistema visual da marca, traduzindo a direção criativa em elementos capazes de gerar reconhecimento, profissionalismo e consistência. Essa etapa cria a base principal da identidade, garantindo que a marca tenha variações e recursos visuais para diferentes aplicações.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Logo principal</span>
@@ -353,12 +353,12 @@ export default function CleanEssenciaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Universo Visual da Marca
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
-              Definição dos elementos que sustentam a personalidade visual da marca e tornam sua comunicação mais consistente, reconhecível e profissional. Essa etapa organiza cores, tipografias e elementos gráficos para criar uma identidade visual coerente e aplicável.
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
+              Definição dos elementos que sustentam a personalidade visual da marca e tornam sua comunicação mais consistent, reconhecível e profissional. Essa etapa organiza cores, tipografias e elementos gráficos para criar uma identidade visual coerente e aplicável.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Paleta de cores estratégica</span>
@@ -409,12 +409,12 @@ export default function CleanEssenciaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Aplicação e Entrega Estratégica
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Organizamos os arquivos e orientações essenciais para que a marca possa ser usada com consistência em materiais digitais, impressos e pontos de contato. A identidade não é criada para ficar salva em uma pasta. Ela é construída para ser aplicada, reconhecida e lembrada.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Manual básico de aplicação</span>
@@ -462,11 +462,11 @@ export default function CleanEssenciaPage() {
           <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.02em] leading-[1.1] text-black lowercase">
             PARA MARCAS QUE DESEJAM COMEÇAR COM UMA BASE VISUAL FORTE OU RECONSTRUIR SUA IMAGEM COM MAIS PROFISSIONALISMO.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-snug max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             O Clean Essência é para negócios que desejam estruturar sua identidade visual com estratégia, clareza e coerência para transmitir mais confiança desde o primeiro contato.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px] leading-tight sm:leading-tight">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>marcas que sentem que sua imagem atual parece improvisada;</span>

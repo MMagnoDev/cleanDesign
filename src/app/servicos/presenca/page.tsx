@@ -126,7 +126,7 @@ export default function CleanPresencaPage() {
           <h2 className="text-[26px] sm:text-[36px] lg:text-[42px] font-sans font-[100] text-[#c5a880] tracking-wide mt-1">
             Identidade Visual + Aplicações Profissionais
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-tight sm:leading-tight max-w-[650px] mt-4">
             Um pacote da Clean Design criado para construir a identidade visual da marca e aplicá-la com profissionalismo nos primeiros pontos de contato com o cliente.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-6"></div>
@@ -143,7 +143,7 @@ export default function CleanPresencaPage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               A marca não vive apenas no logo.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Hoje, a percepção de uma marca é construída em cada detalhe: no cartão entregue ao cliente, na proposta enviada, na embalagem, no material institucional, no documento, na assinatura de e-mail e em cada ponto de contato visual.
               </p>
@@ -178,7 +178,7 @@ export default function CleanPresencaPage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas bonitas, mas pouco aplicadas.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Muitos negócios têm qualidade, entrega e potencial, mas continuam sendo percebidos como menores, menos profissionais ou menos confiáveis porque sua identidade visual não acompanha o valor real da marca.
               </p>
@@ -223,7 +223,7 @@ export default function CleanPresencaPage() {
           <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black max-w-[800px]">
             Criamos a identidade visual e levamos sua marca para os primeiros pontos de contato com o cliente.
           </h2>
-          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             <p>
               Pensado para marcas que desejam sair do campo conceitual e começar a se apresentar com mais profissionalismo no mundo real.
             </p>
@@ -249,12 +249,12 @@ export default function CleanPresencaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Base Estratégica da Marca
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Antes de aplicar a marca, estruturamos sua base visual com direção, intenção e clareza. Essa etapa organiza o caminho criativo para que a identidade represente o posicionamento, o público e a percepção desejada.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Diagnóstico inicial da marca</span>
@@ -305,12 +305,12 @@ export default function CleanPresencaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Sistema de Identidade Visual
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Construímos o sistema visual da marca com os elementos necessários para garantir reconhecimento, consistência e profissionalismo nas próximas aplicações. Essa etapa cria a base principal da identidade, permitindo que a marca seja usada com coerência em diferentes materiais e pontos de contato.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Logo principal</span>
@@ -373,12 +373,12 @@ export default function CleanPresencaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Aplicações Profissionais
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Levamos a identidade visual para materiais que fazem parte da experiência da marca com o cliente, criando peças mais elegantes, organizadas e profissionais. Essa etapa transforma a marca em presença real, reforçando valor percebido em cada detalhe entregue, enviado ou apresentado.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Cartão de visita personalizado</span>
@@ -442,12 +442,12 @@ export default function CleanPresencaPage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Direção de Uso e Entrega Final
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Organizamos os arquivos finais e orientamos a aplicação da marca nas peças criadas, para que a identidade visual seja usada com consistência, clareza e segurança. A marca não termina na aprovação do logo. Ela ganha força quando começa a aparecer de forma coerente nos materiais que representam o negócio.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Arquivos finais da identidade visual</span>
@@ -499,11 +499,11 @@ export default function CleanPresencaPage() {
           <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE DESEJAM SAIR DA IDENTIDADE CONCEITUAL E COMEÇAR A SE APRESENTAR COM PROFISSIONALISMO NO MUNDO REAL.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-snug max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-600 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             O Clean Presença é para negócios que querem construir uma identidade visual consistente e aplicá-la nos primeiros materiais que chegam até o cliente, fortalecendo a percepção de cuidado, organização e credibilidade.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px] leading-tight sm:leading-tight">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem uma identidade visual completa e aplicável;</span>

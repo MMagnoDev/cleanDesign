@@ -126,7 +126,7 @@ export default function CleanSignaturePage() {
           <h2 className="text-[26px] sm:text-[36px] lg:text-[42px] font-sans font-[100] text-[#c5a880] tracking-wide mt-1">
             Construção visual e posicionamento estratégico com direção executiva de Rafael.
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-tight sm:leading-tight max-w-[650px] mt-4">
             Um projeto premium da Clean Design criado para marcas que desejam uma construção mais profunda, autoral e competitiva — unindo identidade visual, presença digital, análise de mercado e direção estratégica de marca.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-6"></div>
@@ -143,7 +143,7 @@ export default function CleanSignaturePage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas maduras precisam de mais do que uma boa identidade.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-750">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-750">
               <p>
                 Em mercados cada vez mais competitivos, a percepção de uma marca não é construída apenas pelo logo, pelo site ou pelo conteúdo publicado.
               </p>
@@ -181,7 +181,7 @@ export default function CleanSignaturePage() {
             <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas com potencial, mas sem uma direção clara de presença.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-700">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-700">
               <p>
                 Muitas marcas chegam a um ponto em que apenas atualizar a identidade visual já não é suficiente.
               </p>
@@ -229,7 +229,7 @@ export default function CleanSignaturePage() {
           <h2 className="text-[42px] sm:text-[57px] font-[100] tracking-[-0.02em] leading-tight text-black max-w-[800px]">
             Uma construção estratégica de marca conduzida com direção executiva.
           </h2>
-          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             <p>
               O Clean Signature é o projeto premium da Clean Design para marcas que precisam de uma construção mais profunda, personalizada e orientada por estratégia.
             </p>
@@ -255,15 +255,15 @@ export default function CleanSignaturePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Direção Executiva e Diagnóstico Profundo
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Nesta etapa, a marca passa por uma leitura mais aprofundada para entender seu momento, seus desafios, seus objetivos e a percepção que precisa construir para sustentar um posicionamento mais forte.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               A direção executiva de Rafael entra como camada estratégica para orientar decisões visuais, comunicacionais e institucionais do projeto.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Direção executiva de marca por Rafael</span>
@@ -322,15 +322,15 @@ export default function CleanSignaturePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Identidade Visual e Sistema de Marca
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Desenvolvemos uma identidade visual completa, refinada e aplicável, traduzindo a direção estratégica em um sistema visual capaz de sustentar reconhecimento, profissionalismo e percepção de valor.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               A identidade é construída para funcionar de forma consistente nos materiais institucionais, no ambiente digital, no site e nos principais pontos de contato da marca.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Identidade visual completa</span>
@@ -393,15 +393,15 @@ export default function CleanSignaturePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Mercado, Posicionamento e Estratégia Digital
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Analisamos o cenário em que a marca está inserida e estruturamos uma direção digital para que sua comunicação tenha mais intenção, diferenciação e clareza.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               Essa etapa organiza caminhos para que a marca saiba como se comunicar, quais temas explorar, como apresentar seus diferenciais e como fortalecer sua percepção de autoridade no digital.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Análise de mercado &amp; Análise visual de concorrentes</span>
@@ -456,15 +456,15 @@ export default function CleanSignaturePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Site Institucional Estratégico
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               O site institucional estratégico é o ambiente onde a marca organiza sua apresentação, fortalece sua credibilidade e conduz o visitante com mais clareza.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               Mais do que um site, essa etapa entrega uma estrutura digital alinhada à identidade e ao posicionamento, pensada para apresentar a marca, seus serviços, diferenciais e caminhos de contato de forma profissional.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Site institucional estratégico (Página inicial)</span>
@@ -518,7 +518,7 @@ export default function CleanSignaturePage() {
               A marca recebe mais do que uma identidade.
             </h2>
           </div>
-          <div className="lg:col-span-8 flex flex-col gap-6 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-700 text-left pt-2 lg:pt-8 lg:pl-12">
+          <div className="lg:col-span-8 flex flex-col gap-6 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-700 text-left pt-2 lg:pt-8 lg:pl-12">
             <p className="font-medium text-black text-[16px] sm:text-[18px]">
               Recebe uma direção para se apresentar com mais clareza.
             </p>
@@ -541,11 +541,11 @@ export default function CleanSignaturePage() {
           <h2 className="text-[36px] sm:text-[47px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE NÃO QUEREM APENAS UMA NOVA IDENTIDADE. QUEREM UMA DIREÇÃO MAIS CLARA PARA UM NOVO POSICIONAMENTO.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-snug max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             O Clean Signature é para marcas que desejam uma construção mais madura, estratégica e personalizada, conduzida diretamente pela direção criativa da Clean.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px] leading-tight sm:leading-tight">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem elevar sua percepção de valor no mercado;</span>

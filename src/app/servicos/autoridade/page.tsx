@@ -126,7 +126,7 @@ export default function CleanAutoridadePage() {
           <h2 className="text-[20px] sm:text-[28px] lg:text-[32px] font-sans font-[100] text-[#c5a880] tracking-wide mt-1">
             Marca + Estratégia Digital + Análise de Mercado
           </h2>
-          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
+          <p className="text-[14px] sm:text-[16px] text-zinc-400 font-light leading-tight sm:leading-tight max-w-[650px] mt-4">
             Um pacote da Clean Design criado para desenvolver a identidade visual da marca, analisar seu mercado e estruturar uma direção digital mais estratégica, clara e preparada para comunicar valor com autoridade.
           </p>
           <div className="h-[1px] w-16 bg-[#c5a880] mt-6"></div>
@@ -143,7 +143,7 @@ export default function CleanAutoridadePage() {
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black">
               O mercado está mais visual, mais competitivo e mais exigente.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-700">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-700">
               <p>
                 Hoje, marcas não disputam apenas atenção. Elas disputam percepção, confiança, clareza e espaço na mente do público.
               </p>
@@ -181,7 +181,7 @@ export default function CleanAutoridadePage() {
             <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black">
               Marcas que aparecem muito, mas comunicam pouco.
             </h2>
-            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-relaxed text-zinc-700">
+            <div className="flex flex-col gap-5 text-[14px] sm:text-[15px] font-light leading-tight sm:leading-tight text-zinc-700">
               <p>
                 Muitas marcas postam com frequência, investem em identidade visual e tentam estar presentes no digital, mas ainda não conseguem ocupar um espaço claro no mercado.
               </p>
@@ -229,7 +229,7 @@ export default function CleanAutoridadePage() {
           <h2 className="text-[32px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-tight text-black max-w-[800px]">
             Construímos a presença estratégica que sustenta uma marca com mais autoridade.
           </h2>
-          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-relaxed max-w-[650px] mt-2">
+          <div className="flex flex-col gap-4 text-[14px] sm:text-[16px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             <p>
               Pensado para marcas que desejam ir além da identidade visual e começar a ocupar espaço no digital com mais clareza, coerência e diferenciação.
             </p>
@@ -255,15 +255,15 @@ export default function CleanAutoridadePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Marca e Identidade Visual
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Construímos la base visual da marca com clareza, intenção e consistência, criando uma identidade capaz de transmitir profissionalismo, reconhecimento e percepção de valor.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               Essa etapa estrutura a imagem visual da marca para que ela tenha uma presença mais forte nos materiais, no Instagram, no mini site e nos pontos de contato com o cliente.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Identidade visual completa</span>
@@ -326,15 +326,15 @@ export default function CleanAutoridadePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Análise de Mercado e Diferenciação
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Analisamos o cenário visual e comunicacional do nicho para identificar padrões, oportunidades e caminhos que podem destacar a marca com mais clareza e percepção premium.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               Essa etapa ajuda a marca a sair do lugar comum e construir uma presença mais estratégica, consciente e alinhada ao espaço que deseja ocupar.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Análise visual de concorrentes</span>
@@ -393,15 +393,15 @@ export default function CleanAutoridadePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Estratégia Digital e Conteúdo
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Estruturamos uma direção de conteúdo para que a marca deixe de postar por obrigação e comece a comunicar valor com intenção, coerência e autoridade.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               Essa etapa organiza a narrativa da marca no Instagram, orientando temas, abordagens, formatos e caminhos visuais para fortalecer desejo, confiança e conversão.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Estratégia para Instagram &amp; Direção de posts e Reels</span>
@@ -456,15 +456,15 @@ export default function CleanAutoridadePage() {
             <h3 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.02em] text-black">
               Mini Site e Presença Estratégica
             </h3>
-            <p className="text-[14px] text-zinc-650 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-650 font-light leading-tight sm:leading-tight">
               Organizamos um ambiente digital inicial para que a marca tenha um ponto de apresentação claro, profissional e alinhado ao seu posicionamento.
             </p>
-            <p className="text-[14px] text-zinc-600 font-light leading-relaxed">
+            <p className="text-[14px] text-zinc-600 font-light leading-tight sm:leading-tight">
               O mini site funciona como uma estrutura estratégica para apresentar a marca, reunir links importantes, direcionar o cliente e transformar a presença digital em um caminho mais organizado de contato e conversão.
             </p>
             <div className="h-[1px] w-full bg-black/5 my-2"></div>
             <h4 className="font-mono text-[12px] tracking-widest text-[#a39384] uppercase font-semibold">Entregáveis da etapa:</h4>
-            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700">
+            <ul className="flex flex-col gap-2.5 text-[15px] font-light text-zinc-700 leading-tight sm:leading-tight">
               <li className="flex items-start gap-2.5">
                 <span className="text-[#c5a880]">—</span>
                 <span>Mini site estratégico</span>
@@ -516,11 +516,11 @@ export default function CleanAutoridadePage() {
           <h2 className="text-[28px] sm:text-[36px] font-[100] tracking-[-0.01em] leading-[1.1] text-black uppercase">
             PARA MARCAS QUE QUEREM PARAR DE APENAS APARECER E COMEÇAR A OCUPAR ESPAÇO COM MAIS AUTORIDADE.
           </h2>
-          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-snug max-w-[650px] mt-2">
+          <p className="text-[14px] sm:text-[15px] text-zinc-650 font-light leading-tight sm:leading-tight max-w-[650px] mt-2">
             O Clean Autoridade é para negócios que desejam entender melhor seu mercado, comunicar seus diferenciais com mais clareza e construir uma presença digital mais estratégica, coerente e preparada para gerar percepção de valor.
           </p>
           <div className="h-[1px] w-full bg-black/5 my-6"></div>
-          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px]">
+          <ul className="flex flex-col gap-3.5 text-[16px] font-light text-zinc-700 text-left max-w-[550px] leading-tight sm:leading-tight">
             <li className="flex items-start gap-3">
               <span className="text-[#c5a880] font-bold">—</span>
               <span>querem se posicionar com mais autoridade no mercado;</span>

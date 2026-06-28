@@ -655,7 +655,7 @@ export default function ApresentacaoPage() {
                   <h3 className="text-[18px] sm:text-[21px] font-sans font-light tracking-tight text-black mb-2 leading-tight mt-2">
                     {pkg.name}
                   </h3>
-                  <p className="text-[10px] sm:text-[11px] text-gray-500 font-light leading-relaxed mb-4">
+                  <p className="text-[10px] sm:text-[11px] text-gray-500 font-light leading-tight sm:leading-tight mb-4">
                     {pkg.desc}
                   </p>
 
@@ -663,7 +663,7 @@ export default function ApresentacaoPage() {
 
                   <ul className="flex flex-col gap-2.5 text-left mb-6">
                     {pkg.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13.5px] text-gray-700 font-light leading-snug">
+                      <li key={i} className="flex items-start gap-2.5 text-[12.5px] sm:text-[13.5px] text-gray-700 font-light leading-tight sm:leading-tight">
                         <Check size={14} className="text-[#c5a880] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
