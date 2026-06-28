@@ -221,12 +221,17 @@ function CounterItem({ target, label, prefix = "", suffix = "", duration = 2000 
 }
 
 export default function HomePage() {
+  const [mounted, setMounted] = useState(false);
   const [activeModalProject, setActiveModalProject] = useState<any>(null);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [activeAccordion, setActiveAccordion] = useState<string | number | null>(0);
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Ref and state for scroll-driven typing effect in final CTA
   const ctaSectionRef = useRef<HTMLDivElement>(null);
@@ -990,15 +995,15 @@ export default function HomePage() {
 
 
       {/* SEÇÃO 4C-2 — PARA QUEM É A CLEAN */}
-      <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-white border-gray-200 text-black">
-        <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
+      <section className="w-full py-12 sm:py-24 px-6 sm:px-12 border-b bg-white border-gray-200 text-black">
+        <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-6 sm:gap-12">
           <div className="text-left max-w-[800px] reveal-on-scroll">
             <h2 className="text-[42px] sm:text-[55px] font-[100] tracking-[-0.02em] leading-tight text-black mt-4">
               Para quem é a CLEAN.
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 mt-4 sm:mt-10">
             {[
               {
                 title: "PARA QUEM NÃO QUER PARECER PEQUENO.",
@@ -1015,13 +1020,13 @@ export default function HomePage() {
             ].map((card, idx) => (
               <div
                 key={idx}
-                className="border p-10 sm:p-12 rounded-[4px] flex flex-col justify-between transition-all duration-300 hover:border-gray-800 group bg-gray-50 border-gray-200 min-h-[300px]"
+                className="border p-6 sm:p-12 rounded-[4px] flex flex-col justify-between transition-all duration-300 hover:border-gray-800 group bg-gray-50 border-gray-200 min-h-[180px] sm:min-h-[300px]"
               >
                 <div>
-                  <h3 className="text-[26px] sm:text-[30px] font-sans font-semibold text-black tracking-tight leading-tight mb-4 group-hover:text-gray-500 transition-colors duration-300">
+                  <h3 className="text-[20px] sm:text-[30px] font-sans font-semibold text-black tracking-tight leading-[1.1] sm:leading-tight mb-3 group-hover:text-gray-500 transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-light leading-snug">
+                  <p className="text-[13px] sm:text-[14px] text-gray-500 font-light leading-[1.2] sm:leading-snug">
                     {card.desc}
                   </p>
                 </div>
@@ -1034,52 +1039,41 @@ export default function HomePage() {
       {/* SEÇÃO 4C-3 — TRANSFORMAÇÕES */}
       <section className="w-full py-20 sm:py-32 px-6 sm:px-12 border-b bg-[#121215] border-white/5 text-white">
         <div className="max-w-[1200px] w-full mx-auto flex flex-col gap-12">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 w-full reveal-on-scroll">
-            {/* Left Title */}
-            <div className="max-w-[420px] md:mr-auto md:ml-0 mx-auto w-full text-left">
-              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-zinc-400">
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-start mt-6 w-full">
+            {/* Antes */}
+            <div className="flex flex-col gap-6 max-w-[420px] md:mr-auto md:ml-0 mx-auto w-full reveal-on-scroll">
+              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-zinc-400 text-left">
                 Antes você precisava convencer.
               </h2>
-            </div>
-            {/* Right Title */}
-            <div className="max-w-[420px] md:ml-auto md:mr-0 mx-auto w-full text-left md:text-right mt-4 md:mt-0">
-              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-white">
-                Agora sua marca <br className="hidden md:inline" />
-                convence por você.
-              </h2>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-8 items-center mt-6 w-full">
-            {/* Antes */}
-            <div className="border border-white/5 p-6 rounded-[4px] bg-[#161619] flex flex-col gap-6 group hover:border-red-500/30 transition-all duration-500 max-w-[420px] md:mr-auto md:ml-0 mx-auto w-full">
-              <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-red-400 uppercase border-b border-white/5 pb-4">
-                ANTES
-              </span>
-              <div className="flex flex-col gap-3">
-                {[
-                  "Parece igual aos concorrentes",
-                  "Precisa justificar o preço",
-                  "Comunicação sem direção"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
-                    <span className="text-red-400 font-mono text-[14px] leading-none mt-0.5 flex-shrink-0">✕</span>
-                    <span className="text-[13px] sm:text-[14px] font-light text-zinc-400 leading-snug">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50">
-                <img
-                  src="/assets/antes.png"
-                  alt="Antes"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
-                />
+              <div className="border border-white/5 p-6 rounded-[4px] bg-[#161619] flex flex-col gap-6 group hover:border-red-500/30 transition-all duration-500 w-full">
+                <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-red-400 uppercase border-b border-white/5 pb-4">
+                  ANTES
+                </span>
+                <div className="flex flex-col gap-3">
+                  {[
+                    "Parece igual aos concorrentes",
+                    "Precisa justificar o preço",
+                    "Comunicação sem direção"
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5">
+                      <span className="text-red-400 font-mono text-[14px] leading-none mt-0.5 flex-shrink-0">✕</span>
+                      <span className="text-[13px] sm:text-[14px] font-light text-zinc-400 leading-[1.2] sm:leading-snug">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50">
+                  <img
+                    src="/assets/antes.png"
+                    alt="Antes"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
+                  />
+                </div>
               </div>
             </div>
 
             {/* Elemento do Meio */}
-            <div className="hidden md:flex flex-col items-center justify-center gap-3 px-4">
+            <div className="hidden md:flex flex-col items-center justify-center gap-3 px-4 self-center mt-24">
               <div className="w-12 h-12 rounded-full border border-[#c5a880]/30 bg-[#1d1b18]/80 flex items-center justify-center shadow-[0_0_15px_rgba(197,168,128,0.1)] backdrop-blur-sm transition-colors duration-300">
                 <ArrowRight size={20} className="text-[#c5a880]" />
               </div>
@@ -1089,30 +1083,36 @@ export default function HomePage() {
             </div>
 
             {/* Depois */}
-            <div className="border border-[#c5a880]/30 p-6 rounded-[4px] bg-[#1d1b18] flex flex-col gap-6 relative overflow-hidden group hover:border-[#c5a880]/60 transition-all duration-500 max-w-[420px] md:ml-auto md:mr-0 mx-auto w-full">
-              <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#c5a880]/5 rounded-full blur-3xl pointer-events-none"></div>
-              <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#c5a880] uppercase border-b border-[#c5a880]/20 pb-4">
-                DEPOIS
-              </span>
-              <div className="flex flex-col gap-3 relative z-10">
-                {[
-                  "Marca vista como premium",
-                  "Valor agregado",
-                  "Autoridade que transmite confiança"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
-                    <Check size={14} className="text-[#c5a880] mt-0.5 flex-shrink-0" />
-                    <span className="text-[13px] sm:text-[14px] font-normal text-zinc-200 leading-snug">{item}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50 z-10">
-                <img
-                  src="/assets/depois.png"
-                  alt="Depois"
-                  loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
-                />
+            <div className="flex flex-col gap-6 max-w-[420px] md:ml-auto md:mr-0 mx-auto w-full reveal-on-scroll delay-100">
+              <h2 className="text-[36px] sm:text-[44px] font-[100] tracking-[-0.02em] leading-[1.1] text-white text-left md:text-right">
+                Agora sua marca <br className="hidden md:inline" />
+                convence por você.
+              </h2>
+              <div className="border border-[#c5a880]/30 p-6 rounded-[4px] bg-[#1d1b18] flex flex-col gap-6 relative overflow-hidden group hover:border-[#c5a880]/60 transition-all duration-500 w-full">
+                <div className="absolute top-0 right-0 w-[150px] h-[150px] bg-[#c5a880]/5 rounded-full blur-3xl pointer-events-none"></div>
+                <span className="font-mono text-[11px] sm:text-[12px] tracking-widest text-[#c5a880] uppercase border-b border-[#c5a880]/20 pb-4">
+                  DEPOIS
+                </span>
+                <div className="flex flex-col gap-3 relative z-10">
+                  {[
+                    "Marca vista como premium",
+                    "Valor agregado",
+                    "Autoridade que transmite confiança"
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5">
+                      <Check size={14} className="text-[#c5a880] mt-0.5 flex-shrink-0" />
+                      <span className="text-[13px] sm:text-[14px] font-normal text-zinc-200 leading-[1.2] sm:leading-snug">{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="overflow-hidden rounded-[2px] w-full aspect-[3/4] relative bg-[#13110f]/50 z-10">
+                  <img
+                    src="/assets/depois.png"
+                    alt="Depois"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-[1.03] transition-all duration-700 ease-out"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -1132,7 +1132,7 @@ export default function HomePage() {
             </div>
 
             {/* Elegant Carousel Controls */}
-            {displayItems.length > 0 && (
+            {mounted && displayItems.length > 0 && (
               <div className="flex items-center gap-6 font-mono text-[11px] tracking-widest text-[#a1a1aa] select-none pointer-events-auto">
                 <span className="text-[12px] sm:text-[13px] font-serif italic text-[#c5a880]">
                   {String(projectSlideIndex + 1).padStart(2, '0')} / {String(maxSlideIndex + 1).padStart(2, '0')}
@@ -1456,7 +1456,7 @@ export default function HomePage() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-[13px] font-light leading-relaxed text-left text-gray-600">
+                    <p className="text-[13px] font-light text-left text-gray-600" style={{ lineHeight: '1.2' }}>
                       {rev.text}
                     </p>
                   </div>

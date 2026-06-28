@@ -31,8 +31,40 @@ html.lenis, html.lenis body {
 
 /* Global p size increase */
 p { 
-  font-size: 22px !important; 
-  line-height: 1.25 !important;
+  font-size: 22px; 
+  line-height: 1.25;
+}
+
+/* Mobile line-height overrides */
+@media (max-width: 767px) {
+  p,
+  span,
+  li,
+  a,
+  [class*="leading-"] {
+    line-height: 1.2 !important;
+  }
+
+  p {
+    font-size: 17px !important;
+    line-height: 1.2 !important;
+  }
+
+  h1 {
+    line-height: 0.9 !important;
+  }
+
+  h2 {
+    line-height: 0.92 !important;
+  }
+
+  h3, h4, h5, h6 {
+    line-height: 1 !important;
+  }
+
+  .hero-title {
+    line-height: 0.85 !important;
+  }
 }
 
 /* -------------------------------------------------------------
@@ -134,6 +166,29 @@ p {
 
   .hero-title {
     line-height: 0.9 !important;
+  }
+
+  @media (max-width: 767px) {
+    p {
+      font-size: 17px !important;
+      line-height: 1.2 !important;
+    }
+
+    h1 {
+      line-height: 0.9 !important;
+    }
+
+    h2 {
+      line-height: 0.92 !important;
+    }
+
+    h3, h4, h5, h6 {
+      line-height: 1 !important;
+    }
+
+    .hero-title {
+      line-height: 0.85 !important;
+    }
   }
 
   ::selection {
