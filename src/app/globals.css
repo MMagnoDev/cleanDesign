@@ -31,7 +31,7 @@ html.lenis, html.lenis body {
 
 /* Global p size increase & tight line height */
 p { 
-  font-size: 22px; 
+  font-size: 16px !important;
   line-height: 1.25 !important;
 }
 
@@ -60,7 +60,7 @@ html body .leading-tight {
   }
 
   p {
-    font-size: 17px !important;
+    font-size: 16px !important;
     line-height: 1.2 !important;
   }
 
@@ -632,3 +632,25 @@ body.light-mode .image-border {
 .leading-relaxed {
   line-height: 1.4 !important;
 }
+
+/* Force line-height 1 on all headings (h1-h6) and override any leading utility classes applied to them */
+h1, h2, h3, h4, h5, h6,
+html body h1, html body h2, html body h3, html body h4, html body h5, html body h6,
+html body h1.leading-tight, html body h2.leading-tight, html body h3.leading-tight, html body h4.leading-tight,
+html body h1.leading-snug, html body h2.leading-snug, html body h3.leading-snug, html body h4.leading-snug,
+html body h1.leading-normal, html body h2.leading-normal, html body h3.leading-normal, html body h4.leading-normal,
+html body h1.leading-relaxed, html body h2.leading-relaxed, html body h3.leading-relaxed, html body h4.leading-relaxed,
+html body [class*="leading-"] h1, html body [class*="leading-"] h2, html body [class*="leading-"] h3, html body [class*="leading-"] h4 {
+  line-height: 1 !important;
+}
+
+/* Decrease line height for all body text / paragraphs / spans / list items specifically on the apresentacao page */
+.apresentacao-page p,
+.apresentacao-page span,
+.apresentacao-page li,
+.apresentacao-page a,
+.apresentacao-page div,
+.apresentacao-page .leading-relaxed {
+  line-height: 1.15 !important;
+}
+

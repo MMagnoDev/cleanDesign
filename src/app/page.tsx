@@ -907,7 +907,7 @@ export default function HomePage() {
         <div className="max-w-[1200px] w-full mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Texto — coluna esquerda */}
           <div className="flex flex-col gap-6 text-left reveal-on-scroll">
-            <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] font-[100] tracking-[-0.03em] problem-heading" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5' }}>
+            <h2 className="text-[48px] sm:text-[64px] lg:text-[80px] font-[100] tracking-[-0.03em] leading-[1] sm:leading-[1] problem-heading" style={{ color: isLightMode ? '#1c1a17' : '#f4f4f5', lineHeight: '1' }}>
               Talvez sua marca <br /> já seja boa. <br />
               Mas ela ainda não está sendo reconhecida.
             </h2>

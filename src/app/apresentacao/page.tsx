@@ -90,6 +90,25 @@ export default function ApresentacaoPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isContactCardOpen, setIsContactCardOpen] = useState(false);
   const [selectedPreviewImage, setSelectedPreviewImage] = useState<string | null>(null);
+  const [activeCarousel, setActiveCarousel] = useState<'maria' | 'leticia' | null>(null);
+  const [carouselIndex, setCarouselIndex] = useState(0);
+
+  const mariaImages = [
+    "/assets/previa/Maria/1.webp",
+    "/assets/previa/Maria/2.webp",
+    "/assets/previa/Maria/3.webp",
+    "/assets/previa/Maria/4.webp",
+    "/assets/previa/Maria/5.webp"
+  ];
+
+  const leticiaImages = [
+    "/assets/previa/Leticia/1.webp",
+    "/assets/previa/Leticia/2.webp",
+    "/assets/previa/Leticia/3.webp",
+    "/assets/previa/Leticia/4.webp",
+    "/assets/previa/Leticia/5.webp",
+    "/assets/previa/Leticia/6.webp"
+  ];
 
   // Teams lists with roles & descriptions
   const teamMembers = [
@@ -196,9 +215,25 @@ export default function ApresentacaoPage() {
     document.body.classList.add('bg-[#0d0c0a]');
   }, []);
 
+  useEffect(() => {
+    if (!activeCarousel) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const images = activeCarousel === 'maria' ? mariaImages : leticiaImages;
+      if (e.key === 'ArrowRight') {
+        setCarouselIndex((prev) => (prev + 1) % images.length);
+      } else if (e.key === 'ArrowLeft') {
+        setCarouselIndex((prev) => (prev - 1 + images.length) % images.length);
+      } else if (e.key === 'Escape') {
+        setActiveCarousel(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeCarousel]);
+
   return (
     <div
-      className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden bg-[#0d0c0a] text-zinc-300"
+      className="w-full max-w-full min-h-screen relative flex flex-col font-sans antialiased overflow-x-hidden bg-[#0d0c0a] text-zinc-300 apresentacao-page"
       style={{
         '--glow-color-1': activeTheme.glow1,
         '--glow-color-2': activeTheme.glow2,
@@ -390,8 +425,8 @@ export default function ApresentacaoPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 flex items-center gap-2">
-              <MapPin size={16} className="text-[#c5a880]" />
-              <span className="font-mono text-[9px] tracking-widest text-[#f5efe6] uppercase">Estúdio Físico Registrado</span>
+
+
             </div>
           </div>
 
@@ -507,29 +542,31 @@ export default function ApresentacaoPage() {
                 Prazo: 5 a 7 Dias Úteis
               </div>
               <p className="text-[11px] sm:text-[12px] text-zinc-400 font-light leading-relaxed max-w-[700px] mb-6">
-                Com base no briefing, criamos 6 opções iniciais de marca, apresentando diferentes caminhos visuais para guiar a escolha final com segurança.
+                Com base no briefing, criamos 4 a 6 opções iniciais de marca, apresentando diferentes caminhos visuais para guiar a escolha final com segurança.
               </p>
 
-              {/* Grid de 6 Prévias de Referência */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mt-4 mb-6">
-                {previewGalleries.map((preview, i) => (
-                  <div
-                    key={i}
-                    onClick={() => setSelectedPreviewImage(preview.src)}
-                    className="relative aspect-square rounded-[2px] overflow-hidden border border-white/5 cursor-pointer group transition-all duration-300 hover:border-[#c5a880]"
-                  >
-                    <img
-                      src={preview.src}
-                      alt={preview.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                    />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-2 text-center">
-                      <span className="text-white text-[10px] font-medium leading-tight">{preview.title}</span>
-                      <span className="text-[#c5a880] text-[8px] font-mono mt-1 uppercase">{preview.tag}</span>
-                    </div>
-                  </div>
-                ))}
+              {/* Botões de Prévias Reais */}
+              <div className="flex flex-wrap gap-3 sm:gap-4 mb-8">
+                <button
+                  onClick={() => {
+                    setActiveCarousel('leticia');
+                    setCarouselIndex(0);
+                  }}
+                  className="px-5 py-3 rounded-[2px] text-[10px] sm:text-[11px] font-semibold tracking-[0.15em] uppercase border border-[#c5a880] bg-[#c5a880] text-black hover:bg-transparent hover:text-[#c5a880] transition-all duration-300 cursor-pointer flex items-center gap-2"
+                >
+                  Abrir Monograma
+                </button>
+                <button
+                  onClick={() => {
+                    setActiveCarousel('maria');
+                    setCarouselIndex(0);
+                  }}
+                  className="px-5 py-3 rounded-[2px] text-[10px] sm:text-[11px] font-semibold tracking-[0.15em] uppercase border border-[#c5a880] bg-[#c5a880] text-black hover:bg-transparent hover:text-[#c5a880] transition-all duration-300 cursor-pointer flex items-center gap-2"
+                >
+                  Abrir Fonte Personalizada
+                </button>
               </div>
+
             </div>
 
             {/* ETAPA 3: ALTERAÇÕES */}
@@ -671,15 +708,13 @@ export default function ApresentacaoPage() {
                   </ul>
                 </div>
 
-                <a
-                  href={`https://wa.me/5521981940538?text=${encodeURIComponent(pkg.whatsapp)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full inline-flex justify-center items-center gap-2 py-3 bg-black text-white hover:bg-[#c5a880] text-[10px] font-mono tracking-[0.15em] uppercase rounded-[2px] transition-all duration-300 font-medium cursor-pointer mt-auto"
+                <Link
+                  href={pkg.id === "essencia" ? "/servicos" : `/servicos/${pkg.id}`}
+                  className="w-full inline-flex justify-center items-center gap-2 py-3 bg-black text-white hover:bg-[#c5a880] hover:text-black text-[10px] font-mono tracking-[0.15em] uppercase rounded-[2px] transition-all duration-300 font-medium cursor-pointer mt-auto"
                 >
-                  <span>Solicitar Proposta</span>
+                  <span>Conhecer Pacote</span>
                   <ArrowUpRight size={12} />
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -764,7 +799,7 @@ export default function ApresentacaoPage() {
 
       {/* POPUP PREVIEW MODAL */}
       {selectedPreviewImage && (
-        <div className="fixed inset-0 z-[1000] flex justify-center items-center">
+        <div className="fixed inset-0 z-[100000] flex justify-center items-center">
           <div
             onClick={() => setSelectedPreviewImage(null)}
             className="absolute inset-0 bg-black/90 backdrop-blur-md transition-opacity duration-500"
@@ -781,6 +816,71 @@ export default function ApresentacaoPage() {
               alt="Visual Preview"
               className="w-full h-auto max-h-[80vh] object-contain"
             />
+          </div>
+        </div>
+      )}
+
+      {/* PREVIA CAROUSEL MODAL (MARIA E LETICIA) */}
+      {activeCarousel && (
+        <div className="fixed inset-0 z-[100000] flex flex-col justify-center items-center p-4">
+          <div
+            onClick={() => setActiveCarousel(null)}
+            className="absolute inset-0 bg-[#0c0b09]/95 backdrop-blur-md transition-opacity duration-500"
+          ></div>
+
+          <button
+            onClick={() => setActiveCarousel(null)}
+            className="absolute top-6 right-6 w-12 h-12 rounded-[2px] border border-white/5 text-[#a1a1aa] hover:text-[#f4f4f5] hover:border-[#f4f4f5] flex items-center justify-center transition-all duration-300 hover:rotate-90 z-10 cursor-pointer bg-[#09090b]/50"
+          >
+            <X size={18} />
+          </button>
+
+          <div className="relative max-w-[90vw] w-full max-h-[70vh] md:max-h-[75vh] flex justify-center items-center z-10">
+            <button
+              onClick={() => {
+                const images = activeCarousel === 'maria' ? mariaImages : leticiaImages;
+                setCarouselIndex((prev) => (prev - 1 + images.length) % images.length);
+              }}
+              className="absolute left-0 md:-left-16 w-12 h-12 rounded-full border border-white/10 text-white hover:border-[#c5a880] hover:text-[#c5a880] flex items-center justify-center transition-all duration-300 bg-[#09090b]/60 cursor-pointer select-none"
+            >
+              ←
+            </button>
+
+            <div className="overflow-hidden flex justify-center items-center max-w-[85vw] max-h-[70vh] md:max-h-[75vh]">
+              <img
+                src={activeCarousel === 'maria' ? mariaImages[carouselIndex] : leticiaImages[carouselIndex]}
+                alt={`Previa ${activeCarousel} ${carouselIndex + 1}`}
+                className="w-full h-auto max-h-[68vh] md:max-h-[73vh] object-contain select-none transition-all duration-500"
+              />
+            </div>
+
+            <button
+              onClick={() => {
+                const images = activeCarousel === 'maria' ? mariaImages : leticiaImages;
+                setCarouselIndex((prev) => (prev + 1) % images.length);
+              }}
+              className="absolute right-0 md:-right-16 w-12 h-12 rounded-full border border-white/10 text-white hover:border-[#c5a880] hover:text-[#c5a880] flex items-center justify-center transition-all duration-300 bg-[#09090b]/60 cursor-pointer select-none"
+            >
+              →
+            </button>
+          </div>
+
+          <div className="relative z-10 flex flex-col items-center mt-6 gap-3">
+            <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 uppercase">
+              PRÉVIA {activeCarousel.toUpperCase()} — {String(carouselIndex + 1).padStart(2, '0')} / {String((activeCarousel === 'maria' ? mariaImages : leticiaImages).length).padStart(2, '0')}
+            </span>
+
+            <div className="flex gap-2 max-w-[90vw] overflow-x-auto py-1">
+              {(activeCarousel === 'maria' ? mariaImages : leticiaImages).map((img, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCarouselIndex(idx)}
+                  className={`w-10 h-10 md:w-14 md:h-14 border rounded-[2px] overflow-hidden transition-all duration-300 flex-shrink-0 ${idx === carouselIndex ? 'border-[#c5a880] scale-105 opacity-100' : 'border-white/5 opacity-40 hover:opacity-100'}`}
+                >
+                  <img src={img} className="w-full h-full object-cover" alt="" />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       )}
