@@ -850,9 +850,9 @@ export default function HomePage() {
           {/* Numbers / Key results grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12 border-b border-gray-200 pb-16">
             {[
-              { target: 8000, prefix: "+", suffix: "", label: "Marcas Criadas" },
+              { target: 10000, prefix: "+", suffix: "", label: "Marcas Criadas" },
               { target: 5, prefix: "+", suffix: "", label: "Países Atendidos" },
-              { target: 98, prefix: "", suffix: "%", label: "Índice de Satisfação" }
+              { target: 100, prefix: "", suffix: "%", label: "Índice de Satisfação" }
             ].map((stat, idx) => (
               <CounterItem
                 key={idx}
