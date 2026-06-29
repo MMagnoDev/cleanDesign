@@ -323,13 +323,11 @@ export default function ApresentacaoPage() {
 
         <div className="relative z-10 flex flex-col items-center justify-center max-w-[900px] w-full">
 
-          <h1 className="text-[38px] sm:text-[68px] lg:text-[84px] font-sans font-light tracking-[-0.03em] leading-[0.95] text-white mb-6">
+          <h1 className="text-[100px] sm:text-[68px] lg:text-[84px] font-sans font-light tracking-[-0.03em] leading-[0.95] text-white mb-6">
             Proposta <br />
             Comercial
           </h1>
-          <p className="text-[11px] sm:text-[13px] text-zinc-400 font-light leading-relaxed max-w-[650px] mt-4">
-            Conheça a Clean Design: nossa equipe, sede física, método de desenvolvimento e pacotes comerciais premium.
-          </p>
+
           <div className="h-[1px] w-16 bg-[#c5a880] mt-8"></div>
         </div>
       </section>
@@ -662,9 +660,9 @@ export default function ApresentacaoPage() {
 
           <div className="lg:col-span-6 relative aspect-[16/10] overflow-hidden rounded-[2px] border border-white/5 bg-zinc-900 shadow-xl">
             <img
-              src="/assets/stationery_mockup.png"
+              src="/assets/papelaria.webp"
               alt="Papelaria de Prestígio Clean"
-              className="w-full h-full object-cover grayscale opacity-90 transition-transform duration-[600ms] hover:scale-102"
+              className="w-full h-full object-cover opacity-90 transition-transform duration-[600ms] hover:scale-102"
             />
           </div>
         </div>
